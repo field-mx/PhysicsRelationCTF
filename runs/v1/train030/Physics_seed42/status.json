@@ -1,0 +1,9 @@
+{
+  "state": "stopped_for_sign_aware_lag_fix",
+  "epoch": 6,
+  "step": 100,
+  "steps": 131,
+  "train_mse": 0.19407589187716492,
+  "best_val_mse": 0.09868620362489504,
+  "updated": 1789988626.515807
+}

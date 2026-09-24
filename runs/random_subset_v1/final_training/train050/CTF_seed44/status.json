@@ -1,0 +1,32 @@
+{
+  "state": "validation_complete",
+  "kind": "CTF",
+  "ratio": 0.5,
+  "seed": 44,
+  "best_val_mse": 0.0940919644922395,
+  "best_epoch": 13,
+  "best_val_mae": 0.10221872529027752,
+  "epochs_completed": 16,
+  "parameter_count": 1650528,
+  "seconds": 272.52606047905283,
+  "selection": {
+    "train_end": 14540,
+    "rows": 14535,
+    "sampling": "random_windows",
+    "subset_seed": 20260922,
+    "full_train_windows": 14349,
+    "selected_train_windows": 7174,
+    "covered_rows_sha256": "37b317be816af46c2bb40fec198a036223ccd98a057c908a1d7cf3ac26702954",
+    "windows": {
+      "train": 7174,
+      "val": 50,
+      "test": 50
+    },
+    "origins_sha256": {
+      "train": "8ec3a45faf66624f3d5ed3e0ae24fb5c84b527ef882eeae899efa316ae74d580",
+      "val": "2f71b2a803e2f74340af983f54f80365170baa2a9583fcb1f34f48fe0dea7bff",
+      "test": "f69634b2911026d646496f2756cf0f119aea256868be833037eb8cab0743e8a9"
+    }
+  },
+  "test_evaluated": false
+}

@@ -1,0 +1,32 @@
+{
+  "best_epoch": 12,
+  "validation": {
+    "mse": 0.017052970087129218,
+    "mae": 0.08805596649201493,
+    "count": 682434
+  },
+  "diagnostics": [
+    {
+      "beta": 1.993969440460205,
+      "active_edges_per_sample": 184.875,
+      "wake_mean_active": 0.5375840067863464,
+      "wake_std_active": 0.3846113979816437,
+      "qk_std": 1.7924896478652954,
+      "physics_bias_std": 0.03151639923453331,
+      "qk_active_std": 3.010899782180786,
+      "physics_bias_active_std": 0.7669033408164978,
+      "physics_bias_active_mean": 1.0719259977340698
+    },
+    {
+      "beta": 1.9866255521774292,
+      "active_edges_per_sample": 184.875,
+      "wake_mean_active": 0.5375840067863464,
+      "wake_std_active": 0.3846113979816437,
+      "qk_std": 1.353240728378296,
+      "physics_bias_std": 0.03140031918883324,
+      "qk_active_std": 3.081202268600464,
+      "physics_bias_active_std": 0.7640787959098816,
+      "physics_bias_active_mean": 1.067978024482727
+    }
+  ]
+}

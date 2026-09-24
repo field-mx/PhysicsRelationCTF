@@ -1,0 +1,40 @@
+# 图片 / 文档
+*.png
+*.pdf
+
+# 数据
+*.csv
+*.xlsx
+*.xls
+*.npy
+*.npz
+*.mat
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.jsonl
+
+data/
+dataset/
+datasets/
+
+# 模型权重
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# 训练输出
+outputs/
+checkpoints/
+logs/
+wandb/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/

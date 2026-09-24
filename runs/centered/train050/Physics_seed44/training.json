@@ -1,0 +1,26 @@
+{
+  "kind": "Physics",
+  "ratio": 0.5,
+  "seed": 44,
+  "best_val_mse": 0.09561279289645237,
+  "best_epoch": 4,
+  "best_val_mae": 0.10383207029535803,
+  "epochs_completed": 9,
+  "parameter_count": 1712321,
+  "seconds": 178.35076577804284,
+  "selection": {
+    "train_end": 7270,
+    "rows": 7270,
+    "windows": {
+      "train": 7079,
+      "val": 50,
+      "test": 50
+    },
+    "origins_sha256": {
+      "train": "9eb427f1b37f2106949a31f3e30034a993021d60f1085dc4c581809afb435dfe",
+      "val": "2f71b2a803e2f74340af983f54f80365170baa2a9583fcb1f34f48fe0dea7bff",
+      "test": "f69634b2911026d646496f2756cf0f119aea256868be833037eb8cab0743e8a9"
+    }
+  },
+  "test_evaluated": false
+}

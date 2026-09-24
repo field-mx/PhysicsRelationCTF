@@ -1,0 +1,26 @@
+{
+  "best_epoch": 1,
+  "validation": {
+    "mse": 0.04504276507915001,
+    "mae": 0.15857030535001257,
+    "count": 682434
+  },
+  "diagnostics": [
+    {
+      "beta": 0.10000858455896378,
+      "active_edges_per_sample": 291.0625,
+      "wake_mean_active": 0.02001795545220375,
+      "wake_std_active": 0.030267056077718735,
+      "qk_std": 0.6435433030128479,
+      "physics_bias_std": 0.00010889099212363362
+    },
+    {
+      "beta": 0.09999539703130722,
+      "active_edges_per_sample": 291.0625,
+      "wake_mean_active": 0.02001795545220375,
+      "wake_std_active": 0.030267056077718735,
+      "qk_std": 0.3335960805416107,
+      "physics_bias_std": 0.00010887662210734561
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-22",
+  "selected_model": "PhysicsRelationCTF, centered representation, two-layer physics injection",
+  "selected_root": "/home/maxon/workspace/PhysicsRelationCTF/runs/centered",
+  "baseline_root": "/home/maxon/workspace/PhysicsRelationCTF/runs/v1",
+  "seeds": [42, 43, 44],
+  "test_mse_mean_improvement_percent": {"100": 0.5429776310413414, "50": 0.3720467740035316, "30": 0.09805220448243501},
+  "paired_seed_wins": {"100": 2, "50": 2, "30": 2},
+  "per_channel_mean_mse_wins": {"100": 32, "50": 25, "30": 34},
+  "interpretation": "Mean test MSE narrowly beats CTF at all three fractions; robust superiority and increasing benefit as data decreases are not established. MAE is slightly worse at30%.",
+  "rejected_validation_hypotheses": ["shared patch projection gradient isolation", "correlation-magnitude-free formula feature normalization", "last-layer-only physics injection"],
+  "validation_only_pilot_seed": 43,
+  "test_used_for_candidate_selection": false,
+  "prediction_files_recomputed": 18,
+  "prediction_shape_per_model": [50, 96, 56],
+  "max_recomputed_mse_difference": 8.181276905938617e-10,
+  "training_and_test_finished": true
+}

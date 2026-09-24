@@ -1,0 +1,33 @@
+{
+  "policy": "Validation-only selection before paired 3-seed test evaluation",
+  "sampling": "random_windows",
+  "subset_seed": 20260922,
+  "ratios": [0.5, 0.3],
+  "pilot_seed": 42,
+  "ctf_validation_mse": {
+    "0.5": 0.09464427170271396,
+    "0.3": 0.0939746434229874
+  },
+  "candidates": {
+    "beta0.05_gamma0.50_rho0.001": {
+      "0.5": 0.09429445224185153,
+      "0.3": 0.09381726539366667
+    },
+    "beta0.10_gamma0.50_rho0.001": {
+      "0.5": 0.09427074921901216,
+      "0.3": 0.09382734915659566
+    },
+    "beta0.05_gamma0.75_rho0.001": {
+      "0.5": 0.09407545817486467,
+      "0.3": 0.09374246925818767
+    }
+  },
+  "selected": {
+    "beta": 0.05,
+    "gamma": 0.75,
+    "rho": 0.001,
+    "representation": "centered",
+    "lag_mode": "physical"
+  },
+  "reason": "Only candidate improving both random-few-shot validation ratios by the largest aggregate margin; test targets were not read during selection."
+}

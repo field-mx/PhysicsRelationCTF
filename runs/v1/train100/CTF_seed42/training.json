@@ -1,0 +1,26 @@
+{
+  "kind": "CTF",
+  "ratio": 1.0,
+  "seed": 42,
+  "best_val_mse": 0.09411771544531097,
+  "best_epoch": 9,
+  "best_val_mae": 0.10218958751110005,
+  "epochs_completed": 14,
+  "parameter_count": 1650528,
+  "seconds": 495.5010019009933,
+  "selection": {
+    "train_end": 14540,
+    "rows": 14540,
+    "windows": {
+      "train": 14349,
+      "val": 50,
+      "test": 50
+    },
+    "origins_sha256": {
+      "train": "091a68fbaa7ba7ff30655ff7b0a8495151f45f0150b95f3e9b81fc45e26acffd",
+      "val": "2f71b2a803e2f74340af983f54f80365170baa2a9583fcb1f34f48fe0dea7bff",
+      "test": "f69634b2911026d646496f2756cf0f119aea256868be833037eb8cab0743e8a9"
+    }
+  },
+  "test_evaluated": false
+}

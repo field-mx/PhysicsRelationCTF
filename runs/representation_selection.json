@@ -1,0 +1,28 @@
+{
+  "selected": "centered",
+  "root": "/home/maxon/workspace/PhysicsRelationCTF/runs/centered",
+  "baseline": {
+    "100": 0.09411771544531097,
+    "50": 0.09902241999994048,
+    "30": 0.09813903858893187
+  },
+  "candidates": {
+    "anchored": {
+      "100": 0.093770386041318,
+      "50": 0.09798944102027725,
+      "30": 0.09806601034579615
+    },
+    "centered": {
+      "100": 0.09297131924990662,
+      "50": 0.09855510579769242,
+      "30": 0.09748498907017844
+    }
+  },
+  "rule": "min mean log relative validation MSE on50/30, both must improve;100%<=+1%; one shared representation",
+  "confirm_seeds": [
+    43,
+    44
+  ],
+  "created": 1789990049.4584553,
+  "test_consulted": false
+}

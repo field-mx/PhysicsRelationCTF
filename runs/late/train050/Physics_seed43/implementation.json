@@ -1,0 +1,12 @@
+{
+  "hypothesis": "restrict physics injection to final CTF layer to prevent forward spread outside physical receivers",
+  "unchanged": "centered features and empirical gains; graph, lag, head, main architecture; no projection isolation",
+  "tradeoff": "no early-layer physics-specific multihop propagation",
+  "files": {
+    "/home/maxon/workspace/PhysicsRelationCTF/late_model.py": "85a1a88e02b20463cbb80d443a592f2d2790c4d0ecb4762a167ac19d229d58d5",
+    "/home/maxon/workspace/PhysicsRelationCTF/run_late.py": "4bc9716592b39dfbe300ef55d761cef03c7b92d0e9a64c257d9f505cfdf95485",
+    "/home/maxon/workspace/PhysicsRelationCTF/relation_model.py": "0ba057ac1d611c0a909b5fb5fca7085f55af1ab90efda01365d8164216263dc8",
+    "/home/maxon/workspace/PhysicsRelationCTF/physics.py": "ee0cfdba403834ae2057c02dd75655c9df76fca45aaa0a3f29f36996a45a80b4",
+    "/home/maxon/workspace/PhysicsRelationCTF/run_experiment.py": "5e020479eedfbb8a96075ac1a9f41dd3d7b6eaac53e24edbddebf258169892f4"
+  }
+}
