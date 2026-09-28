@@ -31,6 +31,10 @@ checkpoints/
 logs/
 wandb/
 
+# runs/ 下仅同步最新实验
+runs/*
+!runs/random_gaps_v1/
+
 # Python 缓存
 __pycache__/
 *.pyc

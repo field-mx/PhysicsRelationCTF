@@ -10,6 +10,7 @@ OLD=ROOT.parent/'PhysicsGuidedCTF'
 sys.path.insert(0,str(OLD))
 from experiment import load_data,config,seed_all,dump
 from model import OriginalCTF
+from time_gap_sampling import filter_gap_origins, intervals, nested_time_gaps
 
 FARADAY=96485.3321233100184
 RELATIONS=['electrical','electrochemical','gas_generation','gas_transport',
@@ -72,7 +73,11 @@ def build_relations(channels):
        policy='state_consistency is bidirectional redundancy, not causal; no graph powers; fixed topology')
 
 def get_data(ratio,sampling='prefix',subset_seed=20260922):
-    d,_,meta,selection=load_data('industrial',ratio,sampling=sampling,subset_seed=subset_seed)
+    if sampling=='random_gaps':
+        from random_gap_data import load_random_gap_data
+        d,_,meta,selection=load_random_gap_data(ratio,subset_seed)
+    else:
+        d,_,meta,selection=load_data('industrial',ratio,sampling=sampling,subset_seed=subset_seed)
     # Recover physical units from existing verified reference cache, then the
     # available-prefix scaler is used identically by CTF and Physics.
     src=ROOT.parent/'GNN_Transformer/runs/sensor_96s_96s_stride96/data_summary.json'

@@ -1,0 +1,121 @@
+{
+  "state": "validation_complete",
+  "kind": "CTF",
+  "ratio": 0.3,
+  "seed": 42,
+  "best_val_mse": 0.09748810986042315,
+  "best_epoch": 16,
+  "best_val_mae": 0.1085984533197429,
+  "epochs_completed": 16,
+  "parameter_count": 1650528,
+  "seconds": 87.51694245100953,
+  "selection": {
+    "sampling": "random_gaps",
+    "subset_seed": 20260922,
+    "train_end": 14540,
+    "rows": 4362,
+    "full_train_windows": 14349,
+    "selected_train_windows": 2261,
+    "retained_segments": [
+      [
+        0,
+        567
+      ],
+      [
+        789,
+        1131
+      ],
+      [
+        2584,
+        2903
+      ],
+      [
+        3950,
+        4254
+      ],
+      [
+        5367,
+        5664
+      ],
+      [
+        6844,
+        7319
+      ],
+      [
+        7667,
+        7968
+      ],
+      [
+        9385,
+        9688
+      ],
+      [
+        10909,
+        11237
+      ],
+      [
+        12548,
+        12889
+      ],
+      [
+        13755,
+        14540
+      ]
+    ],
+    "deleted_segments": [
+      [
+        567,
+        789
+      ],
+      [
+        1131,
+        2584
+      ],
+      [
+        2903,
+        3950
+      ],
+      [
+        4254,
+        5367
+      ],
+      [
+        5664,
+        6844
+      ],
+      [
+        7319,
+        7667
+      ],
+      [
+        7968,
+        9385
+      ],
+      [
+        9688,
+        10909
+      ],
+      [
+        11237,
+        12548
+      ],
+      [
+        12889,
+        13755
+      ]
+    ],
+    "mask_sha256": "1bc8fea780173a93aa3849b9d1e9ee0748c149eb0e16580f6012b7e080b575e6",
+    "windows": {
+      "train": 2261,
+      "val": 50,
+      "test": 50
+    },
+    "origins_sha256": {
+      "train": "5c33f83b873aa89e53b3696d343bc575fee1068cae3094cf1065a0373c08f993",
+      "val": "2f71b2a803e2f74340af983f54f80365170baa2a9583fcb1f34f48fe0dea7bff",
+      "test": "f69634b2911026d646496f2756cf0f119aea256868be833037eb8cab0743e8a9"
+    },
+    "scaler_fit": "retained training timestamps only"
+  },
+  "test_evaluated": false
+}
