@@ -3,6 +3,11 @@
 本目录独立于旧实验。数据为原始 `CIST-MAE/data/SensorData.xlsx`，不是自适应滤波版本。
 基线与实验组均为 **Channel Token 解码**，不使用 Local Token 解码或 GCN。
 
+> **当前状态（2026-09-26）**：最新实验为 `runs/random_gaps_v1` —— 训练区间固定嵌套
+> 随机时间缺失下的 CTF/Physics 配对比较（单模型种子42、单mask种子，无超参搜索）。
+> 100% 观测下 Physics MSE 降低 1.27%，50% 降低 0.25%，30% 反而差 0.36%；
+> 详见文末「2026-09-26 随机时间缺失实验」一节。入口 `run_random_gap_experiment.py`。
+
 ## 不变的主干
 
 96个历史点 → 每通道4个24点Local Token + 2个原生Channel Token →
@@ -89,7 +94,8 @@ gas_generation的非零时滞指电流生成气体到**下游测量流量**的�
 
 - 24234个1Hz点；沿时间固定60%/20%/20%边界：14540、19387、24234。
 - 61通道中排除由完整原训练段定义的5个全平稳通道，56个预测通道。
-- 100%/50%/30%分别使用原训练段的前14540/7270/4362点；不是更换测试集。
+- 100%/50%/30%分别使用原训练段的前14540/7270/4362点（前缀采样，v1/centered等历史实验）；
+  random_gaps_v1改为嵌套随机时间缺失，观测点预算相同，见文末该实验一节。
 - 训练步长1；验证/测试步长96，每次完整保留未来96点。验证50窗口，测试50窗口。
 - 每个训练比例单独拟合输入scaler和物理校准；val/test不参与拟合。
 - 跨比例的MSE/MAE统一换回原完整训练段标准化尺度，不是各比例各自的方差尺度。
@@ -101,24 +107,29 @@ gas_generation的非零时滞指电流生成气体到**下游测量流量**的�
 
 ## 运行与恢复
 
-训练服务：`physics-relation-ctf-base`（GPU0）、`physics-relation-ctf-physics-v2`（GPU1）。
-服务器user-systemd运行，Linger=yes，断开远程连接不影响；重启服务器不保证自动重启任务。
-逐轮保存 `resume.pth`，同配置重新启动可恢复。不同源码/配置禁止覆盖同一结果目录。
+最新实验入口（随机时间缺失协议，双卡并行：CTF@cuda:0、Physics@cuda:1）：
 
 ```bash
 cd /home/maxon/workspace/PhysicsRelationCTF
-/home/maxon/workspace/CTF/.venv/bin/python -m unittest test_relation -v
-systemctl --user status physics-relation-ctf-base physics-relation-ctf-physics-v2
-tail -n 5 baseline.log
-tail -n 5 physics_v2.log
+/home/maxon/workspace/CTF/.venv/bin/python run_random_gap_experiment.py
+/home/maxon/workspace/CTF/.venv/bin/python -m unittest test_relation test_random_time_gaps \
+    test_random_time_gap_integration test_random_time_decile_coverage test_random_gap_summary -v
 ```
 
-结果位于 `runs/v1/train050/CTF_seed42` 等子目录：
-`status.json`实时进度、`history.json`逐轮诊断、`training.json`验证汇总、
-`best.pth`验证最优权重、`validation_predictions.npz`已有验证预测。
-最终测试前不会生成 `metrics.json` / `predictions.npz`。
-修正后的物理模型在 `runs/v2`；`runs/v1`中的物理模型是已停止的首版诊断记录。
-CTF主干未受时滞修正影响，基线仍在`runs/v1`，无需重复训练。
+- 首次运行冻结 `runs/random_gaps_v1/protocol.json`（源码与mask的sha256、嵌套校验、
+  十分位保留率、分位数箱计数）；重复运行若协议不一致立即拒绝，防止覆盖已有结果。
+- 训练全部成功后自动写入 `selection_lock.json`（6个验证选定checkpoint的sha256），
+  锁定后才一次性评估测试集并生成 `summary.json`。
+- 逐轮保存 `resume.pth`，同配置重新启动可恢复；日志在 `ctf_train.log` / `physics_train.log`。
+- 单元测试覆盖：mask嵌套性与精确点预算、窗口过滤口径、十分位覆盖、汇总计算。
+
+结果位于 `runs/random_gaps_v1/train{100,050,030}/{CTF,Physics}_seed42` 子目录：
+`config.json`参数与数据选择、`status.json`实时进度、`history.json`逐轮诊断、
+`training.json`验证汇总、`best.pth`验证最优权重、`validation_predictions.npz`验证预测，
+测试评估后生成 `metrics.json` / `predictions.npz`。
+历史实验（v1/v2/centered/sdwpf_36x6 等）保留在本地 `runs/` 下作对照；
+`.gitignore` 规定仅 `runs/random_gaps_v1` 同步到 GitHub。
+早期的 user-systemd 训练服务（`physics-relation-ctf-*`）已退役，仅存于历史记录。
 
 ## 2026-09-22 最终状态
 
@@ -181,3 +192,56 @@ CTF主干未受时滞修正影响，基线仍在`runs/v1`，无需重复训练�
 
 验证与测试的判断分开保留：3种子验证时50%平均略差0.0098%，最终测试平均略好0.372%。
 不得用这个测试结果倒过来挑选候选或继续调参。后续论文验证需要新的独立证据。
+
+## 2026-09-26 随机时间缺失实验（random_gaps_v1，当前最新）
+
+前缀截断在减少样本的同时也裁掉了后半段工况，无法区分"样本少"与"覆盖窄"两种效应。
+本轮改为**只对训练区间施加固定嵌套的随机时间缺失**：验证/测试窗口与100%运行
+逐字节一致（origins sha256相同），从而单独检验真实观测稀缺的影响。
+单模型种子42、mask种子20260922，全程无超参搜索；CTF与Physics共用数据与训练日程。
+
+### 缺失协议（time_gap_sampling.py / random_gap_data.py）
+
+- 仅训练段14540点施加缺失；缺失段长96~720秒随机抽取，保留段最短288秒；
+  每个时间十分位固定保护一段≥288秒的连续区间，防止整段工况被删空。
+- 三个观测集严格嵌套：30%⊆50%⊆100%；点预算精确为14540/7270/4362。
+- 只保留完整落在观测时间戳内的96→96窗口（14349/5551/2261个），
+  并校验每个保留点都参与至少一个完整窗口，预算不虚报。
+- scaler只用保留时间戳拟合；val/test不参与任何mask或统计。
+- `protocol.json`记录十分位保留率与代表通道（SCRDLFK/TT010002/PT010002/FT010002）
+  的训练段分位数箱计数，证实在减数据时工况覆盖比前缀截断均匀得多；
+  但50%时十分位保留率仍在0.20~1.00间波动，且随机缺失不保证覆盖所有未标注工况
+  （协议自带limitation字段）。
+- 协议首次运行即冻结（源码与mask的sha256、全部统计）；之后任何不一致的
+  重复运行都会被拒绝。
+
+### 模型与训练设置
+
+主干不变（56通道、96→96、2层CTF masked attention、d=256、8头、FFN=1024）。
+物理选项：beta=0.05、gamma=0.75（初值由前缀实验的0.5上调，一次性设置）、rho=0.001、
+centered表征、physical时滞模式。Adam 1e-4、batch32、16轮，前6轮恒定lr后余弦衰减。
+6个最优checkpoint（3比例×2模型）全部按验证集选定并冻结sha256（`selection_lock.json`）后，
+才一次性评估测试集。
+
+### 结果（固定测试集50窗口，原完整训练段标准化尺度）
+
+| 观测比例 | 训练窗口 | CTF MSE | Physics MSE | MSE增益 | CTF MAE | Physics MAE | MAE增益 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+|100%|14349|0.109122|0.107731|+1.27%|0.107962|0.106950|+0.94%|
+|50%|5551|0.110613|0.110340|+0.25%|0.109933|0.110254|−0.29%|
+|30%|2261|0.113082|0.113486|−0.36%|0.114302|0.115350|−0.92%|
+
+增益=(CTF−Physics)/CTF，正为物理更优。相对各自100%基线的MSE退化：
+CTF 50% +1.37%、30% +3.63%；Physics 50% +2.42%、30% +5.34%。
+
+### 判断与边界
+
+- 100%时物理优势（MSE −1.27%）大于前缀实验三种子平均（−0.54%），50%缩水到−0.25%
+  （MAE已略差），30%转为+0.36%。**工况覆盖拉均匀后，"数据越少物理先验越有利"
+  仍未被支持；物理分支对观测缺失反而更敏感（30%时退化比CTF快约1.7个百分点）。**
+- 单种子、单mask，无置信区间；结论是方向性的，不能宣称统计显著。
+- gamma初值0.75不同于前缀实验的0.5，属一次性工程设置，未做搜索；
+  两轮实验的绝对数值不宜直接相减。
+- 与前缀实验互补而非替代：随机缺失回答"覆盖均匀时缺失本身的影响"，前缀实验回答
+  "连续尾部数据被裁掉的影响"。两者一致的结论是：物理注入的净收益有限，
+  且不随数据稀缺放大。
