@@ -79,19 +79,19 @@ PRCTF 不改变上述 token 构造、掩码和读出方式。当前任务均使�
 
 对于来源通道 `j` 指向目标通道 `i` 的关系，邻接矩阵约定为：
 
-$$
+```math
 A^{\mathrm{phys}}_{ij}=1 \quad\Longleftrightarrow\quad j\rightarrow i.
-$$
+```
 
 **行对应接收信息的 Query，列对应提供信息的 Key/Value。** 固定图表达已有物理依据，不是相关系数图，也不是完整因果图。轻量网络根据当前历史调整已有物理边的强度，不新增物理连接。
 
 在相应通道 token 位置，注意力为：
 
-$$
-\alpha^{(l)}=\operatorname{Softmax}_{\mathrm{key}}\!\left(
+```math
+\alpha^{(l)}=\mathrm{Softmax}_{\mathrm{key}}\left(
 \frac{Q^{(l)}K^{(l)\top}}{\sqrt{d_h}}+\beta_l B(X_{\mathrm{hist}})+M
 \right).
-$$
+```
 
 其中，`B` 是映射到 token 布局的物理偏置，`M` 是原生 CTF 掩码，`beta_l` 控制当前层物理引导强度。偏置**只加入相同槽位的 Channel–Channel 位置**，不改变 Local–Local、Local–Channel 和 Channel–Local 的掩码结构。没有物理先验覆盖、但原生掩码允许的跨通道交互仍由数据学习。
 
@@ -112,13 +112,13 @@ $$
 
 电解槽实例中的消息构造可概括为：
 
-$$
+```math
 p^{\mathrm{phys}}_{ij}
 =E_P(\phi^{\mathrm{eq}}_{ij})
-+\operatorname{Adapt}_{r_{ij}}\!\left(
++\mathrm{Adapt}_{r_{ij}}\left(
 E_P(\phi^{\mathrm{eq}}_{ij})\Vert E_P(z^{\mathrm{lag}}_{j\to i})
 \right).
-$$
+```
 
 `phi_eq` 表示经过尺度转换与历史对齐的方程特征，`z_lag` 表示相应源通道的历史，`r_ij` 表示已知关系类型。当前电解槽配置使用中心化的方程变化特征，不将局部公式当作传感器绝对读数的精确方程。
 
@@ -130,11 +130,11 @@ $$
 
 聚合过程可示意为：
 
-$$
+```math
 O_i^{(l)}=O_{\mathrm{data},i}^{(l)}
-+\sum_{j:\,j\to i\in\mathcal E}\omega_{ij}^{(l)}
-\left(\gamma_l\overline p_{ij}^{(l)}+\rho_l\overline r_{ij}^{(l)}\right).
-$$
++\sum_{j:\,j\to i\in\mathcal{E}}\omega_{ij}^{(l)}
+\left(\gamma_l\overline{p}_{ij}^{(l)}+\rho_l\overline{r}_{ij}^{(l)}\right).
+```
 
 原生数据聚合始终保留。电解槽中，`omega` 使用相应原生注意力权重，训练时包含注意力 dropout。公开数据实例另外采用已记录的物理邻居条件权重、有效性和历史一致性处理。因此，三个实例遵循同一种双接口思路，**不代表每项计算细节完全相同**。
 

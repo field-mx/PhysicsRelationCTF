@@ -79,19 +79,19 @@ Token construction, masking and readout remain unchanged. The selected tasks use
 
 A directed relationship from source `j` to target `i` uses the convention:
 
-$$
+```math
 A^{\mathrm{phys}}_{ij}=1 \quad\Longleftrightarrow\quad j\rightarrow i.
-$$
+```
 
 **Rows receive information as Queries; columns provide information as Keys/Values.** This fixed graph contains supported relationships, not correlations or a complete causal model. A lightweight network adjusts existing-edge strengths from historical context; it does not invent new physical edges.
 
 At the relevant channel-token positions, attention becomes:
 
-$$
-\alpha^{(l)}=\operatorname{Softmax}_{\mathrm{key}}\!\left(
+```math
+\alpha^{(l)}=\mathrm{Softmax}_{\mathrm{key}}\left(
 \frac{Q^{(l)}K^{(l)\top}}{\sqrt{d_h}}+\beta_l B(X_{\mathrm{hist}})+M
 \right).
-$$
+```
 
 `B` is the physical bias lifted into the token layout, `M` is the original mask, and `beta_l` controls layer-wise guidance. The bias applies **only to same-slot Channel–Channel positions**. Local–Local, Local–Channel and Channel–Local masking is unchanged. Other originally allowed cross-channel connections remain data-driven.
 
@@ -112,13 +112,13 @@ The content interface uses **observed history only**:
 
 In the industrial implementation, message construction is summarized by:
 
-$$
+```math
 p^{\mathrm{phys}}_{ij}
 =E_P(\phi^{\mathrm{eq}}_{ij})
-+\operatorname{Adapt}_{r_{ij}}\!\left(
++\mathrm{Adapt}_{r_{ij}}\left(
 E_P(\phi^{\mathrm{eq}}_{ij})\Vert E_P(z^{\mathrm{lag}}_{j\to i})
 \right).
-$$
+```
 
 `phi_eq` denotes the equation feature after scale conversion and alignment; `z_lag` is aligned source history; `r_ij` is the known relationship type. The selected industrial configuration uses centered equation variations, not an assumed exact absolute sensor-output equation.
 
@@ -130,11 +130,11 @@ $$
 
 Aggregation has the schematic form:
 
-$$
+```math
 O_i^{(l)}=O_{\mathrm{data},i}^{(l)}
-+\sum_{j:\,j\to i\in\mathcal E}\omega_{ij}^{(l)}
-\left(\gamma_l\overline p_{ij}^{(l)}+\rho_l\overline r_{ij}^{(l)}\right).
-$$
++\sum_{j:\,j\to i\in\mathcal{E}}\omega_{ij}^{(l)}
+\left(\gamma_l\overline{p}_{ij}^{(l)}+\rho_l\overline{r}_{ij}^{(l)}\right).
+```
 
 Native data aggregation is retained. In the industrial instance, `omega` is the corresponding native attention weight, including training-time dropout. Public-data instances additionally use their documented conditional-neighbor weighting, validity and historical-consistency handling. They share the two-interface idea, **not identical processing in every detail**.
 
