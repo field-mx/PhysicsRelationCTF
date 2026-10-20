@@ -2,7 +2,7 @@
 
 Repository: https://github.com/field-mx/PhysicsRelationCTF
 
-Code and artifact directory: https://github.com/field-mx/PhysicsRelationCTF/tree/main/publication
+Code and artifact directory: https://github.com/field-mx/PhysicsRelationCTF
 
 Use the actual publication directory and a fixed commit when citing the code.
 The repository also contains historical development; no release tag or archive
