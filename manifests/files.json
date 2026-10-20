@@ -23,8 +23,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 5430,
-      "sha256": "16daae7c0483bb4920c7482054f02c75ef20b32bc8fa47e82bd9becd524aedf9"
+      "bytes": 33142,
+      "sha256": "ca3bb685b5d9e51d26714add313001992ad47fbeb7244ef7c2c93f962016aa44"
+    },
+    {
+      "path": "README_zh-CN.md",
+      "bytes": 32295,
+      "sha256": "3d4e0d6dc0c972f90e34cba51d181f59736270cf1c795d3bcc4c610763021d32"
     },
     {
       "path": "REPRODUCIBILITY.md",
