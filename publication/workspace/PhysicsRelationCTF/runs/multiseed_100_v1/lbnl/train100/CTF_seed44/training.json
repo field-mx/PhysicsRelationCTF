@@ -1,0 +1,12 @@
+{
+  "kind": "CTF",
+  "ratio": 1.0,
+  "seed": 44,
+  "best_epoch": 32,
+  "best_val_mse": 0.07416318988300791,
+  "best_val_mae": 0.04284569810328413,
+  "epochs_completed": 32,
+  "test_evaluated": false,
+  "seconds": 422.8983918149024,
+  "parameters": 1654880
+}

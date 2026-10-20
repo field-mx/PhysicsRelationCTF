@@ -1,4 +1,25 @@
-# Physics-Relation-Guided CTF
+# PhysicsRelationCTF (PRCTF)
+
+## Publication companion
+
+The maintained research-code and experiment companion is in **[publication/](publication/README.md)**.
+It contains the selected PRCTF implementations, fixed three-seed results,
+public-dataset access links and approved finished figures. Manuscripts, review
+materials, industrial numerical observations, trained weights and local caches
+are not included in that directory.
+
+- [Installation and model checks](publication/README.md#installation-and-quick-check)
+- [Data availability and public links](publication/DATA_AVAILABILITY.md)
+- [Complete comparison results](publication/results/method_comparison_summary.csv)
+- [Reproducibility](publication/REPRODUCIBILITY.md)
+- [Licence status and third-party attribution](publication/LICENSE_STATUS.md)
+
+The content below is preserved **historical development documentation**, not the
+current publication protocol or a claim of universal superiority.
+
+---
+
+# Physics-Relation-Guided CTF — historical notes
 
 本目录独立于旧实验。数据为原始 `CIST-MAE/data/SensorData.xlsx`，不是自适应滤波版本。
 基线与实验组均为 **Channel Token 解码**，不使用 Local Token 解码或 GCN。

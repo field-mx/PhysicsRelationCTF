@@ -1,0 +1,13 @@
+{
+  "dataset": "lbnl",
+  "model": "PhyGNN",
+  "seed": 44,
+  "best_val_mse": 0.07860912033926495,
+  "best_val_mae": 0.0701379371354278,
+  "best_epoch": 3,
+  "epochs_completed": 9,
+  "parameter_count": 144816,
+  "seconds": 23.52370002801763,
+  "test_evaluated": false,
+  "checkpoint_sha256": "4e250963d4f0424217629cc2ebcb1645fe86f3f1aa037bf2b5afd4ab123523ce"
+}

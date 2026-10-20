@@ -1,0 +1,2 @@
+-r requirements-model.txt
+pyreadr==0.5.7

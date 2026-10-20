@@ -1,0 +1,2420 @@
+{
+  "version": "publication-companion",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 404,
+      "sha256": "3f82475b79d28248bd7d068b8bc5cf637cd12a3dbc8395279c1c5dac616789f8"
+    },
+    {
+      "path": "CITATION.md",
+      "bytes": 669,
+      "sha256": "c29bb15103273b79e94b28b1a0b8a96e7af75f56bb3ed60a291b031b1ee6b416"
+    },
+    {
+      "path": "DATA_AVAILABILITY.md",
+      "bytes": 4833,
+      "sha256": "e3a929398eda2c90a7da4c53e6a2ca875e4ec3912a5dec329db98e29b50749b7"
+    },
+    {
+      "path": "LICENSE_STATUS.md",
+      "bytes": 906,
+      "sha256": "5c072e11ceb80bbc9d67f0f6ed67fd063071169ae23115710545ec8c12bce185"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5430,
+      "sha256": "16daae7c0483bb4920c7482054f02c75ef20b32bc8fa47e82bd9becd524aedf9"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "bytes": 5605,
+      "sha256": "4583a59addc26fc0568acde0e74653dd678dfdf1d4654456eceb035d3553c61f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1806,
+      "sha256": "1f8a7385e7b2c26f910ab0639be5f08c8ec8ae65e20135f61e51ad2b863b6794"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 2366,
+      "sha256": "eecbe1929aa01ba1c92d424bbcad8e7006ada4566d8b3403491ac2461d01cda2"
+    },
+    {
+      "path": "configs/industrial/data_schema.json",
+      "bytes": 1259,
+      "sha256": "46d543cc2e610d9cb253803487ac6f0d85903991106e962598f600c681c663bf"
+    },
+    {
+      "path": "configs/industrial/graph.json",
+      "bytes": 54824,
+      "sha256": "38d7844be60395f81bbba139924380700b6cf6f3399844eafd2184161015002f"
+    },
+    {
+      "path": "configs/industrial/model.json",
+      "bytes": 2044,
+      "sha256": "bca0c4bcf68e507f12677ea6aea861422d981bf7d08512f8bc6e07fedffec3d1"
+    },
+    {
+      "path": "configs/lbnl/data_metadata.json",
+      "bytes": 34212,
+      "sha256": "9f567acdd5b308d231999e5238df4718867b8b3dc938e3781d61c95e0386b328"
+    },
+    {
+      "path": "configs/lbnl/graph.json",
+      "bytes": 91623,
+      "sha256": "b82fd498026f95e217cf87380874408376862c5e9de13df2a953ca536ff298c9"
+    },
+    {
+      "path": "configs/lbnl/model.json",
+      "bytes": 2419,
+      "sha256": "5512149119d10de63c6bc0b40ad12245e554d9c3050187256187d46fbdc6c73b"
+    },
+    {
+      "path": "configs/lbnl/scalers.json",
+      "bytes": 4822,
+      "sha256": "cc7eb8cf4d5d461784a59e159201158770b2a70b5b5af9e489e561bf917e9aee"
+    },
+    {
+      "path": "configs/tep/data_metadata.json",
+      "bytes": 5803,
+      "sha256": "db2af8dc46dfcb522ec7de0cc94a7c3276cca276f62dd096886a8e2aedece333"
+    },
+    {
+      "path": "configs/tep/graph.json",
+      "bytes": 44009,
+      "sha256": "228f1edac0e2e8b4a8b885a251c0814e2dfe5520cd5d6aaa293cedee7e6b32aa"
+    },
+    {
+      "path": "configs/tep/model.json",
+      "bytes": 1853,
+      "sha256": "b60f910924a5dd218184b440e03eb48835728d8c2a9046c68eea9c039911a425"
+    },
+    {
+      "path": "configs/tep/scalers.json",
+      "bytes": 3011,
+      "sha256": "72a4b58fe79baa2750049f19dc8bbf89c93b8fbf940c6c06986f7f833165dd5c"
+    },
+    {
+      "path": "figures/README.md",
+      "bytes": 1242,
+      "sha256": "814366f5f6271ca4bcdeff948acd7be4a4fe472aa4d2cf55a4ea618e75e88cd2"
+    },
+    {
+      "path": "figures/architecture/model_architecture.pdf",
+      "bytes": 40826,
+      "sha256": "0f63a13443007c54b0dcc775046ac47831eccad28ee877a5ce077398c52cad36"
+    },
+    {
+      "path": "figures/architecture/model_architecture.png",
+      "bytes": 585984,
+      "sha256": "dabdc2aec1a80eed8b4f00583a3ec631e3aa3ddc09fcb48c5bb488ee32c842be"
+    },
+    {
+      "path": "figures/architecture/physics_message.pdf",
+      "bytes": 40671,
+      "sha256": "d6753941750fe2631ec69cf4312fc70ae95d5adb4450263ce7b415bcdbdafce2"
+    },
+    {
+      "path": "figures/architecture/physics_message.png",
+      "bytes": 605372,
+      "sha256": "59dd12ba8c7758a50b725eca3b28ebbdcfa3fcd36a42d5a0317d70cba31f6ec3"
+    },
+    {
+      "path": "figures/architecture/topology_attention.pdf",
+      "bytes": 49966,
+      "sha256": "3904e69fe3af42d08d64653a95a5a975821be5cc52dc9cfcf763adcb1f70b013"
+    },
+    {
+      "path": "figures/architecture/topology_attention.png",
+      "bytes": 1393583,
+      "sha256": "2ff386f290ab6983801ba4000eba6c85ea6eb3a779a05253d3701b4a5f2181a0"
+    },
+    {
+      "path": "figures/industrial/lowpass_test_predictions.pdf",
+      "bytes": 305831,
+      "sha256": "dff611971054706efeee0e8fc0acd2e1d5bad81bcbe8c58b124429de6a552ddc"
+    },
+    {
+      "path": "figures/industrial/lowpass_test_predictions.png",
+      "bytes": 808759,
+      "sha256": "dfa5714e9354c95739c22192df620fe4ba7dc670450b210ee48b1b620c58157f"
+    },
+    {
+      "path": "figures/industrial/raw_signal_overview.png",
+      "bytes": 188370,
+      "sha256": "f05f55184c13720e671b919fdfa6b65aa5fc549d732e96c8bce140008e702299"
+    },
+    {
+      "path": "figures/topology/electrolyzer_attention_en.pdf",
+      "bytes": 35594,
+      "sha256": "401f6664767ce8191a5728bd352b8627f07777c171f03f91e858654be21beb62"
+    },
+    {
+      "path": "figures/topology/electrolyzer_attention_en.png",
+      "bytes": 904221,
+      "sha256": "24f39910eaa920dfa03b1a4965742735177001d7919e0f8b5e5ddb452c4bb570"
+    },
+    {
+      "path": "figures/topology/electrolyzer_attention_zh.pdf",
+      "bytes": 58561,
+      "sha256": "0dd0f0eada5ff62ee7f2a9886e10dc0f08249e38b51d3ef51212b4023606d489"
+    },
+    {
+      "path": "figures/topology/electrolyzer_attention_zh.png",
+      "bytes": 872346,
+      "sha256": "2d884125fa6ea0390c77bc9bdb00318e7a54e624a01cac8e7e669700b7a28c04"
+    },
+    {
+      "path": "figures/topology/electrolyzer_channel_attention_en.pdf",
+      "bytes": 29051,
+      "sha256": "f1e67c106007373b50346045d0eca089007c2c71e302b2a452f6774fb35f51cb"
+    },
+    {
+      "path": "figures/topology/electrolyzer_channel_attention_en.png",
+      "bytes": 772430,
+      "sha256": "9b47c4171bd6ab76291f028d80760047c06d8ff1d5c967ca23a4f11da99ebe7c"
+    },
+    {
+      "path": "figures/topology/electrolyzer_channel_attention_zh.pdf",
+      "bytes": 50830,
+      "sha256": "ee4c9b42eb2db70ea6d9efa6f64cd480ab5edcb46c2c7190eb607c3a4e77818b"
+    },
+    {
+      "path": "figures/topology/electrolyzer_channel_attention_zh.png",
+      "bytes": 726479,
+      "sha256": "f8b3f8815cd68a80e0e4a8770e33b6b1662ca0b97000642f1d05f8abbd90d42f"
+    },
+    {
+      "path": "figures/topology/electrolyzer_topology_en.pdf",
+      "bytes": 33419,
+      "sha256": "b6900916091ad7fb62b72be92f063037ac56b1fa57d639f568ee098deecae8c3"
+    },
+    {
+      "path": "figures/topology/electrolyzer_topology_en.png",
+      "bytes": 1825439,
+      "sha256": "7c176ed3098e98d6ae0ea8710a1233e148753c0dcbd120b319569fbce936df3e"
+    },
+    {
+      "path": "figures/topology/electrolyzer_topology_zh.pdf",
+      "bytes": 52108,
+      "sha256": "69dcd36db9058220615ed618d81251979ecbe67846c8aefa66a51c655d87278a"
+    },
+    {
+      "path": "figures/topology/electrolyzer_topology_zh.png",
+      "bytes": 1840647,
+      "sha256": "4d9bbb9924fa608c62207bd7ac805fb4ea4738ba38478d7116ecd58e7d55fff5"
+    },
+    {
+      "path": "manifests/ctf_upstream.json",
+      "bytes": 663,
+      "sha256": "2aabeb184fc0f78ba812b382f7f7fee6df7b81833a150ee222175ada64874301"
+    },
+    {
+      "path": "manifests/figure_sources.json",
+      "bytes": 8474,
+      "sha256": "ba63f55e2d6d9af649296f8be57d90a1f4a691fd7cb423c0260ea7106ac0b925"
+    },
+    {
+      "path": "manifests/packaging_environment.json",
+      "bytes": 361,
+      "sha256": "841a8bfb3dea39db5572c0e80c1bc9765766f02cdaf0a035ecc36c01291b1274"
+    },
+    {
+      "path": "manifests/public_sources.json",
+      "bytes": 850,
+      "sha256": "d13e552724ac8ea2530d1466869f4112c63abe122efbeb3e903644b62d8e6470"
+    },
+    {
+      "path": "manifests/source_map.json",
+      "bytes": 213065,
+      "sha256": "181a6b5e16d57bee0dc657b52ce7278e0fa8a7b73dbeda898299a7c81b5fb5a7"
+    },
+    {
+      "path": "requirements-data.txt",
+      "bytes": 41,
+      "sha256": "735af8b43d3e3be189c4683271e4f8dd12096f1709ef816416f5261d971d4e20"
+    },
+    {
+      "path": "requirements-model.txt",
+      "bytes": 174,
+      "sha256": "7aceca4ef39c3d494d94396ba8a2c6ee7e1c28a4eaaa5f0a80bdd74582ddd615"
+    },
+    {
+      "path": "results/README.md",
+      "bytes": 1601,
+      "sha256": "6f9c0a3f7fba8bdb360dde60d1e2b215940c75598cab6101e8260fb1520e171a"
+    },
+    {
+      "path": "results/ablation_and_input_per_seed.csv",
+      "bytes": 2723,
+      "sha256": "0d480bdf3ab351111590a294d90b3ce8ba72314aa9065cc4025dc4412a72a942"
+    },
+    {
+      "path": "results/ctf_prctf_paired.csv",
+      "bytes": 1248,
+      "sha256": "148fb1d422c7163823611f8aa24f645fc0f02cee682852b2231f2312509dbd21"
+    },
+    {
+      "path": "results/method_comparison_per_seed.csv",
+      "bytes": 9739,
+      "sha256": "f48146521528637849fa3713b7a6bf538d9e026db20d005d6c92d9d0a2940cc7"
+    },
+    {
+      "path": "results/method_comparison_summary.csv",
+      "bytes": 3745,
+      "sha256": "bdaabb4c322ad58af16943527dac6036cb13821d9254c3a8588210fabc50c26f"
+    },
+    {
+      "path": "scripts/fetch_upstreams.py",
+      "bytes": 2121,
+      "sha256": "efdfbe4bc73b112cea83262a50d0ec1f8ffbd21e605acce77b18a32132887e33"
+    },
+    {
+      "path": "scripts/model_factory.py",
+      "bytes": 3081,
+      "sha256": "05c6f26e9aef2f13f8e96a8568265ba417bb338c089d46ee7fa2f5b46cc758a2"
+    },
+    {
+      "path": "scripts/prepare_public_data.py",
+      "bytes": 2566,
+      "sha256": "a7de758197d5e7ad805e96d450680b0a6a7110b37fb7361159e38fde0c4a19b0"
+    },
+    {
+      "path": "scripts/smoke_test.py",
+      "bytes": 1654,
+      "sha256": "01e74f6efae10b803ffdc43f25df9207c567d4dd79e2392cb8c015c6775db5ae"
+    },
+    {
+      "path": "scripts/summarize_results.py",
+      "bytes": 1536,
+      "sha256": "dff71d15b33a393d4540de6b74699830112c3d2db2efb007a09df20dfca75027"
+    },
+    {
+      "path": "scripts/train_public.py",
+      "bytes": 4034,
+      "sha256": "8479c276bebc34a31c73e37aefa9dc9a4edb801eb5ec9e091b071ac614a93274"
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "bytes": 888,
+      "sha256": "dc4bffc1008ac2931543c81a63c74fb0332ec5639985bd0f217b9ffd49583dd3"
+    },
+    {
+      "path": "workspace/GNN_Transformer/equation_topology.py",
+      "bytes": 16333,
+      "sha256": "8a627282d0c10c9eb9fcf296259f7ae95d492a871d57b509ffbdb8e144e987e5"
+    },
+    {
+      "path": "workspace/GNN_Transformer/equation_topology_v2.py",
+      "bytes": 5569,
+      "sha256": "c22e7177caa47f3e22c846603c5a9c519081d83b24b872010c598d9eabaa1ace"
+    },
+    {
+      "path": "workspace/PhysicsGuidedCTF/download_tep.py",
+      "bytes": 1546,
+      "sha256": "ec2ea1e16a0e65d5eddd51b0b9cf1339de3237e11e9fb9bcd2de451a17b04cee"
+    },
+    {
+      "path": "workspace/PhysicsGuidedCTF/experiment.py",
+      "bytes": 13460,
+      "sha256": "28de268804d8e3ddb65bc22f83dceeda3df76486aca99705822f8c02895ae659"
+    },
+    {
+      "path": "workspace/PhysicsGuidedCTF/graphs.py",
+      "bytes": 3518,
+      "sha256": "0aaa20ea26b6ddc94f0e0727e0319034fa21cee8b2880129214aa0963c8c8a56"
+    },
+    {
+      "path": "workspace/PhysicsGuidedCTF/model.py",
+      "bytes": 8901,
+      "sha256": "9d99fb549edcb2d2cefcaf10974c42d1dd8e68d9dcb3e28eb6281afcaf84a825"
+    },
+    {
+      "path": "workspace/PhysicsGuidedCTF/prepare_data.py",
+      "bytes": 3778,
+      "sha256": "3369cf81e6668cf99d130025cbb2c8b2572124e3a0439ee9fa58baa361e86e6b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/physics.py",
+      "bytes": 6551,
+      "sha256": "feb15b5f348001260a521145b72278801fca630efb42f60827d1f3413126cd93"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/random_gap_data.py",
+      "bytes": 2382,
+      "sha256": "9b3a73b39beb3e8f802ea63cf3d511b1e65a0b6e2bc9f86c96cc534bda454f76"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/relation_model.py",
+      "bytes": 11519,
+      "sha256": "0ba057ac1d611c0a909b5fb5fca7085f55af1ab90efda01365d8164216263dc8"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/run_experiment.py",
+      "bytes": 10041,
+      "sha256": "72c5ed67659a2d2784dd66074aac764d8665e078dd86eaba59b1d6d8389c99ff"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/run_random_gap_experiment.py",
+      "bytes": 7882,
+      "sha256": "a207d0d205718967a8a4f055fb23594c417a8ac0c703289bece96224cb5274da"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/data_manifest.json",
+      "bytes": 3973,
+      "sha256": "af5dcd2756b37fe92a66c9d8d1e476062474db217dc1b72625a8a93659e7dbd2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/physics_graph.json",
+      "bytes": 44009,
+      "sha256": "228f1edac0e2e8b4a8b885a251c0814e2dfe5520cd5d6aaa293cedee7e6b32aa"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/report.py",
+      "bytes": 7367,
+      "sha256": "c1420a7a1c4abcbf43b2addb4e8589f6a5d1e6ab3a5132c6dca9797049fd74a0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/run_experiment.py",
+      "bytes": 14328,
+      "sha256": "bb3b9bfdd21bb14ee476d69bfe34e858484ed263298cb18d1de4d23232748e60"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/scalers.json",
+      "bytes": 3011,
+      "sha256": "72a4b58fe79baa2750049f19dc8bbf89c93b8fbf940c6c06986f7f833165dd5c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/tep_model.py",
+      "bytes": 6525,
+      "sha256": "2fb3b171065e2fc004b5c8cd1eaf178657176d0c24bf6ef873946af9cbb73d65"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/tep_physics.py",
+      "bytes": 8616,
+      "sha256": "6089304cc3410d0d96c70a1a1e119ef3d274487e56c51ef8a74c74df497b65fd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/test_protocol.py",
+      "bytes": 2768,
+      "sha256": "3f23d4c38f19411791061911e6a398cc702802b8a979678e72814a1b5724d4d2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/final/ratio_20x20/CTF/metrics.json",
+      "bytes": 3704,
+      "sha256": "d48a4dbd246843425cc815daec562ce13eadc63c0f7ccac8f685faecbb24ad61"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/final/ratio_20x20/Physics/metrics.json",
+      "bytes": 3704,
+      "sha256": "70f917f4a3b48eed38123c8cc2e71dcb4a846d5d260fbe72d5b70ead9c78556f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/finish.py",
+      "bytes": 8032,
+      "sha256": "f8dd8a19fd3ee3c63687edb5aa4afde61efd1d47fed7b4d623eb3e3b0b1cfbf3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/length_model.py",
+      "bytes": 7845,
+      "sha256": "6ff6a8ad882aff2cf4b05ef13a10ef78149dbacbe62cce075816cf039cb595b0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/CTF/config.json",
+      "bytes": 1675,
+      "sha256": "8de72cdfe60f44ef0b7b285d808a7beed67d3993c1057df6234eeae9391e1d05"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/CTF/history.json",
+      "bytes": 3441,
+      "sha256": "1d7b8460feb0d148476e75dbef64c321befa71dbad78efd65e3ba2f90703f202"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/CTF/training.json",
+      "bytes": 4282,
+      "sha256": "4181057b1ee8dc501ca4cf3b5ced3ebc9cb842003ef09e40c3882a570991f4ab"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/Physics/config.json",
+      "bytes": 1790,
+      "sha256": "ba16cfb29b50cb7db46bdc1f5da75329119c50e310aa8d90d33231578a9d94bb"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/Physics/history.json",
+      "bytes": 39420,
+      "sha256": "371ce65dcb5d2c7297ef7a73b5770e70afd0071e1ce697ac2eca785dcbcee615"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/Physics/training.json",
+      "bytes": 4421,
+      "sha256": "5c8c4bdbe9ae47455f0354869ccf29699910f94864b3d3d97460617b2161c57d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/runner.py",
+      "bytes": 10092,
+      "sha256": "6bfbc9e74f9ae6233e2dd1490dc86554440691c740ed95b94a4e66589bdd906a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/test_lengths.py",
+      "bytes": 3639,
+      "sha256": "df327b60873b04a6d1398acf075e2ee4d2225614f7ee8e643f957b23a23814c9"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/test_windows.py",
+      "bytes": 1728,
+      "sha256": "a4eedfaaaf0604c042a9b9ad7018ad3e65d2af4f8de2e9ae127eeee251ee5292"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed43/config.json",
+      "bytes": 3063,
+      "sha256": "3e4c5f0a1293b4940a2dbd1e4bd650de40d7a164ab21aeb7c23f644698a490ae"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed43/history.json",
+      "bytes": 3573,
+      "sha256": "2d4dbc380b0ffd0c8f7e7af8107f8d2872e3fd4a123dcfc3c57ea75675b93756"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed43/metrics.json",
+      "bytes": 6417,
+      "sha256": "bffe4704af293f817330509be9f74f2d6e0545b13327fa223099f90a5cf52c37"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed43/training.json",
+      "bytes": 1057,
+      "sha256": "e6ee795b6364b0a0eb176ef546f91af5756549201cd9982255ffffe69fd9e47d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed44/config.json",
+      "bytes": 3063,
+      "sha256": "e0e7eeef84fbcfdc29aabbf6ed54e7bf6e8ab364afbf45b78c7d9ead06bce58a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed44/history.json",
+      "bytes": 3372,
+      "sha256": "731cc258d4141ada800d68e5c04b3b70e403faa1d96fcfc6a3d2da033e96b031"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed44/metrics.json",
+      "bytes": 6421,
+      "sha256": "1901d23bc3bdb442245409a91794e4a94a1fe51117b3cb0eaeff817dc9ed10a1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed44/training.json",
+      "bytes": 1057,
+      "sha256": "71f33a82a64f5cdeef75ee92f547d6e7ab1f51408e59857d187b0faf13191087"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43/config.json",
+      "bytes": 3186,
+      "sha256": "d232a18d78c531f9b3e129ddbc633e47d3224651df37d78d1ab177001a64142b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43/history.json",
+      "bytes": 40285,
+      "sha256": "1a55d78ee70beddceb5a2ea18a0ed32b0880e08455b365bd83deaf3b949c44d4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43/metrics.json",
+      "bytes": 8616,
+      "sha256": "e9db9076d7dca2b8546e3b9583d7f490315a05498ec8c032ce5421bb08a2190b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43/training.json",
+      "bytes": 1061,
+      "sha256": "dcb541fe790dfae0cdbe1f574981c9f45b9e7ab178a306db1eb1e21ae3fbbc5f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44/config.json",
+      "bytes": 3186,
+      "sha256": "b0c21dbb50ad66de55ac2030569dc2547c7f145c380e8252917a87d065130fa5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44/history.json",
+      "bytes": 40293,
+      "sha256": "73e3680fafff0ec5ef5221033ccbcbf0f1f5da9640ccfd1bb676fe8b6a651f62"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44/metrics.json",
+      "bytes": 8623,
+      "sha256": "a15c587100af14d926e33b79d992e43940c39fec25046ac6763cae984c1443e3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44/training.json",
+      "bytes": 1060,
+      "sha256": "c266ecf923aa45403b2b75233a553f23f28e64a94477dc481ec77d9253b01d77"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed43/config.json",
+      "bytes": 9512,
+      "sha256": "ea2387b0b1b6a7a92fb5b9ae55406465e15100d002b027d550fc7fd682ce1a58"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed43/history.json",
+      "bytes": 7134,
+      "sha256": "7268f8d49f1009db73bc601292aac31c3b18e16bd0dc0b83dfd79a174893115c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed43/test_metrics.json",
+      "bytes": 13191,
+      "sha256": "605f4f0f83f9045da74a4364b0889d82d92729e75ae7ffb9cea647637d45439b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed43/training.json",
+      "bytes": 257,
+      "sha256": "9047f8506fe8370e7f52ee186ef13b46d3e6cbf9dad6ffcf69e0a70eef9a9da6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed44/config.json",
+      "bytes": 9512,
+      "sha256": "f58b0f6b6e05c664c357261e150b754c6f982b68aba71bf0225abcaa8d0b3c3d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed44/history.json",
+      "bytes": 7131,
+      "sha256": "e6a5aefbf8f1050ffd18f50c52fd83507323dd14cbeed43e5d885a2cebdf6201"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed44/test_metrics.json",
+      "bytes": 13200,
+      "sha256": "f20cccf7806e36057973af89836a376328616c5ba19601764df22ee71878b223"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed44/training.json",
+      "bytes": 257,
+      "sha256": "53af6ba06dae8bff9a9b98fedb7637173499c8f53e10e791042c926b91542af3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed43/config.json",
+      "bytes": 9634,
+      "sha256": "96e384dbb969df7fc99f632c3a62f039363a420d76418815ab6de4aec1524af0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed43/history.json",
+      "bytes": 57947,
+      "sha256": "be91083eeb5ee457affbeb3cb3bcfab0b3ff5c8ebc11acd38943d2fd9c6a8eed"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed43/test_metrics.json",
+      "bytes": 13179,
+      "sha256": "dbe45bd6f7ffeab68713750be30b7f67ffd83784bd096bd0c07636cb74d0542a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed43/training.json",
+      "bytes": 260,
+      "sha256": "84eaff94f159001d27a33bdb0bdd0bbb1be93e7c5004e3ac5abdf4a6223dcf2b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed44/config.json",
+      "bytes": 9634,
+      "sha256": "8aa3dc3ba416394091855f1261de9df09d230f1f3036b161edf6288bf9db3ce9"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed44/history.json",
+      "bytes": 58259,
+      "sha256": "afe894236cde3592251c4e9542d869efcdc1442253627fdb864214e071bdd0f6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed44/test_metrics.json",
+      "bytes": 13199,
+      "sha256": "fcf55bfae3c0f18357d3ff59bb2feabc564b06ae77fa477a8fcef2b5a1fc0f51"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed44/training.json",
+      "bytes": 262,
+      "sha256": "be26addf94e3757f0b08155f973b512ad514efa1b9ed2bfcf6fc8e6f94242a35"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/protocol.json",
+      "bytes": 26223,
+      "sha256": "a68b4517b700214fbab1070ce6ea89bbc3ef9b49bf6d23d3c18c45a0b0a787f6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/replicate.py",
+      "bytes": 20900,
+      "sha256": "9f6153f60d3e56c77572a6f3031de325646dc975ae1f25750bc7399ddcda3e86"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/selection_lock.json",
+      "bytes": 2131,
+      "sha256": "4e95c6f8e35c28122b7a5eacd52c85d29a51fa8c5e735eabfb5198fcb1a39130"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/summary.json",
+      "bytes": 9241,
+      "sha256": "9952a2214c09846d991d79a327252cc5e8e5d8f129f77626ff68be73d7685ff1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/CTF/config.json",
+      "bytes": 1675,
+      "sha256": "2dc4da1fa72787923ee04d4d4501d3a45ce02c3823ca24523e2acd51dace6059"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/CTF/history.json",
+      "bytes": 3449,
+      "sha256": "b8528d0d5bb1e15a19efc31fa15e15c85c7cbfdb6111c09ce3e60e307c5e39ed"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/CTF/test_metrics.json",
+      "bytes": 3699,
+      "sha256": "eecdd770e97016f06e603fd318fdcd363cb31bcad4c8c9da0e58e6a9f9e1180d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/CTF/training.json",
+      "bytes": 4291,
+      "sha256": "b0df242f444e2246087023cbbe11c0eb1e50ff6c4a39abac06dfb6715c3f84df"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/Physics/config.json",
+      "bytes": 1790,
+      "sha256": "5c6217e8ec598f8058db5a6d66bec49096196fe542707b3152d1335d07bfb954"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/Physics/history.json",
+      "bytes": 39406,
+      "sha256": "a365e5972ac2ca7eaef69b44813f69d709fdac8a72b05e07aecbcb87d6792b64"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/Physics/test_metrics.json",
+      "bytes": 3703,
+      "sha256": "b0073dbd2d20c1f13690bc4912d2fd35faad390df4d5a72b4d719b175803fc81"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/Physics/training.json",
+      "bytes": 4415,
+      "sha256": "47e650243839861e319f0b7ec03406b8631eb0efbb590337b8b6c931d5142c35"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/CTF/config.json",
+      "bytes": 1675,
+      "sha256": "bca6d2a26edfed8d86050709de8f2e9e05d0e1c3cbd1cf13469095dd17dc05be"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/CTF/history.json",
+      "bytes": 3446,
+      "sha256": "ab0156304d88212db072c5ccd9f799ae07df056f3030f82572a0c4f51c0fca9e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/CTF/test_metrics.json",
+      "bytes": 3701,
+      "sha256": "a03141b4341eebfa91150e62a8a166721313368bc6dcb0f40a75874c92025717"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/CTF/training.json",
+      "bytes": 4289,
+      "sha256": "0c31273fa2c05d6aa2e342ff2516f2b36b6a81981f3f32fb8b5a58db60e9a5a6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/Physics/config.json",
+      "bytes": 1790,
+      "sha256": "43434d704b53743893a237be58fef43f6e515859c78119d09ca998fcb9f3ace4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/Physics/history.json",
+      "bytes": 39398,
+      "sha256": "6ec21c57710548ba87a08e2e5b08cf555a17c3f2f8638f0a1e7dfac630adbdd4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/Physics/test_metrics.json",
+      "bytes": 3700,
+      "sha256": "b634abd980f25a434529eb3d9e3bea19502c92a20eb8bdf93945b58291d01bb7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/Physics/training.json",
+      "bytes": 4419,
+      "sha256": "c69e8f3f9f2300430df8f0c6cd85f31e59215cb4f5c0401036068ccd4fc7e31d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/test_replication.py",
+      "bytes": 4289,
+      "sha256": "5ae6d987923fa61b51c3801f1aad2abebd531baa534c010008feef765a94730a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/controls.py",
+      "bytes": 4518,
+      "sha256": "d7958ed589b026bb4af3e48df8925227d27d3a48ae358010bb09ae121fac9ebd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/equation_input/config.json",
+      "bytes": 3130,
+      "sha256": "6de4662e9ac17fa4c162f357ff0a085d61dc2b0ef3bf32c3417fd43c5ddb2abf"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/equation_input/history.json",
+      "bytes": 1752,
+      "sha256": "a3486cf7a367e5dfbcc71797c5eee849f9cc67eb5b6e10cb4f81a989ad3c398a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/equation_input/metrics.json",
+      "bytes": 6425,
+      "sha256": "b1f688043a81f6e0de7ab0e0ad489587988cd72e87bf2dc7001f34d9d7d22d73"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/equation_input/training.json",
+      "bytes": 1122,
+      "sha256": "0881f5ae39f986566a8f31e4d4b615f248b6c1e702df17ac6c769f4993ee7b4f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_bias/config.json",
+      "bytes": 3239,
+      "sha256": "afffcc5a100f6a3b45047ec1063afaccb6c361503cd1db368f63f9f81513be53"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_bias/history.json",
+      "bytes": 38743,
+      "sha256": "157ccb6496a205e2deaea7388d1e63c2262decc6a7e1151f074d55a2d58f955e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_bias/metrics.json",
+      "bytes": 6436,
+      "sha256": "3bbfd90e58c9ffc3263c849e417461e6846488c61035fe148d4cd196dd1ecc5c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_bias/training.json",
+      "bytes": 1113,
+      "sha256": "c77e8e108c56a3866876737263ee6521e784bc91d78a50c4e8b11d58853a3d79"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_equation/config.json",
+      "bytes": 3247,
+      "sha256": "a659b2d0facb12c94634719f7ebcd79e55b47b6911a52b272b87c5b33168744a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_equation/history.json",
+      "bytes": 30837,
+      "sha256": "5b68d6b3004e5e7f302b94aa8f6fffb271d98f67e130719677a59dbf6ca005d3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_equation/metrics.json",
+      "bytes": 6437,
+      "sha256": "1afc75000342fb2e291c36848e872739e7cd1f8918c2037469ed2bdef343393a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_equation/training.json",
+      "bytes": 1121,
+      "sha256": "b851309c7783099b2e642a3ea16f526fb7e64dcc97dbd0d505af34c5a9f7aa80"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/equation_input/config.json",
+      "bytes": 3130,
+      "sha256": "66e83773b24b0c1b6825701915ab2ae3c22314b46342f87ccec1a8f827a31e73"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/equation_input/history.json",
+      "bytes": 2442,
+      "sha256": "ee29400801edff615538d471c5a3af2e6e387b7b745c38d9715f78666ca25060"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/equation_input/metrics.json",
+      "bytes": 6429,
+      "sha256": "26b037ee2f932c80aac051b57258f669f497b71477b5998a7d05b93bb8712972"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/equation_input/training.json",
+      "bytes": 1123,
+      "sha256": "d565feb26c38f8807c2905dccfcb9dd6fcc8064b6a03b895d80551661fd35dbb"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_bias/config.json",
+      "bytes": 3239,
+      "sha256": "4656bf6b9c098aa58ae4e8c25dd87a2868f52b67bc7b8904b3554abe9a3bc8e4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_bias/history.json",
+      "bytes": 38663,
+      "sha256": "a148ed94589ec20b937a2d7e7744318e47e6663e2ac6f59ccacdcc282b6d064a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_bias/metrics.json",
+      "bytes": 6438,
+      "sha256": "3ae875d305bcec435ae9fb15aca7504f423793e8301fee56bedf6147f4dad49b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_bias/training.json",
+      "bytes": 1114,
+      "sha256": "772c542fd83d7012d00698bea607fb8e4bf47841bffd78f56b1d4a88a9dc2569"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_equation/config.json",
+      "bytes": 3247,
+      "sha256": "6b50afb573a2f1c4e87959499b77a6a1dcd0bd240869ba7ca4c87d478e231878"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_equation/history.json",
+      "bytes": 37955,
+      "sha256": "96d6d7370d46e39642bd52935af5293ab61f2b575909273fe78059b6c4619bfb"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_equation/metrics.json",
+      "bytes": 6435,
+      "sha256": "4c8f898ded90f391d6390b43c4886f7bb79b4dc643dba32634d5a4024a9aff2e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_equation/training.json",
+      "bytes": 1122,
+      "sha256": "1556cd62d1d09e673113a7e18f3c99d2c5ba513f78b1be3f5bc939e781fc1a8b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/equation_input/config.json",
+      "bytes": 3130,
+      "sha256": "660d31b85708aedee6aefab6c6fd0efc86da1d3e6e1a164b38ebe212f9d8411d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/equation_input/history.json",
+      "bytes": 2670,
+      "sha256": "e42c4e442281925aa014e4de84767a18556a6cd543fb50c0debb2ae4c10d0246"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/equation_input/metrics.json",
+      "bytes": 6426,
+      "sha256": "6250123ffc58b86bc7bd277b8ea73563119a06afdb3e2e0d5754ac31d15a2063"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/equation_input/training.json",
+      "bytes": 1123,
+      "sha256": "b50ef78eaeb33eb44c1de1e13759547ac3820d1ab1277b21b71487a98456e861"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_bias/config.json",
+      "bytes": 3239,
+      "sha256": "63334c1356623d6b53451aabb1b1271f1e9834d98518155198ca32aae10aa80d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_bias/history.json",
+      "bytes": 38701,
+      "sha256": "ba6ce39ea26190820548b2b4a4d30c8627b2de90a7efa750729c9ab04ecbc13b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_bias/metrics.json",
+      "bytes": 6431,
+      "sha256": "255935b187dbe448d92d99d580970968538651f35c2af4173f267c9548328e61"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_bias/training.json",
+      "bytes": 1113,
+      "sha256": "74a9bf3abbb398e134d4c05d954bdd271491c6cd4092c77f058a5b4bf3ab877e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_equation/config.json",
+      "bytes": 3247,
+      "sha256": "1f5dd3c2b80a6139bfdc13c6202947002075126dbeb3e064b7655702cfd4a3ea"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_equation/history.json",
+      "bytes": 35574,
+      "sha256": "c106f5f32733c43ce777bd7a6befe64a9f308c48b3cdfec7d073ea1892b62e09"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_equation/metrics.json",
+      "bytes": 6433,
+      "sha256": "282293bc2402a095ac4080ac7964942571b0dfd3cbb51671ccc04f0d000cf261"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_equation/training.json",
+      "bytes": 1122,
+      "sha256": "643376b513ad3ca87ca608de8df9d4e904876dbff5052cf1ec1f1529b48e1705"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/equation_input/config.json",
+      "bytes": 9579,
+      "sha256": "64fccb7c2aa33c88543d17fb5b4da7cad2e19635197e68e5306781386f346664"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/equation_input/history.json",
+      "bytes": 7135,
+      "sha256": "a360cb3bbd17728b4e35773cf829579c139cf65cabd3f04b419012399124c354"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/equation_input/test_metrics.json",
+      "bytes": 13209,
+      "sha256": "af7f51de52472cefc9f7b9a5c655db562072c5ff0034798389423c968909f06a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/equation_input/training.json",
+      "bytes": 322,
+      "sha256": "b357806bdefec1f0a188270767edaf51f3509c719948cd4d00a6566e3cc3a86a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_bias/config.json",
+      "bytes": 9687,
+      "sha256": "3c24ebdddd2e3962794d77dbfa3dcca39c0b9d39fa01feb72f5eb7da077a8229"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_bias/history.json",
+      "bytes": 55864,
+      "sha256": "7336694c04fd1d502cfd1b6c93065913550014ac75ab158e26ce73bee2b04fa9"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_bias/test_metrics.json",
+      "bytes": 13203,
+      "sha256": "ac9add37987973ca746b522e8fd4a423a4cd9e020479062aa481c6a188244727"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_bias/training.json",
+      "bytes": 315,
+      "sha256": "81eea669304de1d2239cc3297437fee441b46fa919ba9bf738940bb4f0bee1bd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_equation/config.json",
+      "bytes": 9695,
+      "sha256": "28c1c21b85f2b80f502d6b772adaa004944988ceb86f6b16bd938eb31a014a51"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_equation/history.json",
+      "bytes": 54972,
+      "sha256": "c52826624844d33acf67e77758d68202e078cc6566647ed3d437138cd46f3b4c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_equation/test_metrics.json",
+      "bytes": 13173,
+      "sha256": "f923c235f2ce851b0b413e3a10ad4d3945716502dfec2fa3370fb4733515da6a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_equation/training.json",
+      "bytes": 322,
+      "sha256": "f374729a49a858c2882d159e63a0cc9810bbf2800037caff2f6668636f0b0bfc"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/equation_input/config.json",
+      "bytes": 9579,
+      "sha256": "ae344a97298ef93f736befa11aa8170c08ef92591fa55e2f7e8ccd2b204d05f7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/equation_input/history.json",
+      "bytes": 7126,
+      "sha256": "4e3f21a13ef279158ccf73825ce6d26adf21d99ebfc2df12b2a6ef2562545f7a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/equation_input/test_metrics.json",
+      "bytes": 13207,
+      "sha256": "94422b7a10067e47f446819dddf478e7390c684502c03739747bea53625f627c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/equation_input/training.json",
+      "bytes": 325,
+      "sha256": "2c8a629ace322d4f4764a03eef11912db22aad7410f929a064a65ae42fe84b63"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_bias/config.json",
+      "bytes": 9687,
+      "sha256": "90cee7e793c1f1a9bd7db574a417b1af966394149ef0483ab031bd28a425b1b2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_bias/history.json",
+      "bytes": 55829,
+      "sha256": "319e42005999dda362ea18343d7e0bf5005117abee10e0d6d642780db91103e2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_bias/test_metrics.json",
+      "bytes": 13197,
+      "sha256": "fa99f5808278646e364954a60298c3e9203edc2316ad119621c1debe99edc59f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_bias/training.json",
+      "bytes": 314,
+      "sha256": "52af38c87dd54cdca33d7a05db0721740d66c6563da8c6c7fccfe8cb1e908950"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_equation/config.json",
+      "bytes": 9695,
+      "sha256": "6a10994facd0be57b7c3b4e558bbe119f558ae02397b610ac7dd49ac85208810"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_equation/history.json",
+      "bytes": 55005,
+      "sha256": "95d6c2263304d328b17df95a197a59b52c893a6f03fe783b549c4e533abc11d1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_equation/test_metrics.json",
+      "bytes": 13196,
+      "sha256": "440f0ac341d580dcf890f72f923b1def1ec08931346f34630d5b0c55c86c1271"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_equation/training.json",
+      "bytes": 322,
+      "sha256": "b8e9f67469e69a61de85c0e9aae67259d8c3d77adaf6a503045a13863b4bf14a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/equation_input/config.json",
+      "bytes": 9579,
+      "sha256": "176da4e48c9a22583be06507c41145508f886c219da8ea5b150fb20e87f20e9e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/equation_input/history.json",
+      "bytes": 7128,
+      "sha256": "d749c4309c3d830ac9123c11a5bdec2baa1a88c8f627a21c48b94a56a45512bf"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/equation_input/test_metrics.json",
+      "bytes": 13192,
+      "sha256": "57946e758e0e719e502a407f1b6c8d55ff6729276da21ea10f666f7498a3c47b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/equation_input/training.json",
+      "bytes": 324,
+      "sha256": "761a3c8ef4e24b171d4e19efd4fca9afdcf2db95ef3ac49b28f3ef789319c6cc"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_bias/config.json",
+      "bytes": 9687,
+      "sha256": "8c3926d6ef409ffc05c0ad3b8ba6b9fcb7fdced244401edbeebf6fb8543c3ec3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_bias/history.json",
+      "bytes": 55930,
+      "sha256": "01b3b84b7cb9b805f45b93838d4a8d45bd6df9858c0b1eea4734e7a8b38824d4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_bias/test_metrics.json",
+      "bytes": 13184,
+      "sha256": "5ef99d0a904e193dfe07dae7c1cc60e1274743769ffefcbfce54a2ebead268ce"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_bias/training.json",
+      "bytes": 314,
+      "sha256": "594fc3503ceabfeb138d49bde0a00ffda316c2fa42f1d8e75f071c22c7dba24b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_equation/config.json",
+      "bytes": 9695,
+      "sha256": "a1b68b49ce4db941a661cd7c6b797ba5faccd37e38203d816b61e2f75a7d926b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_equation/history.json",
+      "bytes": 54956,
+      "sha256": "871242dc490e42c4ee52278b4b71c21637c09a2aef5934064a5d79d82375e621"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_equation/test_metrics.json",
+      "bytes": 13192,
+      "sha256": "7a362f867a5a6ba714a903a8ba5e7e4dabf0dde1f7bd8d8bc0f60dd666fab891"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_equation/training.json",
+      "bytes": 322,
+      "sha256": "f07ae0cea9a8b92b68bd407ff367ac7c367d4d620b90712caf4f9a7653ddf1af"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/protocol.json",
+      "bytes": 38653,
+      "sha256": "3b7dd4ca9ab8861d20b43d2a3b2b48ff44df57b5180e89328ca04af8085c8f77"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/selection_lock.json",
+      "bytes": 4597,
+      "sha256": "600021a8c7c02041c9e769dbbf8f8d78d7c8302f84b7e3dba846a389dff9b0c6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/summary.json",
+      "bytes": 314769,
+      "sha256": "334c6ee78e79d636f7905d61e2e9ab7fa7ca98118c74ee573705bdb4e8b26da6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/supplement.py",
+      "bytes": 21538,
+      "sha256": "a74053c386a0cb157883f53fb2418a123a304c297380a25967a987e532b9ace1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/equation_input/config.json",
+      "bytes": 1753,
+      "sha256": "8e37cdcdf112baa9e5faadc4e677d1ce06bd03649d8a3710c4c572f532085aac"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/equation_input/history.json",
+      "bytes": 3449,
+      "sha256": "db32209dad6f10725168c115631b9c418db156fcf9b56b7120b1610d68fb56c2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/equation_input/test_metrics.json",
+      "bytes": 3699,
+      "sha256": "1be96826bb9d63c3be3ea7496e6ec64a01892ac47e02bcae8082398e441f90f1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/equation_input/training.json",
+      "bytes": 4421,
+      "sha256": "5d094188f31cc28ce4a0150a5c43d4fb365d9958eb8d99785f581c953c21b07b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_bias/config.json",
+      "bytes": 1843,
+      "sha256": "fe25c9cf13cdb7698fced917457796da22a17e521179343c844283367ef971dc"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_bias/history.json",
+      "bytes": 38370,
+      "sha256": "889321187cbc036b6d5396e270da8f6a09d35fda0d8cc35e68489ae0bffc67e1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_bias/test_metrics.json",
+      "bytes": 3706,
+      "sha256": "b3ace5ba80bc00ae3eae4f0df111138cdb6f98f4b80ae0d64f66c7b247c3fa67"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_bias/training.json",
+      "bytes": 4532,
+      "sha256": "8010bc5e3f82034372312d07519cd8980ee096783d9bbbb6e19af8aecb413637"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_equation/config.json",
+      "bytes": 1855,
+      "sha256": "74dc77e1083f9773afc5a5ef61e74e21efa495bb78bbff5eab49cd85235d9eef"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_equation/history.json",
+      "bytes": 37607,
+      "sha256": "dbf8d781b5f3afbf133a76dfcfd0499cd5252d3e466bf3b216199a76a303cfad"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_equation/test_metrics.json",
+      "bytes": 3701,
+      "sha256": "dc1c5543598ab21dbf0d0fc84865d987d4e1fefc0654ecac2c5298b35c6d089b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_equation/training.json",
+      "bytes": 4537,
+      "sha256": "573347b5f2633f0664e77763b14eaed13bae9201e4e15e071643ea7422ff3839"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/equation_input/config.json",
+      "bytes": 1753,
+      "sha256": "8b451b166aca7ed36b7ce1509efb3e5a37263616006b8dad7d568eb0be8865b0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/equation_input/history.json",
+      "bytes": 3450,
+      "sha256": "580fa8bbdf40ca7151e1cf09651a062c19a2f6db749fee2970c1e09656a7722f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/equation_input/test_metrics.json",
+      "bytes": 3700,
+      "sha256": "603e8934ab8d11dd79f30809c569211328a2b9543bd2cc481303864ad85865db"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/equation_input/training.json",
+      "bytes": 4427,
+      "sha256": "693eb0215d2f2a307cc66328a6d3673b3a2097105c21997a20361cb8be312ae6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_bias/config.json",
+      "bytes": 1843,
+      "sha256": "e7b8055ae6665082d0cbe2022cf77eaffb6f7cbbb1d2a6acbee539f9cf16b5b7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_bias/history.json",
+      "bytes": 38324,
+      "sha256": "a039e22813cfb60bcf5d5855fa54cf274a43ce1f63c37654b6a798bece6c3f5b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_bias/test_metrics.json",
+      "bytes": 3700,
+      "sha256": "b43bb3209610286a7ca8a2a3f9a7ef6aa5fcb9d98d2111b31c933afdf2449431"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_bias/training.json",
+      "bytes": 4528,
+      "sha256": "c679a78a57d30b721a166abb098f182f726bdebfe764a5151e5b5d4c25572cc1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_equation/config.json",
+      "bytes": 1855,
+      "sha256": "f357a80d3e30c974f477f5ec253a0e441935d08e47d5c5075e72dc934c5d3cac"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_equation/history.json",
+      "bytes": 37617,
+      "sha256": "d11cc159a850f5ed8050b3ffb8115fd949cd4e0e675acee31f1957c70db648ca"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_equation/test_metrics.json",
+      "bytes": 3695,
+      "sha256": "82559be9c86720f28ce841adcedea836ad16efde588f95036ded843b3b52643b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_equation/training.json",
+      "bytes": 4545,
+      "sha256": "c269394790532e093c2a8705da8be4ff9229c25c041483fcee3098a0696255d3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/equation_input/config.json",
+      "bytes": 1753,
+      "sha256": "8560bf658351cccd3f959605c0985e5fa16cdd7b56ff3b9c64854f902bdd4ea5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/equation_input/history.json",
+      "bytes": 3442,
+      "sha256": "ed51adfeececb9312b23190f5035022e1d11f0cfb3bc4436e374732635e5556b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/equation_input/test_metrics.json",
+      "bytes": 3710,
+      "sha256": "18fa02c517f492e12c7dd33c68cfb5d9b6ab159deedc54ee8b1eeac2c9c9f9db"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/equation_input/training.json",
+      "bytes": 4427,
+      "sha256": "7b720e1113ae573557dde146971be2a71f6e537a2f1bdd12fece1f6d2231fe23"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_bias/config.json",
+      "bytes": 1843,
+      "sha256": "77722af7335c7338f4fac83799978b5ff943d4900566cfded83453d28bc8ae2b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_bias/history.json",
+      "bytes": 38369,
+      "sha256": "89eca5762050efbe0983222dad2b3b26b6fad54b8abba6c06e1aa7b34581f6cd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_bias/test_metrics.json",
+      "bytes": 3703,
+      "sha256": "abdd05d381be284d7a4afe88e4285075f9da8da4ac7bb7d566e75b282b27b70c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_bias/training.json",
+      "bytes": 4526,
+      "sha256": "aadaa3f3492721de5b23788e725846490a47e16bfde61daa095a1fb279e0c9a2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_equation/config.json",
+      "bytes": 1855,
+      "sha256": "7ade5f3db0a726a114d6460f21e3d5415333e790230ca5d06c141616315461ce"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_equation/history.json",
+      "bytes": 37641,
+      "sha256": "aed8f6aefc209bb35f1ce1951f033ce7091e2bddd66f0a2b4c89267b1ad65a4c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_equation/test_metrics.json",
+      "bytes": 3699,
+      "sha256": "5d9f0fc807a1e06b391faaffeada400e33197a45f9dfefd29ab78ca42d220021"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_equation/training.json",
+      "bytes": 4534,
+      "sha256": "9a1b173b5abd2db4a45ded806e35b2e92d18db8308627b780101b1b3ea489cd4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/test_controls.py",
+      "bytes": 8319,
+      "sha256": "b9af17938c02c6bee1d151479654edb2859eea83d953c165da509ffffa7308d6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/MTGNN/config.json",
+      "bytes": 13356,
+      "sha256": "99e342bd46a9de3f617708693641affe61d0b0c23dbe89b92417d949d0e44794"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/MTGNN/history.json",
+      "bytes": 7177,
+      "sha256": "9b0a27252fe8efce748da4dc91a5f9d97fb5224ba9ed5c8e096e5ddda90dcc74"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/MTGNN/metrics.json",
+      "bytes": 11342,
+      "sha256": "09f6aff5a7a97da4d402acbd34dc7afaf2c2190e26f126c3b7b5c3ec1d4c52a6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/MTGNN/training.json",
+      "bytes": 362,
+      "sha256": "8d3a4fa673f04f1c570de7aa17c1df4b7fae2723a895cf0c249e14a7dcbfe1d4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PG-Reg-CTF/config.json",
+      "bytes": 13348,
+      "sha256": "b5d795515338ac30a1a6dc799d9e6ec2be0960fea881a368da012b3e9e24e5fd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PG-Reg-CTF/history.json",
+      "bytes": 2316,
+      "sha256": "39a11a1857f643aad1943f7507110f4c4a5144c520734205d8c23e0cc2245c21"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PG-Reg-CTF/metrics.json",
+      "bytes": 11215,
+      "sha256": "b262c244d29d09a5cbd43b5db1419b28feade4f18f37bdb4c95497cc8e5b15f4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PG-Reg-CTF/training.json",
+      "bytes": 365,
+      "sha256": "b824be1743b7f561e4175b7ef973820b806883640963852f73085e1bfcf667ec"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PatchTST/config.json",
+      "bytes": 13336,
+      "sha256": "5a4cee99cbf7d910d2c563adcd139dbd4feffd6d35cdc81c11eebb0e7e2ba3b2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PatchTST/history.json",
+      "bytes": 7190,
+      "sha256": "4557859aef784b533282d6d2cb97aba88e7e065f38ff7123715d1e74c9b15a41"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PatchTST/metrics.json",
+      "bytes": 11388,
+      "sha256": "d9728a9103960ca45afbdf362e0b8fb0d2ded57ff2fea4f811f7153a58eb33a4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PatchTST/training.json",
+      "bytes": 364,
+      "sha256": "96f9a2043d9975545c6dad29961eb47446b93dc60bc2bc4e6de643ffecb9621c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PhyGNN/config.json",
+      "bytes": 13389,
+      "sha256": "742e5ac14717c8a1d435b3f23b6cb4be8a12ea48d6c115054ef159b5f4e1970f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PhyGNN/history.json",
+      "bytes": 4446,
+      "sha256": "4fc48674cf02efac3553391906c51b0fa63f4a8d7ddabe70cd440b8bfab3d6d6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PhyGNN/metrics.json",
+      "bytes": 11156,
+      "sha256": "5d701514c28048eedc0fe9df8a9f0d2b4063dac1a962ffef46ef2cc03a59c546"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PhyGNN/training.json",
+      "bytes": 361,
+      "sha256": "4b17e01f3fe3cc0c08605708c3b13f219a44797ce7e3d20e72d0aa0a318fb6dc"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/MTGNN/config.json",
+      "bytes": 13356,
+      "sha256": "02e0fd43d677178e98beef301c6c2a80b88653822b9bea60907311fe9645afb4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/MTGNN/history.json",
+      "bytes": 7178,
+      "sha256": "97b8da5702271f19c91141f7d17c800d4f706c79099ea0166c36f2c89c865a6c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/MTGNN/metrics.json",
+      "bytes": 11350,
+      "sha256": "d2e63cc0a6554fb2825a3121841c872a0821634e262453e5e878527c45ef39f2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/MTGNN/training.json",
+      "bytes": 363,
+      "sha256": "4c030b8e0b4efeb316bf026dfec1fcc2ef0cbfbde25b89207bbd95f107cb6562"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PG-Reg-CTF/config.json",
+      "bytes": 13348,
+      "sha256": "0007412b4fbf25212bde91cdad0c0ac94b6e65c9b573069efe0040009b272191"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PG-Reg-CTF/history.json",
+      "bytes": 7669,
+      "sha256": "8e743d18e5ec41d1c75be54465dfff15830dc9326af5310b4aba0cc47098f4b0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PG-Reg-CTF/metrics.json",
+      "bytes": 11326,
+      "sha256": "ac1cf5db8622a0d4102154b26fce8c041b294e2476a87003d38f08d2ea7763d9"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PG-Reg-CTF/training.json",
+      "bytes": 366,
+      "sha256": "37874b2e81fb40ef74b14902dee829ee763545901ca5812a673694dcea752eb7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PatchTST/config.json",
+      "bytes": 13336,
+      "sha256": "900e2a23d9f5823fbf9765d3843194de94d2262b2a8d3aba72795635d77b1c75"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PatchTST/history.json",
+      "bytes": 7184,
+      "sha256": "5bd61f2cf3eb18b3875675cde56450eb8c1838dc98ed8acea80341facba1d842"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PatchTST/metrics.json",
+      "bytes": 11364,
+      "sha256": "d1063ecaa887c9483b2218e3b0de3c2d5d05b6f13236d9b1807a2202d144d8e4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PatchTST/training.json",
+      "bytes": 364,
+      "sha256": "442b5ce4614f2911c5232e6a62f75a94ed17f8033438d7b3d0d022aaa231575f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PhyGNN/config.json",
+      "bytes": 13389,
+      "sha256": "5623079210f3e86fe94fc2cf2cff90c3b834e425c26b80498f1765d258f99f8f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PhyGNN/history.json",
+      "bytes": 2627,
+      "sha256": "7bb01bafd61b77ad0e358e6f602d0edf43a0b8e0a7818cb7b681fac60c66e849"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PhyGNN/metrics.json",
+      "bytes": 11146,
+      "sha256": "ca5ca51605beff0c506a382b4fa5358f2e91a35bb3720ece2368d76a87831c3b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PhyGNN/training.json",
+      "bytes": 360,
+      "sha256": "8bf14acb47a4ce78b741b0bc857ae5f3df0a455380947f273c4c12b3ef07f4cb"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/MTGNN/config.json",
+      "bytes": 13356,
+      "sha256": "683fded7fc8f9db37d453668971c564fa1be8b72baad77ed467cc8b0d0705d1d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/MTGNN/history.json",
+      "bytes": 7175,
+      "sha256": "7e24d7a8d504d1e9fabc4c36a875b67cc5976a79bb30378daebc934612c12443"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/MTGNN/metrics.json",
+      "bytes": 11350,
+      "sha256": "037b4f7325dcd5710d97caa950461e4ce9838a3d3007a9b3f7da5928e83b285e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/MTGNN/training.json",
+      "bytes": 362,
+      "sha256": "b63a5365785d0771e3a6421bb4a208d048e58dc1f88972ea451f10db364ce43c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PG-Reg-CTF/config.json",
+      "bytes": 13348,
+      "sha256": "a67eef8a2b30bc1b6e3ae1d1ae20bf5242555a122d9a4916334eed8e05bb7ca9"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PG-Reg-CTF/history.json",
+      "bytes": 3528,
+      "sha256": "82594d4fa01f9133c85e17da64e6d3fcfc333c2006aee9c801f4ec64662b3377"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PG-Reg-CTF/metrics.json",
+      "bytes": 11295,
+      "sha256": "0660d4300456dbe06527ec14e0f4dbcd9268dc1984a746e0541a1f90e4615f92"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PG-Reg-CTF/training.json",
+      "bytes": 365,
+      "sha256": "b73c3d8cb847041c5445c074922ed013cf793764768822e50998051a7f1edcc5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PatchTST/config.json",
+      "bytes": 13336,
+      "sha256": "847424c681effb750181c3c1c2678c8428cbc048339230c3c0732d80674ee2f8"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PatchTST/history.json",
+      "bytes": 7190,
+      "sha256": "bcb5f16dae490bfdee2715d5786ef1bef5499c97dfcc0f07b027be61d7b475db"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PatchTST/metrics.json",
+      "bytes": 11346,
+      "sha256": "f0f05b03d3102ff772fed7ebb8c4cc8d03aaa26334b3fc2c4ce6e84db1ab0efd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PatchTST/training.json",
+      "bytes": 365,
+      "sha256": "b1815580cfd0b0821e47a54e28b04c5d956134feea56e8f4dfac76c26be730f6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PhyGNN/config.json",
+      "bytes": 13389,
+      "sha256": "8d550993eeec2d01161278741870c573e1487cc37ee777c98a04c26dad09e613"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PhyGNN/history.json",
+      "bytes": 1945,
+      "sha256": "aa05387739fc688d86af12749e5dc20feb6f2d24b10e49aa7eb06e7ca4d0e9cf"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PhyGNN/metrics.json",
+      "bytes": 11131,
+      "sha256": "80a93d3fbffa9dcb2bb80afa8d4a95aee720aa729a4c8b376c633f3367647a34"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PhyGNN/training.json",
+      "bytes": 358,
+      "sha256": "bc6124353cfd9cbf740721261e395e1a2e0e0bba5f2ce13f6fb04daa6620a794"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/protected_existing.json",
+      "bytes": 68233,
+      "sha256": "35e1bd6f00ec4e528c5821e7de64b1392495c82f4463bed427923d774fedb4da"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/protocol.json",
+      "bytes": 15244,
+      "sha256": "b1693648d5ffe764092d1a64333caa6f31f330a04541e3accfee68c05576ff03"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/public_models.py",
+      "bytes": 10571,
+      "sha256": "c2ffb74e81fc4fc84c5d35563ceda8bb348e07524cdd9fb6799f154de52c3039"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/public_runner.py",
+      "bytes": 26129,
+      "sha256": "da478b4c24969a78fea12597287b241707d7df317b1af70a94271249c5b31f19"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/results.csv",
+      "bytes": 9739,
+      "sha256": "f48146521528637849fa3713b7a6bf538d9e026db20d005d6c92d9d0a2940cc7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/selection_lock.json",
+      "bytes": 13861,
+      "sha256": "1d8d8d09fc6cc1958f7ad14a34529db74483807ab7b365e92f79a6dd04319dd5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/summary.json",
+      "bytes": 26881,
+      "sha256": "3dfa3a59d710781c41042d6d25319c5e7986cc5c798264c2e2477ebc012a62f5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/MTGNN/config.json",
+      "bytes": 12802,
+      "sha256": "4f8c70811374588772f1baafbb39ee795f815094311a6954be233ce689bd01a6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/MTGNN/history.json",
+      "bytes": 3487,
+      "sha256": "42bdc7ad20ef677c0c7cd5c0aad77e350a4f75f00b1b08181ef1c4dbd8498e2a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/MTGNN/metrics.json",
+      "bytes": 5011,
+      "sha256": "dde3c4d4d89f7937a1b265a0435633181762cf9a21226fb31a5d7833d6b20446"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/MTGNN/training.json",
+      "bytes": 357,
+      "sha256": "aa3443447feeb4b9c906ae2e0eae57f55bcb0ec358184744fe846e8a4d2c258b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PG-Reg-CTF/config.json",
+      "bytes": 12794,
+      "sha256": "4e82a042dfee63a3cded2d59259facd484bef49fa3c8ac08ee1c6bb13b07ec3c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PG-Reg-CTF/history.json",
+      "bytes": 3719,
+      "sha256": "69c19e7465221e8d264c3438e702418a4281fbfbc089a6a6f2ad411ed690d001"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PG-Reg-CTF/metrics.json",
+      "bytes": 5024,
+      "sha256": "4524c075e7606e4c819c4ba8490752db3845140b34c7c0277195b76693884a58"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PG-Reg-CTF/training.json",
+      "bytes": 363,
+      "sha256": "6a4f7e55ff6c198fb0c8834579de6bdb9082a4bdba9f07ce459b38dd65d5ad57"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PatchTST/config.json",
+      "bytes": 12781,
+      "sha256": "7f73c000352586c8ed2c726d23a864bfabab10c9aaf71adcc3cd7c1db656b8d0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PatchTST/history.json",
+      "bytes": 3469,
+      "sha256": "73622d0972edfe10e4c005a6fb4b5d6a593fb107f313289e26f0449a9c2a349d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PatchTST/metrics.json",
+      "bytes": 4998,
+      "sha256": "0552919cce0fe9d9329e453450a6effb92f9cd232918ac4fcade780339d7a0d0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PatchTST/training.json",
+      "bytes": 362,
+      "sha256": "d2705e54642de1985b7621f4ee0a7e7a8621967e4420bcde1b1da7a709e74f7e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PhyGNN/config.json",
+      "bytes": 12835,
+      "sha256": "37b0b30ab6aa18ebf589a01d3b2ec8f7be9c06ef72028b4a0b134ab169049a25"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PhyGNN/history.json",
+      "bytes": 3468,
+      "sha256": "7ca4569a221d35971382932d452883f0b7eb6fb0489ff288a314523d98330ee8"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PhyGNN/metrics.json",
+      "bytes": 5009,
+      "sha256": "9afeeb87915d1bd103a3112ee07d3a84e96cc11159b969cd0ddfa69e05cf64ea"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PhyGNN/training.json",
+      "bytes": 358,
+      "sha256": "b58ef50748833ec924710e9bd65d12e7088458ecf2d5dc9ec2ddf21d148bf011"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/MTGNN/config.json",
+      "bytes": 12802,
+      "sha256": "508a1a41cfcf2ebdc84ca0a2c3e60f49502623c96ba56ff295383da897716359"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/MTGNN/history.json",
+      "bytes": 3482,
+      "sha256": "8c74ef1e95efd7c2892b871715b2fa2877c45c382a70e44a6e3d7b79065f845d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/MTGNN/metrics.json",
+      "bytes": 5017,
+      "sha256": "d734c1702c9cab84cc8d59673a1d67992a9f1b5219938d0525e7749ca3d559f2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/MTGNN/training.json",
+      "bytes": 357,
+      "sha256": "4020ba4679056f70fbc75fd11d4e4b090c62df394c0a517f7da801c93b56f0af"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PG-Reg-CTF/config.json",
+      "bytes": 12794,
+      "sha256": "c1343beccd7499572263e85e54262593c24817fa11641d15b3c9ab0647b15371"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PG-Reg-CTF/history.json",
+      "bytes": 3716,
+      "sha256": "b3b7a463abe644a4520008fbf864897eff18fc884473c3d7e8044eab55f1a3c5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PG-Reg-CTF/metrics.json",
+      "bytes": 5029,
+      "sha256": "2266452577dccd06d138a8d91292e64e7a166f75ace2f7fb090237abaf04b510"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PG-Reg-CTF/training.json",
+      "bytes": 364,
+      "sha256": "a4ea35eb0c4ab491d94b89367fd12896af12398cdbab00c2f7087e31d9c13545"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PatchTST/config.json",
+      "bytes": 12781,
+      "sha256": "01eecad4b355ce920791077fb1a13c6d261ced45279fd62417001c099f31b369"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PatchTST/history.json",
+      "bytes": 3469,
+      "sha256": "34cc80a67860608cdd89b64fc969638d97aaadb07798644f11bc19370f975ba0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PatchTST/metrics.json",
+      "bytes": 5008,
+      "sha256": "9d5df2baa177cc73a10e90a37d4cb3acf4d381b69b71148ae592dcff0b3fb105"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PatchTST/training.json",
+      "bytes": 362,
+      "sha256": "47cceb0d9ee9c905ad8ea41e48849763bd848b1a2f84e1f47e87063897df487d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PhyGNN/config.json",
+      "bytes": 12835,
+      "sha256": "a6a38108fc9f1cedb23c0a3354ca75641be842dbccbdefb7c77a309cd537c8ef"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PhyGNN/history.json",
+      "bytes": 3473,
+      "sha256": "bcfd7c55ca9637c913332f0cb019b358bdb0418de494a5d6c958dd10ad2670d7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PhyGNN/metrics.json",
+      "bytes": 5017,
+      "sha256": "52c70440ba639aa9623052c79949f192bebaa0b386df7297ce8b44cfe4512aea"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PhyGNN/training.json",
+      "bytes": 358,
+      "sha256": "7bcca54eed690bffea5c52905c803185d7aa26f3444846560f940876e49a430f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/MTGNN/config.json",
+      "bytes": 12802,
+      "sha256": "8a398b1b7fe2c1a99938a1cd4037067f7e092ba371e8246073e5106f253bc1cc"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/MTGNN/history.json",
+      "bytes": 3481,
+      "sha256": "89227952a467d1087f2919bfec0e1eb586ddb75906cc7d5fb0151df5fbdc67a5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/MTGNN/metrics.json",
+      "bytes": 4999,
+      "sha256": "35b3f1a26f0267d2171aaa85415bf96e9a1c0e10f42105ae94d172bc580bc34d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/MTGNN/training.json",
+      "bytes": 357,
+      "sha256": "d3b7decd2ee7af42a35df762b29e6ac1169b1e7247f0d0aca28fcd48f7c7918c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PG-Reg-CTF/config.json",
+      "bytes": 12794,
+      "sha256": "f607f5a09706786168ee8d886fff0e89a12ab7feba465d32eff9b7b1f7d25769"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PG-Reg-CTF/history.json",
+      "bytes": 3717,
+      "sha256": "9da9c0cb16017db05b067bdb2df3a2723d0d73721477642ca427802d2a02dcce"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PG-Reg-CTF/metrics.json",
+      "bytes": 5022,
+      "sha256": "39090ab4ab439655f4996815b00775c3c15f30250df518d882a8dedfb29af596"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PG-Reg-CTF/training.json",
+      "bytes": 364,
+      "sha256": "8858fe5aa94c5dddea5235dfb63ef40df94d6f3b439c7e4cf415e3929bc1170e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PatchTST/config.json",
+      "bytes": 12781,
+      "sha256": "665a8d466d42ec938633fc9429fc2ea6564ceb4f1310b2aa4891ff109f125554"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PatchTST/history.json",
+      "bytes": 3472,
+      "sha256": "059280422b7b642a8aeb39beb9bf935f8b67797a713b448c5f470a3172ecd99b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PatchTST/metrics.json",
+      "bytes": 5008,
+      "sha256": "e2fba0f6a5f45066a752721a540e4c213987eaed512881fb86434e3a0ecf4922"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PatchTST/training.json",
+      "bytes": 361,
+      "sha256": "80e674ef30e54dfff972f59dbc2a3baf1e5be427043c54ab7464d1e3bdc7c502"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PhyGNN/config.json",
+      "bytes": 12835,
+      "sha256": "a311a55d080aa75ae3e77390ea815845e6d987264c4ed82e1fb3ced9c03c1ff6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PhyGNN/history.json",
+      "bytes": 3477,
+      "sha256": "9fada4ce6340154f85d94a861a1245c6679cbd153ff5a9b1298583510f4fe473"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PhyGNN/metrics.json",
+      "bytes": 5019,
+      "sha256": "e3a5d7ff3dd87e5de34f65e7aae0ff9ec74aef5a242f54fafc6bf067f5539281"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PhyGNN/training.json",
+      "bytes": 358,
+      "sha256": "716160f91828d97acb4bf11fe27dd121217e9a846482057506c0d5ba94661064"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/test_public.py",
+      "bytes": 6473,
+      "sha256": "ec521f33cfbb729eae07ee65afb902bde5ad5e6d58f9794be70bd6c43c43d807"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/UPSTREAM.md",
+      "bytes": 3823,
+      "sha256": "9cf5487b2098ca04e40ba17facf3457913c70a0b53f89a99c01d543536af00e0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/comparison_models.py",
+      "bytes": 14983,
+      "sha256": "331bf1475455349ed7e9692d800b1a38269fd78805c016872518915eaf78e389"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/comparison_runner.py",
+      "bytes": 23134,
+      "sha256": "c63c6eb74e60342cf05e39152353e26270450028b6e1b6a6687ff9ed98e4099b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN/config.json",
+      "bytes": 4155,
+      "sha256": "1a087d0b57009b8009f98b13413a3a8d4f0745cad27d466f7465175909ce6c6f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN/history.json",
+      "bytes": 2289,
+      "sha256": "c4e8cd9d0b1a0fcec518a7a6db6a546d97f61d49739f2dbb9a1b4badd928e078"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN/metrics.json",
+      "bytes": 6465,
+      "sha256": "06274f4bcaa8fcb1bc069c3eb75a995214497064fd7509736b0ef524465bc01e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN/training.json",
+      "bytes": 1133,
+      "sha256": "694582ca72be72df9a2cca7a54ae79411ae62f5041cd6af8a3add6eb1f63b43c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF/config.json",
+      "bytes": 4147,
+      "sha256": "f4a387013d084b5a10f724176faac0c566ca389029f1a31c41eb8a400e771611"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF/history.json",
+      "bytes": 2151,
+      "sha256": "5ccaf918d2a4a2956a49a0e9faa7ca654080354064a64cc9d9ae41e76581e719"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF/metrics.json",
+      "bytes": 6455,
+      "sha256": "6bd34b1532ba95bd1c155fd6e10ad675e8ba2e4433f2e6aa1ab5d6d60b644dd1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF/training.json",
+      "bytes": 1138,
+      "sha256": "d4fc3b6453d3a48d552ada017b948813bbc638c43192c12600a9abeff92964dc"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST/config.json",
+      "bytes": 4135,
+      "sha256": "4eada6cdc640c9f65929ad8dcdb660bcaca41c643c91f10c9c804eb77ca1c04c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST/history.json",
+      "bytes": 4116,
+      "sha256": "a52dab806d703d87333a7021aaf65194c024896f65ba447b2b9c82bd211a3cc2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST/metrics.json",
+      "bytes": 6472,
+      "sha256": "ca12ea6699c9f1d4b71c425da783932b7d68573299a69a399eb5c4b949f5e3d9"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST/training.json",
+      "bytes": 1135,
+      "sha256": "1a573ff5b01cf99b25e2bf09de2fb1e1c674da7793ef07c6a3f3509af8e1e585"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN/config.json",
+      "bytes": 4188,
+      "sha256": "760d1eca72e4f8a99491cf17dc2153e4a5a4b43ffea761f25178318a40b08424"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN/history.json",
+      "bytes": 3594,
+      "sha256": "28e88a38180b47db6a4fe19a5c21ac8413c2a0d23880e5e35ca49808bab10c63"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN/metrics.json",
+      "bytes": 6390,
+      "sha256": "24f53ed09ec98dbaad741f5d72839e4617fd5a492ca6e14abbdfe64fe63b80a2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN/training.json",
+      "bytes": 1134,
+      "sha256": "f9c67aad4500ba0ed70f8f5421644cc0b9a13f437db49e712cd850e46ff6ee0f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/MTGNN/config.json",
+      "bytes": 4155,
+      "sha256": "fa8d5cf36d6fc4cb51ecb5b87311e016bd05e3d3f245e407ee6b8c20dc1c17e6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/MTGNN/history.json",
+      "bytes": 4135,
+      "sha256": "446a5cc183e73dbc75173a56534dd2675638fb82589fbe86a2ec1e08262d592d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/MTGNN/metrics.json",
+      "bytes": 6457,
+      "sha256": "b173e2e7cb325274b3d3ee50e04092e5875fb8d67c720247ab0eaa8d52faf844"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/MTGNN/training.json",
+      "bytes": 1136,
+      "sha256": "3f2b1ea88b7b7ba301bd6b0678a7cb168264fe8ba2efef4959aef8588f85ac22"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PG-Reg-CTF/config.json",
+      "bytes": 4147,
+      "sha256": "31c0041cd149b58a5639bbb65e8930c815d0c941bb83e210540e34c019bb4543"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PG-Reg-CTF/history.json",
+      "bytes": 2437,
+      "sha256": "aa5dbb26d3782ecd836f2c92ae2076f5b297d38da7c4803ec92c20de55410c0d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PG-Reg-CTF/metrics.json",
+      "bytes": 6463,
+      "sha256": "62274244abe063702380659dac9e0771e1a6d62601ac4a5fa555a5f4eb789aef"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PG-Reg-CTF/training.json",
+      "bytes": 1139,
+      "sha256": "c24a74bf47bff8af88ef2afc1cb7a0ef8344ca9b4555502e1e256ecbce7522c2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PatchTST/config.json",
+      "bytes": 4135,
+      "sha256": "5bd49e7c674dd7774dd4dc5ceb63416071f2578f8f633059fdb71cf6c5eee099"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PatchTST/history.json",
+      "bytes": 3869,
+      "sha256": "f0e10054d4e3ba301ca9d394c1fd89b32463c62dfc44653e351ae99dd02efed2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PatchTST/metrics.json",
+      "bytes": 6442,
+      "sha256": "a4103e46681ff9905cbb16578e38b935f4d9f2d70cfe1074e187b28a73270fd8"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PatchTST/training.json",
+      "bytes": 1136,
+      "sha256": "799bc6a65174062791ff776d3aa70aa5b9f8753ecc17e13510de713d27b7897a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PhyGNN/config.json",
+      "bytes": 4188,
+      "sha256": "7fc5748a59f8328cccc5e2837cd0f4dbf98996a3c3e34c0451feb1647dac7b80"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PhyGNN/history.json",
+      "bytes": 4119,
+      "sha256": "94fd7864f52fa168822e154c5b69b0198a72e793fc669869351b191ea5f5c9fa"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PhyGNN/metrics.json",
+      "bytes": 6414,
+      "sha256": "d47749094f4e26678f315a7b2aba9d58d0289ebafeb15702514fd4a9eccaca98"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PhyGNN/training.json",
+      "bytes": 1134,
+      "sha256": "306874f690932cdc07b9755f24cd66aeb7fe8297c13fc185772abfc751e23e15"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/MTGNN/config.json",
+      "bytes": 4155,
+      "sha256": "a230da3038be558c4082ee27a4fc881143944015d581f881c8de4d32ac0eb1b4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/MTGNN/history.json",
+      "bytes": 4122,
+      "sha256": "eb661f91a6f042b1749764689ccc2cc4fe4f9301fbf9212f6154fa6808631c46"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/MTGNN/metrics.json",
+      "bytes": 6454,
+      "sha256": "1f8843be19c6d8081de2f29e657b7f01a200d33407f00f3c7a7facc3fc0ec792"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/MTGNN/training.json",
+      "bytes": 1136,
+      "sha256": "d70600dcc32f353f1e0102fbef36c31e296830a795e4eda54233e251b48aa241"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PG-Reg-CTF/config.json",
+      "bytes": 4147,
+      "sha256": "985718163c16d1d8550f070d07e8f84b3e3a48b4e50874bae3a85f1996f2bfee"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PG-Reg-CTF/history.json",
+      "bytes": 4125,
+      "sha256": "67c7072b707dfb0d2726c3952057174a69ba9de153b9b61fd5792f67b33e50d2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PG-Reg-CTF/metrics.json",
+      "bytes": 6447,
+      "sha256": "9fb3bcf705e7fdb857acfd68d8527031b9b2ca3350a5d1b971258cc58efeb5d6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PG-Reg-CTF/training.json",
+      "bytes": 1140,
+      "sha256": "b21032689e4fa9b15ce588f307c45cb0bd6b912b8ab375136a0470991a524f5d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PatchTST/config.json",
+      "bytes": 4135,
+      "sha256": "cda73e7b9fa28a1c2139bd4d5ea79b124a321725defb0e4509a00cea1cccc414"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PatchTST/history.json",
+      "bytes": 3339,
+      "sha256": "913a96c87f28df42a3baa39d055b27f8f49242c20db15cee0ec9961ce1b80334"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PatchTST/metrics.json",
+      "bytes": 6473,
+      "sha256": "2770fc312731d54c42b46239f36a73bd6626e1b7e63bfbee994a213e138f0036"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PatchTST/training.json",
+      "bytes": 1137,
+      "sha256": "be86c39af920836e5bdf439a714c8e39fa22b377f306bf6d7091ee7c24cac851"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PhyGNN/config.json",
+      "bytes": 4188,
+      "sha256": "bd30e6a9e4973fae1497ca190327b062a565f9b83288e2941881483ed9c6e8ff"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PhyGNN/history.json",
+      "bytes": 3070,
+      "sha256": "aa2fb7163f22dadfeb3e47b529b2721caad8cff3312b282010579ae0da105701"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PhyGNN/metrics.json",
+      "bytes": 6417,
+      "sha256": "db9628cecb0416fe1af4e83821339b604b6b2f18ea4b167836cae94afeb67726"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PhyGNN/training.json",
+      "bytes": 1133,
+      "sha256": "a3e6db0d223d12a9b0d06b9b68361af29341c7c18bd238a0ec99cf7d46e7c5bb"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/pilot_ledger.json",
+      "bytes": 1288,
+      "sha256": "106fed9eeceac58ecd29f56d064eee528793897d53a6566fe493aaa759eae644"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/protected_existing.json",
+      "bytes": 17499,
+      "sha256": "06abf225d6c45cd8fa2fe4e1a67855f8ebdf606a658a175f47d6173baee7fc8b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/protocol.json",
+      "bytes": 2972,
+      "sha256": "feeca4cf4487e3b3fcc8c02cd33c22a7e8ec30b5fe5fb25feff7acdf38ee8802"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/results.csv",
+      "bytes": 3052,
+      "sha256": "d2dd0a971da0d81d520d1f090fb181764ff664ccf9e00e2018dac99d79a0df6e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/selection_lock.json",
+      "bytes": 3554,
+      "sha256": "3c48902014d74db59de88579f189ceaab2d462f8adfe954126bbb0f9203d250d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/summary.json",
+      "bytes": 9367,
+      "sha256": "e23c231362f74f3ec2405befdaa7aad03f48b44975f38c60e70c32fa14ba75d3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/test_comparison.py",
+      "bytes": 4556,
+      "sha256": "075c999fc9c0b63cddb0f07da96fc4a86a148716ea74a1e9c55002fa21cfcb73"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/acquire.py",
+      "bytes": 3150,
+      "sha256": "e0a3f75202631bc59dbc72bbbc8e996dd80051a35672263ab49572522a480f08"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data/control_reference.json",
+      "bytes": 395,
+      "sha256": "f0289a721cd2d9de3f125fce3d5698eaf571db60dee0b4f1abeff23f6c37b55c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data/metadata.json",
+      "bytes": 34212,
+      "sha256": "9f567acdd5b308d231999e5238df4718867b8b3dc938e3781d61c95e0386b328"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data/provenance.json",
+      "bytes": 463,
+      "sha256": "bb8bd5329e799eded1ca1bbb2b6138ff0e1788b08832b64a8a778b213b8c86b3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data.py",
+      "bytes": 1997,
+      "sha256": "f035458d4bb939b58f797c013638f0bb01ae6a839d48477614339a41855eb0ea"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/final_evaluate.py",
+      "bytes": 5547,
+      "sha256": "b69173354eeca76e5f94a12b96735eaa4d0e3dfe761442ca024c15b03a22558d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/finish_single_seed.py",
+      "bytes": 3135,
+      "sha256": "89dc4abf5d41a4e6f20e5b6e3425307782d3849dc57e46799a25751f9f260c05"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/common_lr3e4/train100/CTF_seed42/config.json",
+      "bytes": 8904,
+      "sha256": "0e607e085c8935e997829725dfb5a7507d8d2ad35f9ea4a6df07e9a1c88cb19d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/common_lr3e4/train100/CTF_seed42/history.json",
+      "bytes": 7131,
+      "sha256": "125896681e6542cefad51f0c05d4b225d74fa8bb922903f6edaa904c8f431a77"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/common_lr3e4/train100/CTF_seed42/test_metrics.json",
+      "bytes": 13191,
+      "sha256": "5b924ef7e6fed60b27e7d7d40755644eb4307f55ef597b6daf91db37a13b141c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/common_lr3e4/train100/CTF_seed42/training.json",
+      "bytes": 257,
+      "sha256": "34e54011be97af87e98fbe2d6e9e6a8bb3c5f64a99b6bd242693de72b5a9cdef"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/model_v5.py",
+      "bytes": 4839,
+      "sha256": "03464c08ec09398499f1c5368fb914be4e508cb9b4896bb3cf6e4fe675b9a4b1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/model_v6.py",
+      "bytes": 948,
+      "sha256": "641eb373d76b7897699a88973dae5e653e59a62a2fbcada7c512479cb610ceb2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/model_v7.py",
+      "bytes": 1929,
+      "sha256": "dbb5ffb4880c836449ff2be6106ba620f06838391fea49d7f043a3fba63b8a3d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/test_v5.py",
+      "bytes": 2448,
+      "sha256": "cc711a3cf5bc55d72c6823fc9f8a171d60bf6f96a032b7d54f02e2b8d830f7cd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/train_v5.py",
+      "bytes": 634,
+      "sha256": "34d97f0f6d86c8a3e52dc9cca2f640fe7a1d72bd19826602b34fbb56ff7f93c1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/train_v6.py",
+      "bytes": 543,
+      "sha256": "5a43a2e718ec8fd62d88154838f05b17ae8b0f229f7af9ca040ea665f28e04c5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/train_v7.py",
+      "bytes": 451,
+      "sha256": "61509d08dbb3ac80821397857e0df33d2606daa02c30846e1d0eb7af83165af7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/v7_lr3e4/train100/Physics_seed42/config.json",
+      "bytes": 9634,
+      "sha256": "2d07b4b33d3f56a508307115d34ca90c44a06211f3c8ca6ffca415ba495b09c5"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/v7_lr3e4/train100/Physics_seed42/history.json",
+      "bytes": 57931,
+      "sha256": "176f70bb468eea2a8fe2cd18213b1f78c8bc6cdf2d7905da6312951998dfe46b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/v7_lr3e4/train100/Physics_seed42/test_metrics.json",
+      "bytes": 13193,
+      "sha256": "d418db3ef71dce7994e7525427b3ea7de7600e412e4849ed5abe92acc33c0dd3"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/v7_lr3e4/train100/Physics_seed42/training.json",
+      "bytes": 262,
+      "sha256": "041fa02b15edb40298e708799e57416172952b8c3acbeff6b954d7f752284ffd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/prepare.py",
+      "bytes": 4746,
+      "sha256": "ccec7477c5bba8a2caab230fac505a65101bd0b51cebb4daef8c587b4e92f2f0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/public_model.py",
+      "bytes": 6875,
+      "sha256": "dc8b5bb53d5b18e245cb6ea516b665988f26e408a89204f6c9908850cfc82342"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/public_model_v2.py",
+      "bytes": 7834,
+      "sha256": "e7375be8d57e0c1b8c8f9a9f374e97c59e7f570be9939395926ebf0bc2481efd"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/public_model_v4.py",
+      "bytes": 4571,
+      "sha256": "3781f457cca63327cafb3397df81a9061fcce465f31ad27f72054e348f47b19d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/public_physics.py",
+      "bytes": 7366,
+      "sha256": "75f51a3e4405dc3ef1eb1ad437d40dc2bc8f73735fa89769de1c842e4726d1e4"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/public_physics_v2.py",
+      "bytes": 2573,
+      "sha256": "bcf9e746b75e8b51364511519e6b937902a01dae1f8128df52697ef7f63c7281"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/public_physics_v3.py",
+      "bytes": 2407,
+      "sha256": "249226cf707255c7387a18c486312f567b6859506323814955d5a0de596dc8bb"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/public_physics_v4.py",
+      "bytes": 3613,
+      "sha256": "5a1e99f7de76bcfc833fa3fe3d3dfcafff011e059c66a3bb90ce7337495ddcc1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/queue_run.py",
+      "bytes": 577,
+      "sha256": "13077b99b94a638bc8b5c24967219271ce887267658d4dd9f2dda34b9f45ab0e"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/summarize_final.py",
+      "bytes": 7298,
+      "sha256": "a45aca50d864498c8ebf6eb6dfe7ad5a5614d7cf7f60fe7375fe5b1920a139db"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_data.py",
+      "bytes": 1658,
+      "sha256": "5cac20e023986bf1a253e958d3fc6a187099c4be2030a9acae6e9a6f65bfe0e0"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_final_protocol.py",
+      "bytes": 1249,
+      "sha256": "86282f538c0766dc7a324f3813b9b239c915acdc373a72fa89e636499ddc611f"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_model.py",
+      "bytes": 2044,
+      "sha256": "2598a2cc2977288b0b68c612351aa70b3344bfef6e020cb7584054ca3fc461e6"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_physical.py",
+      "bytes": 1864,
+      "sha256": "a29e8a772f2543a8f8ef40a64bdbca1acf5f354ef70208e1b20f63e7c0845f85"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_result_artifacts.py",
+      "bytes": 1700,
+      "sha256": "ecc888125afe2de919b617e9239824f69e5ef34dfb5f1aab3cf602feb2123422"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_training.py",
+      "bytes": 1210,
+      "sha256": "61c32e45a4c4ea6229f4239caa523322329d49a02f35e6187706c07f649a9090"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_v2.py",
+      "bytes": 2039,
+      "sha256": "a32528627248bd5821fa1f6df2c45c8b3f432ac3297a77e04e0012b43c8ea74a"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_v2_integration.py",
+      "bytes": 1618,
+      "sha256": "32bda9a03862e28263284e5c7d78b6bcaeb18c5e9a4dab246f508fe6faf8db4c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_v3_topology.py",
+      "bytes": 881,
+      "sha256": "0d3c70e70405cba270f1e3c95764fc33053eae12026c7901b8e6728e8df55c94"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_v4_boundary.py",
+      "bytes": 1353,
+      "sha256": "a447e250bf4aa894704d53117f51405b4ad74b6de5a3fdf4e8591c89a31ff1e7"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/tests/test_v4_integration.py",
+      "bytes": 1467,
+      "sha256": "14037ffae85ba07d708e4e9f1f1bc1b8c85f15dce3ec038611ce103929051787"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/train_public.py",
+      "bytes": 11425,
+      "sha256": "1b2e9cd2be5a08be9d5208cfd87ed04c718194aa9afb47805e02a874b11edd9d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/train_v2.py",
+      "bytes": 12112,
+      "sha256": "14b1a038a57231a7c3d8c9c24bdcb2be03e694e350203be61dc43978db9b33ae"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/train_v3.py",
+      "bytes": 496,
+      "sha256": "ab17c9a280b944147d766c68cb7e978e800a598498fba2a378b9493d5a28c18c"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/train_v4.py",
+      "bytes": 698,
+      "sha256": "7133c8ebfd7d39d2f3e0d4df74c4e98d83a45daa33a0d0dad1576a3830cbc682"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/CTF_seed42/config.json",
+      "bytes": 3063,
+      "sha256": "ad1b1ab9ceaf4a1ab587a579dd2642c469818fae3cc0cd24fa868d34f32fc5db"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/CTF_seed42/history.json",
+      "bytes": 3132,
+      "sha256": "009ea41f9cd4d038064294ee48812b5c0488f944be470d5973e277f34d26f595"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/CTF_seed42/metrics.json",
+      "bytes": 6426,
+      "sha256": "7ca7b7fc86867c02c9162d71585e22bc8575ce95260952b3147ede127372cd83"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/CTF_seed42/training.json",
+      "bytes": 1057,
+      "sha256": "c9dd0bd4ce1665940828a1f6fb8394e7e99a2c0ad870a31079f6b39d6be71c0d"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/Physics_seed42/config.json",
+      "bytes": 3186,
+      "sha256": "e9f234ac3b989b56879227c4c80499e573f6e4131121a05cfeadec7eaeb1d340"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/Physics_seed42/history.json",
+      "bytes": 40275,
+      "sha256": "23a02a1ed2295657e783ed4f7c6f83c39a80f7c8ca7970ac13c9fbd6121f53a2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/Physics_seed42/metrics.json",
+      "bytes": 8618,
+      "sha256": "7f2b411e495c5ffb2b6c35b0e2dd8ca9ae87620955fa51c8b1844b5f4d992ce1"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/Physics_seed42/training.json",
+      "bytes": 1061,
+      "sha256": "f7f28eb00237540a41d628d8434c82eef9003452f76e7c34eac3ed75564e9d05"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/test_random_gap_summary.py",
+      "bytes": 1170,
+      "sha256": "9570ee3b6578193067145664994f18ad2bd438f00c1c16197c756e5468dff99b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/test_random_time_decile_coverage.py",
+      "bytes": 895,
+      "sha256": "8278016b2765d570af638c6f125aec84fb3b0541e2177fd2e7d017ab8037013b"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/test_random_time_gap_integration.py",
+      "bytes": 1260,
+      "sha256": "7aa433abe379420ffd9916bfb58393a313f9e7f0caf43ddf28a634e5ee4febd2"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/test_random_time_gaps.py",
+      "bytes": 1845,
+      "sha256": "559a24bf3fd2626a7880511aabfbcfe83518049036c55eeb0035861967f4c364"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/test_relation.py",
+      "bytes": 9511,
+      "sha256": "5440c28415737a731bcbbd42de9d592cbde905053110cfcb5181c1afc7b67cef"
+    },
+    {
+      "path": "workspace/PhysicsRelationCTF/time_gap_sampling.py",
+      "bytes": 5069,
+      "sha256": "68da6978167cbe5d067a35f68074a65596d83256a942d2d88b7d745c79533a59"
+    }
+  ]
+}

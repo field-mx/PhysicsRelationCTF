@@ -1,0 +1,39 @@
+{
+  "model": "PG-Reg-CTF",
+  "seed": 44,
+  "best_val_mse": 0.09675245629278749,
+  "best_val_mae": 0.10400044608823594,
+  "best_epoch": 10,
+  "epochs_completed": 15,
+  "parameter_count": 1655648,
+  "seconds": 713.4796980189858,
+  "selection": {
+    "sampling": "random_gaps",
+    "subset_seed": 20260922,
+    "train_end": 14540,
+    "rows": 14540,
+    "full_train_windows": 14349,
+    "selected_train_windows": 14349,
+    "retained_segments": [
+      [
+        0,
+        14540
+      ]
+    ],
+    "deleted_segments": [],
+    "mask_sha256": "cc8470001d13b59fcbb7f32cacd07448e24128d7279da6c7c05bb32b8612076c",
+    "windows": {
+      "train": 14349,
+      "val": 50,
+      "test": 50
+    },
+    "origins_sha256": {
+      "train": "091a68fbaa7ba7ff30655ff7b0a8495151f45f0150b95f3e9b81fc45e26acffd",
+      "val": "2f71b2a803e2f74340af983f54f80365170baa2a9583fcb1f34f48fe0dea7bff",
+      "test": "f69634b2911026d646496f2756cf0f119aea256868be833037eb8cab0743e8a9"
+    },
+    "scaler_fit": "retained training timestamps only"
+  },
+  "test_evaluated": false,
+  "checkpoint_sha256": "06498b7a869f2c103871183ba4cbebe587aa15a8bcb53130c32d54d8423fd48e"
+}

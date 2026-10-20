@@ -1,0 +1,13 @@
+{
+  "dataset": "tep",
+  "model": "PG-Reg-CTF",
+  "seed": 44,
+  "best_val_mse": 0.8005224953831821,
+  "best_val_mae": 0.6892113650579842,
+  "best_epoch": 15,
+  "epochs_completed": 16,
+  "parameter_count": 1611796,
+  "seconds": 1062.7448336769594,
+  "test_evaluated": false,
+  "checkpoint_sha256": "44e3dc8f2649fc8d6521a751f245966de6fad5a4fc6b4c5dea91455e180a703a"
+}

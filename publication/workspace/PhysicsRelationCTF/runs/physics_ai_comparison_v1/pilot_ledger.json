@@ -1,0 +1,42 @@
+[
+  {
+    "model": "PhyGNN",
+    "seed": 42,
+    "val_mse": 0.11115382405790099,
+    "val_mae": 0.15039699616892568,
+    "reference_val_mse": 0.09302645937697399,
+    "decision": "append_seeds_43_44",
+    "epochs": 14,
+    "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN"
+  },
+  {
+    "model": "MTGNN",
+    "seed": 42,
+    "val_mse": 0.0943698156396288,
+    "val_mae": 0.10306992110898396,
+    "reference_val_mse": 0.09302645937697399,
+    "decision": "append_seeds_43_44",
+    "epochs": 9,
+    "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN"
+  },
+  {
+    "model": "PatchTST",
+    "seed": 42,
+    "val_mse": 0.09628937724683183,
+    "val_mae": 0.1037916388027298,
+    "reference_val_mse": 0.09302645937697399,
+    "decision": "append_seeds_43_44",
+    "epochs": 16,
+    "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST"
+  },
+  {
+    "model": "PG-Reg-CTF",
+    "seed": 42,
+    "val_mse": 0.10197038816769122,
+    "val_mae": 0.11095663817502749,
+    "reference_val_mse": 0.09302645937697399,
+    "decision": "append_seeds_43_44",
+    "epochs": 8,
+    "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF"
+  }
+]

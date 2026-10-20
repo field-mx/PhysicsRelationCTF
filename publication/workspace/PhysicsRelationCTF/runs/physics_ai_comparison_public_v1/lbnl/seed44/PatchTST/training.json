@@ -1,0 +1,13 @@
+{
+  "dataset": "lbnl",
+  "model": "PatchTST",
+  "seed": 44,
+  "best_val_mse": 0.07575500787012168,
+  "best_val_mae": 0.044031007793752894,
+  "best_epoch": 26,
+  "epochs_completed": 32,
+  "parameter_count": 1759988,
+  "seconds": 74.79142290004529,
+  "test_evaluated": false,
+  "checkpoint_sha256": "e58fbdbb7a76649f39d5878c44f6821215e3ebfd80c971a6b894bf5d1b87201e"
+}

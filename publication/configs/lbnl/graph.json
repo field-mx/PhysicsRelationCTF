@@ -1,0 +1,2932 @@
+{
+  "channels": [
+    "CDWL_CW_FLOW",
+    "CDWL_PM_POW_1",
+    "CDWL_PM_POW_2",
+    "CDWL_PM_POW_3",
+    "CDWL_RW_TEMP",
+    "CDWL_SW_TEMP",
+    "CHL_CD_FLOW_1",
+    "CHL_CD_FLOW_2",
+    "CHL_CD_FLOW_3",
+    "CHL_COMP_SPD_CTRL_1",
+    "CHL_COMP_SPD_CTRL_2",
+    "CHL_COMP_SPD_CTRL_3",
+    "CHL_CW_FLOW_1",
+    "CHL_CW_FLOW_2",
+    "CHL_CW_FLOW_3",
+    "CHL_POW_1",
+    "CHL_POW_2",
+    "CHL_POW_3",
+    "CHL_SWCD_TEMP_1",
+    "CHL_SWCD_TEMP_2",
+    "CHL_SWCD_TEMP_3",
+    "CHL_RW_TEMP_1",
+    "CHL_RW_TEMP_2",
+    "CHL_RW_TEMP_3",
+    "CHL_STA_2",
+    "CHL_STA_3",
+    "CHL_RWCD_TEMP_1",
+    "CHL_RWCD_TEMP_2",
+    "CHL_RWCD_TEMP_3",
+    "CHL_SW_TEMP_1",
+    "CHL_SW_TEMP_2",
+    "CHL_SW_TEMP_3",
+    "CT_FAN_SPD_1",
+    "CT_FAN_SPD_2",
+    "CT_FAN_SPD_3",
+    "CT_FAN_SPD_CTRL_1",
+    "CT_FAN_SPD_CTRL_2",
+    "CT_FAN_SPD_CTRL_3",
+    "CT_FLOW_1",
+    "CT_FLOW_2",
+    "CT_FLOW_3",
+    "CT_POW_1",
+    "CT_POW_2",
+    "CT_POW_3",
+    "CT_RW_TEMP_1",
+    "CT_RW_TEMP_2",
+    "CT_RW_TEMP_3",
+    "CT_STA_2",
+    "CT_STA_3",
+    "CT_SW_TEMPSPT",
+    "CT_SW_TEMP_1",
+    "CT_SW_TEMP_2",
+    "CT_SW_TEMP_3",
+    "CWL_PRI_CW_FLOW",
+    "CWL_PRI_PM_POW_1",
+    "CWL_PRI_PM_POW_2",
+    "CWL_PRI_PM_POW_3",
+    "CWL_PRI_RW_TEMP",
+    "CWL_PRI_SW_TEMP",
+    "CWL_PRI_SW_TEMPSPT",
+    "CWL_SEC_CW_FLOW",
+    "CWL_SEC_DP",
+    "CWL_SEC_LOAD",
+    "CWL_SEC_PM_POW_1",
+    "CWL_SEC_PM_POW_2",
+    "CWL_SEC_PM_SPD_1",
+    "CWL_SEC_PM_SPD_2",
+    "CWL_SEC_PM_STA_2",
+    "CWL_SEC_RW_TEMP",
+    "CWL_SEC_SW_TEMP",
+    "OA_TEMP",
+    "OA_TEMP_WB",
+    "TWV_CTRL"
+  ],
+  "relations": [
+    "energy_balance",
+    "heat_transport",
+    "hydraulic",
+    "actuator",
+    "fan_affinity",
+    "mixing"
+  ],
+  "features": [
+    {
+      "name": "evap_heat_1",
+      "op": "heat",
+      "inputs": [
+        12,
+        21,
+        29
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_1",
+        "CHL_RW_TEMP_1",
+        "CHL_SW_TEMP_1"
+      ]
+    },
+    {
+      "name": "cond_heat_1",
+      "op": "heat",
+      "inputs": [
+        6,
+        18,
+        26
+      ],
+      "input_names": [
+        "CHL_CD_FLOW_1",
+        "CHL_SWCD_TEMP_1",
+        "CHL_RWCD_TEMP_1"
+      ]
+    },
+    {
+      "name": "balance_power_1",
+      "op": "balance_power",
+      "inputs": [
+        12,
+        6,
+        21,
+        29,
+        26,
+        18,
+        15
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_1",
+        "CHL_CD_FLOW_1",
+        "CHL_RW_TEMP_1",
+        "CHL_SW_TEMP_1",
+        "CHL_RWCD_TEMP_1",
+        "CHL_SWCD_TEMP_1",
+        "CHL_POW_1"
+      ]
+    },
+    {
+      "name": "balance_cond_temp_1",
+      "op": "balance_cond_temp",
+      "inputs": [
+        12,
+        6,
+        21,
+        29,
+        26,
+        18,
+        15
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_1",
+        "CHL_CD_FLOW_1",
+        "CHL_RW_TEMP_1",
+        "CHL_SW_TEMP_1",
+        "CHL_RWCD_TEMP_1",
+        "CHL_SWCD_TEMP_1",
+        "CHL_POW_1"
+      ]
+    },
+    {
+      "name": "balance_evap_temp_1",
+      "op": "balance_evap_temp",
+      "inputs": [
+        12,
+        6,
+        21,
+        29,
+        26,
+        18,
+        15
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_1",
+        "CHL_CD_FLOW_1",
+        "CHL_RW_TEMP_1",
+        "CHL_SW_TEMP_1",
+        "CHL_RWCD_TEMP_1",
+        "CHL_SWCD_TEMP_1",
+        "CHL_POW_1"
+      ]
+    },
+    {
+      "name": "fan_cube_1",
+      "op": "cube",
+      "inputs": [
+        32
+      ],
+      "input_names": [
+        "CT_FAN_SPD_1"
+      ]
+    },
+    {
+      "name": "evap_heat_2",
+      "op": "heat",
+      "inputs": [
+        13,
+        22,
+        30
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_2",
+        "CHL_RW_TEMP_2",
+        "CHL_SW_TEMP_2"
+      ]
+    },
+    {
+      "name": "cond_heat_2",
+      "op": "heat",
+      "inputs": [
+        7,
+        19,
+        27
+      ],
+      "input_names": [
+        "CHL_CD_FLOW_2",
+        "CHL_SWCD_TEMP_2",
+        "CHL_RWCD_TEMP_2"
+      ]
+    },
+    {
+      "name": "balance_power_2",
+      "op": "balance_power",
+      "inputs": [
+        13,
+        7,
+        22,
+        30,
+        27,
+        19,
+        16
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_2",
+        "CHL_CD_FLOW_2",
+        "CHL_RW_TEMP_2",
+        "CHL_SW_TEMP_2",
+        "CHL_RWCD_TEMP_2",
+        "CHL_SWCD_TEMP_2",
+        "CHL_POW_2"
+      ]
+    },
+    {
+      "name": "balance_cond_temp_2",
+      "op": "balance_cond_temp",
+      "inputs": [
+        13,
+        7,
+        22,
+        30,
+        27,
+        19,
+        16
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_2",
+        "CHL_CD_FLOW_2",
+        "CHL_RW_TEMP_2",
+        "CHL_SW_TEMP_2",
+        "CHL_RWCD_TEMP_2",
+        "CHL_SWCD_TEMP_2",
+        "CHL_POW_2"
+      ]
+    },
+    {
+      "name": "balance_evap_temp_2",
+      "op": "balance_evap_temp",
+      "inputs": [
+        13,
+        7,
+        22,
+        30,
+        27,
+        19,
+        16
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_2",
+        "CHL_CD_FLOW_2",
+        "CHL_RW_TEMP_2",
+        "CHL_SW_TEMP_2",
+        "CHL_RWCD_TEMP_2",
+        "CHL_SWCD_TEMP_2",
+        "CHL_POW_2"
+      ]
+    },
+    {
+      "name": "fan_cube_2",
+      "op": "cube",
+      "inputs": [
+        33
+      ],
+      "input_names": [
+        "CT_FAN_SPD_2"
+      ]
+    },
+    {
+      "name": "evap_heat_3",
+      "op": "heat",
+      "inputs": [
+        14,
+        23,
+        31
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_3",
+        "CHL_RW_TEMP_3",
+        "CHL_SW_TEMP_3"
+      ]
+    },
+    {
+      "name": "cond_heat_3",
+      "op": "heat",
+      "inputs": [
+        8,
+        20,
+        28
+      ],
+      "input_names": [
+        "CHL_CD_FLOW_3",
+        "CHL_SWCD_TEMP_3",
+        "CHL_RWCD_TEMP_3"
+      ]
+    },
+    {
+      "name": "balance_power_3",
+      "op": "balance_power",
+      "inputs": [
+        14,
+        8,
+        23,
+        31,
+        28,
+        20,
+        17
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_3",
+        "CHL_CD_FLOW_3",
+        "CHL_RW_TEMP_3",
+        "CHL_SW_TEMP_3",
+        "CHL_RWCD_TEMP_3",
+        "CHL_SWCD_TEMP_3",
+        "CHL_POW_3"
+      ]
+    },
+    {
+      "name": "balance_cond_temp_3",
+      "op": "balance_cond_temp",
+      "inputs": [
+        14,
+        8,
+        23,
+        31,
+        28,
+        20,
+        17
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_3",
+        "CHL_CD_FLOW_3",
+        "CHL_RW_TEMP_3",
+        "CHL_SW_TEMP_3",
+        "CHL_RWCD_TEMP_3",
+        "CHL_SWCD_TEMP_3",
+        "CHL_POW_3"
+      ]
+    },
+    {
+      "name": "balance_evap_temp_3",
+      "op": "balance_evap_temp",
+      "inputs": [
+        14,
+        8,
+        23,
+        31,
+        28,
+        20,
+        17
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_3",
+        "CHL_CD_FLOW_3",
+        "CHL_RW_TEMP_3",
+        "CHL_SW_TEMP_3",
+        "CHL_RWCD_TEMP_3",
+        "CHL_SWCD_TEMP_3",
+        "CHL_POW_3"
+      ]
+    },
+    {
+      "name": "fan_cube_3",
+      "op": "cube",
+      "inputs": [
+        34
+      ],
+      "input_names": [
+        "CT_FAN_SPD_3"
+      ]
+    },
+    {
+      "name": "mixed_primary",
+      "op": "mix",
+      "inputs": [
+        12,
+        13,
+        14,
+        29,
+        30,
+        31
+      ],
+      "input_names": [
+        "CHL_CW_FLOW_1",
+        "CHL_CW_FLOW_2",
+        "CHL_CW_FLOW_3",
+        "CHL_SW_TEMP_1",
+        "CHL_SW_TEMP_2",
+        "CHL_SW_TEMP_3"
+      ]
+    },
+    {
+      "name": "mixed_condenser",
+      "op": "mix",
+      "inputs": [
+        6,
+        7,
+        8,
+        18,
+        19,
+        20
+      ],
+      "input_names": [
+        "CHL_CD_FLOW_1",
+        "CHL_CD_FLOW_2",
+        "CHL_CD_FLOW_3",
+        "CHL_SWCD_TEMP_1",
+        "CHL_SWCD_TEMP_2",
+        "CHL_SWCD_TEMP_3"
+      ]
+    },
+    {
+      "name": "regulated_pressure",
+      "op": "regulated_reference",
+      "flow_index": 60,
+      "reference_index": null
+    },
+    {
+      "name": "regulated_chiller_1",
+      "op": "regulated_reference",
+      "flow_index": 12,
+      "reference_index": 59
+    },
+    {
+      "name": "regulated_tower_1",
+      "op": "regulated_reference",
+      "flow_index": 38,
+      "reference_index": 49
+    },
+    {
+      "name": "regulated_chiller_2",
+      "op": "regulated_reference",
+      "flow_index": 13,
+      "reference_index": 59
+    },
+    {
+      "name": "regulated_tower_2",
+      "op": "regulated_reference",
+      "flow_index": 39,
+      "reference_index": 49
+    },
+    {
+      "name": "regulated_chiller_3",
+      "op": "regulated_reference",
+      "flow_index": 14,
+      "reference_index": 59
+    },
+    {
+      "name": "regulated_tower_3",
+      "op": "regulated_reference",
+      "flow_index": 40,
+      "reference_index": 49
+    }
+  ],
+  "edges": [
+    {
+      "source": 12,
+      "target": 15,
+      "source_name": "CHL_CW_FLOW_1",
+      "target_name": "CHL_POW_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 2,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 6,
+      "target": 15,
+      "source_name": "CHL_CD_FLOW_1",
+      "target_name": "CHL_POW_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 2,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 21,
+      "target": 15,
+      "source_name": "CHL_RW_TEMP_1",
+      "target_name": "CHL_POW_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 2,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 29,
+      "target": 15,
+      "source_name": "CHL_SW_TEMP_1",
+      "target_name": "CHL_POW_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 2,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 26,
+      "target": 15,
+      "source_name": "CHL_RWCD_TEMP_1",
+      "target_name": "CHL_POW_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 2,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 18,
+      "target": 15,
+      "source_name": "CHL_SWCD_TEMP_1",
+      "target_name": "CHL_POW_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 2,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 12,
+      "target": 18,
+      "source_name": "CHL_CW_FLOW_1",
+      "target_name": "CHL_SWCD_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 3,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 6,
+      "target": 18,
+      "source_name": "CHL_CD_FLOW_1",
+      "target_name": "CHL_SWCD_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 3,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 21,
+      "target": 18,
+      "source_name": "CHL_RW_TEMP_1",
+      "target_name": "CHL_SWCD_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 3,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 29,
+      "target": 18,
+      "source_name": "CHL_SW_TEMP_1",
+      "target_name": "CHL_SWCD_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 3,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 26,
+      "target": 18,
+      "source_name": "CHL_RWCD_TEMP_1",
+      "target_name": "CHL_SWCD_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 3,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 15,
+      "target": 18,
+      "source_name": "CHL_POW_1",
+      "target_name": "CHL_SWCD_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 3,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 12,
+      "target": 29,
+      "source_name": "CHL_CW_FLOW_1",
+      "target_name": "CHL_SW_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 4,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 6,
+      "target": 29,
+      "source_name": "CHL_CD_FLOW_1",
+      "target_name": "CHL_SW_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 4,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 21,
+      "target": 29,
+      "source_name": "CHL_RW_TEMP_1",
+      "target_name": "CHL_SW_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 4,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 26,
+      "target": 29,
+      "source_name": "CHL_RWCD_TEMP_1",
+      "target_name": "CHL_SW_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 4,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 18,
+      "target": 29,
+      "source_name": "CHL_SWCD_TEMP_1",
+      "target_name": "CHL_SW_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 4,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 15,
+      "target": 29,
+      "source_name": "CHL_POW_1",
+      "target_name": "CHL_SW_TEMP_1",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 4,
+      "known_gain": 1.0,
+      "boundary": "chiller1",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 57,
+      "target": 21,
+      "source_name": "CWL_PRI_RW_TEMP",
+      "target_name": "CHL_RW_TEMP_1",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "chiller1 direct water path",
+      "equation": "same-stream temperature transport with unmodeled losses",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 5,
+      "target": 26,
+      "source_name": "CDWL_SW_TEMP",
+      "target_name": "CHL_RWCD_TEMP_1",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "chiller1 direct water path",
+      "equation": "same-stream temperature transport with unmodeled losses",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 9,
+      "target": 15,
+      "source_name": "CHL_COMP_SPD_CTRL_1",
+      "target_name": "CHL_POW_1",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit1",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 35,
+      "target": 32,
+      "source_name": "CT_FAN_SPD_CTRL_1",
+      "target_name": "CT_FAN_SPD_1",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit1",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 32,
+      "target": 41,
+      "source_name": "CT_FAN_SPD_1",
+      "target_name": "CT_POW_1",
+      "relation": 4,
+      "relation_type": "fan_affinity",
+      "feature": 5,
+      "known_gain": null,
+      "boundary": "cooling tower1",
+      "equation": "P proportional to speed^3 near similar operating conditions",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 44,
+      "target": 50,
+      "source_name": "CT_RW_TEMP_1",
+      "target_name": "CT_SW_TEMP_1",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "cooling tower1",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 38,
+      "target": 50,
+      "source_name": "CT_FLOW_1",
+      "target_name": "CT_SW_TEMP_1",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "cooling tower1",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 32,
+      "target": 50,
+      "source_name": "CT_FAN_SPD_1",
+      "target_name": "CT_SW_TEMP_1",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "cooling tower1",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 71,
+      "target": 50,
+      "source_name": "OA_TEMP_WB",
+      "target_name": "CT_SW_TEMP_1",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "cooling tower1",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 13,
+      "target": 16,
+      "source_name": "CHL_CW_FLOW_2",
+      "target_name": "CHL_POW_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 8,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 7,
+      "target": 16,
+      "source_name": "CHL_CD_FLOW_2",
+      "target_name": "CHL_POW_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 8,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 22,
+      "target": 16,
+      "source_name": "CHL_RW_TEMP_2",
+      "target_name": "CHL_POW_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 8,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 30,
+      "target": 16,
+      "source_name": "CHL_SW_TEMP_2",
+      "target_name": "CHL_POW_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 8,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 27,
+      "target": 16,
+      "source_name": "CHL_RWCD_TEMP_2",
+      "target_name": "CHL_POW_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 8,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 19,
+      "target": 16,
+      "source_name": "CHL_SWCD_TEMP_2",
+      "target_name": "CHL_POW_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 8,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 13,
+      "target": 19,
+      "source_name": "CHL_CW_FLOW_2",
+      "target_name": "CHL_SWCD_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 9,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 7,
+      "target": 19,
+      "source_name": "CHL_CD_FLOW_2",
+      "target_name": "CHL_SWCD_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 9,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 22,
+      "target": 19,
+      "source_name": "CHL_RW_TEMP_2",
+      "target_name": "CHL_SWCD_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 9,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 30,
+      "target": 19,
+      "source_name": "CHL_SW_TEMP_2",
+      "target_name": "CHL_SWCD_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 9,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 27,
+      "target": 19,
+      "source_name": "CHL_RWCD_TEMP_2",
+      "target_name": "CHL_SWCD_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 9,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 16,
+      "target": 19,
+      "source_name": "CHL_POW_2",
+      "target_name": "CHL_SWCD_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 9,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 13,
+      "target": 30,
+      "source_name": "CHL_CW_FLOW_2",
+      "target_name": "CHL_SW_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 7,
+      "target": 30,
+      "source_name": "CHL_CD_FLOW_2",
+      "target_name": "CHL_SW_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 22,
+      "target": 30,
+      "source_name": "CHL_RW_TEMP_2",
+      "target_name": "CHL_SW_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 27,
+      "target": 30,
+      "source_name": "CHL_RWCD_TEMP_2",
+      "target_name": "CHL_SW_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 19,
+      "target": 30,
+      "source_name": "CHL_SWCD_TEMP_2",
+      "target_name": "CHL_SW_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 16,
+      "target": 30,
+      "source_name": "CHL_POW_2",
+      "target_name": "CHL_SW_TEMP_2",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "boundary": "chiller2",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 57,
+      "target": 22,
+      "source_name": "CWL_PRI_RW_TEMP",
+      "target_name": "CHL_RW_TEMP_2",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "chiller2 direct water path",
+      "equation": "same-stream temperature transport with unmodeled losses",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 5,
+      "target": 27,
+      "source_name": "CDWL_SW_TEMP",
+      "target_name": "CHL_RWCD_TEMP_2",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "chiller2 direct water path",
+      "equation": "same-stream temperature transport with unmodeled losses",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 10,
+      "target": 16,
+      "source_name": "CHL_COMP_SPD_CTRL_2",
+      "target_name": "CHL_POW_2",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit2",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 24,
+      "target": 13,
+      "source_name": "CHL_STA_2",
+      "target_name": "CHL_CW_FLOW_2",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit2",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 24,
+      "target": 7,
+      "source_name": "CHL_STA_2",
+      "target_name": "CHL_CD_FLOW_2",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit2",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 36,
+      "target": 33,
+      "source_name": "CT_FAN_SPD_CTRL_2",
+      "target_name": "CT_FAN_SPD_2",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit2",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 33,
+      "target": 42,
+      "source_name": "CT_FAN_SPD_2",
+      "target_name": "CT_POW_2",
+      "relation": 4,
+      "relation_type": "fan_affinity",
+      "feature": 11,
+      "known_gain": null,
+      "boundary": "cooling tower2",
+      "equation": "P proportional to speed^3 near similar operating conditions",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 45,
+      "target": 51,
+      "source_name": "CT_RW_TEMP_2",
+      "target_name": "CT_SW_TEMP_2",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "cooling tower2",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 39,
+      "target": 51,
+      "source_name": "CT_FLOW_2",
+      "target_name": "CT_SW_TEMP_2",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "cooling tower2",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 33,
+      "target": 51,
+      "source_name": "CT_FAN_SPD_2",
+      "target_name": "CT_SW_TEMP_2",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "cooling tower2",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 71,
+      "target": 51,
+      "source_name": "OA_TEMP_WB",
+      "target_name": "CT_SW_TEMP_2",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "cooling tower2",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 14,
+      "target": 17,
+      "source_name": "CHL_CW_FLOW_3",
+      "target_name": "CHL_POW_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 14,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 8,
+      "target": 17,
+      "source_name": "CHL_CD_FLOW_3",
+      "target_name": "CHL_POW_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 14,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 23,
+      "target": 17,
+      "source_name": "CHL_RW_TEMP_3",
+      "target_name": "CHL_POW_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 14,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 31,
+      "target": 17,
+      "source_name": "CHL_SW_TEMP_3",
+      "target_name": "CHL_POW_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 14,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 28,
+      "target": 17,
+      "source_name": "CHL_RWCD_TEMP_3",
+      "target_name": "CHL_POW_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 14,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 20,
+      "target": 17,
+      "source_name": "CHL_SWCD_TEMP_3",
+      "target_name": "CHL_POW_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 14,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "P = rho cp [qc(Tco-Tci)-qe(Tei-Teo)]",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 14,
+      "target": 20,
+      "source_name": "CHL_CW_FLOW_3",
+      "target_name": "CHL_SWCD_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 15,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 8,
+      "target": 20,
+      "source_name": "CHL_CD_FLOW_3",
+      "target_name": "CHL_SWCD_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 15,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 23,
+      "target": 20,
+      "source_name": "CHL_RW_TEMP_3",
+      "target_name": "CHL_SWCD_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 15,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 31,
+      "target": 20,
+      "source_name": "CHL_SW_TEMP_3",
+      "target_name": "CHL_SWCD_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 15,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 28,
+      "target": 20,
+      "source_name": "CHL_RWCD_TEMP_3",
+      "target_name": "CHL_SWCD_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 15,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 17,
+      "target": 20,
+      "source_name": "CHL_POW_3",
+      "target_name": "CHL_SWCD_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 15,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Tco = Tci + [rho cp qe(Tei-Teo)+P]/(rho cp qc)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 14,
+      "target": 31,
+      "source_name": "CHL_CW_FLOW_3",
+      "target_name": "CHL_SW_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 16,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 8,
+      "target": 31,
+      "source_name": "CHL_CD_FLOW_3",
+      "target_name": "CHL_SW_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 16,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 23,
+      "target": 31,
+      "source_name": "CHL_RW_TEMP_3",
+      "target_name": "CHL_SW_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 16,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 28,
+      "target": 31,
+      "source_name": "CHL_RWCD_TEMP_3",
+      "target_name": "CHL_SW_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 16,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 20,
+      "target": 31,
+      "source_name": "CHL_SWCD_TEMP_3",
+      "target_name": "CHL_SW_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 16,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 17,
+      "target": 31,
+      "source_name": "CHL_POW_3",
+      "target_name": "CHL_SW_TEMP_3",
+      "relation": 0,
+      "relation_type": "energy_balance",
+      "feature": 16,
+      "known_gain": 1.0,
+      "boundary": "chiller3",
+      "equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation; effective observation scale is not identified physical efficiency",
+      "nominal_equation": "Teo = Tei - [rho cp qc(Tco-Tci)-P]/(rho cp qe)",
+      "observation_mapping": "Qcond-Qevap = kappa * reported power; kappa fitted on retained steady training rows only"
+    },
+    {
+      "source": 57,
+      "target": 23,
+      "source_name": "CWL_PRI_RW_TEMP",
+      "target_name": "CHL_RW_TEMP_3",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "chiller3 direct water path",
+      "equation": "same-stream temperature transport with unmodeled losses",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 5,
+      "target": 28,
+      "source_name": "CDWL_SW_TEMP",
+      "target_name": "CHL_RWCD_TEMP_3",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "chiller3 direct water path",
+      "equation": "same-stream temperature transport with unmodeled losses",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 11,
+      "target": 17,
+      "source_name": "CHL_COMP_SPD_CTRL_3",
+      "target_name": "CHL_POW_3",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit3",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 25,
+      "target": 14,
+      "source_name": "CHL_STA_3",
+      "target_name": "CHL_CW_FLOW_3",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit3",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 25,
+      "target": 8,
+      "source_name": "CHL_STA_3",
+      "target_name": "CHL_CD_FLOW_3",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit3",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 37,
+      "target": 34,
+      "source_name": "CT_FAN_SPD_CTRL_3",
+      "target_name": "CT_FAN_SPD_3",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "unit3",
+      "equation": "actuator command -> equipment response",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 34,
+      "target": 43,
+      "source_name": "CT_FAN_SPD_3",
+      "target_name": "CT_POW_3",
+      "relation": 4,
+      "relation_type": "fan_affinity",
+      "feature": 17,
+      "known_gain": null,
+      "boundary": "cooling tower3",
+      "equation": "P proportional to speed^3 near similar operating conditions",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 46,
+      "target": 52,
+      "source_name": "CT_RW_TEMP_3",
+      "target_name": "CT_SW_TEMP_3",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "cooling tower3",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 40,
+      "target": 52,
+      "source_name": "CT_FLOW_3",
+      "target_name": "CT_SW_TEMP_3",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "cooling tower3",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 34,
+      "target": 52,
+      "source_name": "CT_FAN_SPD_3",
+      "target_name": "CT_SW_TEMP_3",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "cooling tower3",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 71,
+      "target": 52,
+      "source_name": "OA_TEMP_WB",
+      "target_name": "CT_SW_TEMP_3",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "cooling tower3",
+      "equation": "heat rejection depends on inlet, water flow, fan, wet bulb",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 65,
+      "target": 60,
+      "source_name": "CWL_SEC_PM_SPD_1",
+      "target_name": "CWL_SEC_CW_FLOW",
+      "relation": 2,
+      "relation_type": "hydraulic",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "secondary water loop",
+      "equation": "pump speed -> loop flow; unknown pump/system curve",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 65,
+      "target": 61,
+      "source_name": "CWL_SEC_PM_SPD_1",
+      "target_name": "CWL_SEC_DP",
+      "relation": 2,
+      "relation_type": "hydraulic",
+      "feature": 20,
+      "known_gain": 1.0,
+      "boundary": "secondary water loop",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    },
+    {
+      "source": 66,
+      "target": 60,
+      "source_name": "CWL_SEC_PM_SPD_2",
+      "target_name": "CWL_SEC_CW_FLOW",
+      "relation": 2,
+      "relation_type": "hydraulic",
+      "feature": null,
+      "known_gain": null,
+      "boundary": "secondary water loop",
+      "equation": "pump speed -> loop flow; unknown pump/system curve",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 66,
+      "target": 61,
+      "source_name": "CWL_SEC_PM_SPD_2",
+      "target_name": "CWL_SEC_DP",
+      "relation": 2,
+      "relation_type": "hydraulic",
+      "feature": 20,
+      "known_gain": 1.0,
+      "boundary": "secondary water loop",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    },
+    {
+      "source": 68,
+      "target": 57,
+      "source_name": "CWL_SEC_RW_TEMP",
+      "target_name": "CWL_PRI_RW_TEMP",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "primary-secondary loop with bypass",
+      "equation": "connected flow path, imperfect due to bypass mixing",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 58,
+      "target": 69,
+      "source_name": "CWL_PRI_SW_TEMP",
+      "target_name": "CWL_SEC_SW_TEMP",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "primary-secondary loop with bypass",
+      "equation": "connected flow path, imperfect due to bypass mixing",
+      "lags": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        24
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 12,
+      "target": 58,
+      "source_name": "CHL_CW_FLOW_1",
+      "target_name": "CWL_PRI_SW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 18,
+      "known_gain": 1.0,
+      "boundary": "primary mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 13,
+      "target": 58,
+      "source_name": "CHL_CW_FLOW_2",
+      "target_name": "CWL_PRI_SW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 18,
+      "known_gain": 1.0,
+      "boundary": "primary mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 14,
+      "target": 58,
+      "source_name": "CHL_CW_FLOW_3",
+      "target_name": "CWL_PRI_SW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 18,
+      "known_gain": 1.0,
+      "boundary": "primary mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 29,
+      "target": 58,
+      "source_name": "CHL_SW_TEMP_1",
+      "target_name": "CWL_PRI_SW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 18,
+      "known_gain": 1.0,
+      "boundary": "primary mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 30,
+      "target": 58,
+      "source_name": "CHL_SW_TEMP_2",
+      "target_name": "CWL_PRI_SW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 18,
+      "known_gain": 1.0,
+      "boundary": "primary mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 31,
+      "target": 58,
+      "source_name": "CHL_SW_TEMP_3",
+      "target_name": "CWL_PRI_SW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 18,
+      "known_gain": 1.0,
+      "boundary": "primary mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 6,
+      "target": 4,
+      "source_name": "CHL_CD_FLOW_1",
+      "target_name": "CDWL_RW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 19,
+      "known_gain": 1.0,
+      "boundary": "condenser mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 7,
+      "target": 4,
+      "source_name": "CHL_CD_FLOW_2",
+      "target_name": "CDWL_RW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 19,
+      "known_gain": 1.0,
+      "boundary": "condenser mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 8,
+      "target": 4,
+      "source_name": "CHL_CD_FLOW_3",
+      "target_name": "CDWL_RW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 19,
+      "known_gain": 1.0,
+      "boundary": "condenser mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 18,
+      "target": 4,
+      "source_name": "CHL_SWCD_TEMP_1",
+      "target_name": "CDWL_RW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 19,
+      "known_gain": 1.0,
+      "boundary": "condenser mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 19,
+      "target": 4,
+      "source_name": "CHL_SWCD_TEMP_2",
+      "target_name": "CDWL_RW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 19,
+      "known_gain": 1.0,
+      "boundary": "condenser mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 20,
+      "target": 4,
+      "source_name": "CHL_SWCD_TEMP_3",
+      "target_name": "CDWL_RW_TEMP",
+      "relation": 5,
+      "relation_type": "mixing",
+      "feature": 19,
+      "known_gain": 1.0,
+      "boundary": "condenser mixing header",
+      "equation": "Tmix=sum(q*T)/sum(q)",
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "evidence": "LBNL Chiller Plant inventory: equipment schematic and Table2",
+      "limitation": "history-only relation guidance; no causal identification or exact transient conservation"
+    },
+    {
+      "source": 4,
+      "target": 44,
+      "source_name": "CDWL_RW_TEMP",
+      "target_name": "CT_RW_TEMP_1",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "common header",
+      "equation": "common condenser return header feeds cooling towers",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "finite feedback dynamics and transport losses remain data-learned"
+    },
+    {
+      "source": 59,
+      "target": 29,
+      "source_name": "CWL_PRI_SW_TEMPSPT",
+      "target_name": "CHL_SW_TEMP_1",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": 21,
+      "known_gain": 1.0,
+      "boundary": "controlled unit1",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    },
+    {
+      "source": 49,
+      "target": 50,
+      "source_name": "CT_SW_TEMPSPT",
+      "target_name": "CT_SW_TEMP_1",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": 22,
+      "known_gain": 1.0,
+      "boundary": "controlled unit1",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    },
+    {
+      "source": 4,
+      "target": 45,
+      "source_name": "CDWL_RW_TEMP",
+      "target_name": "CT_RW_TEMP_2",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "common header",
+      "equation": "common condenser return header feeds cooling towers",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "finite feedback dynamics and transport losses remain data-learned"
+    },
+    {
+      "source": 59,
+      "target": 30,
+      "source_name": "CWL_PRI_SW_TEMPSPT",
+      "target_name": "CHL_SW_TEMP_2",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": 23,
+      "known_gain": 1.0,
+      "boundary": "controlled unit2",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    },
+    {
+      "source": 49,
+      "target": 51,
+      "source_name": "CT_SW_TEMPSPT",
+      "target_name": "CT_SW_TEMP_2",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": 24,
+      "known_gain": 1.0,
+      "boundary": "controlled unit2",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    },
+    {
+      "source": 4,
+      "target": 46,
+      "source_name": "CDWL_RW_TEMP",
+      "target_name": "CT_RW_TEMP_3",
+      "relation": 1,
+      "relation_type": "heat_transport",
+      "feature": null,
+      "known_gain": 1.0,
+      "boundary": "common header",
+      "equation": "common condenser return header feeds cooling towers",
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "finite feedback dynamics and transport losses remain data-learned"
+    },
+    {
+      "source": 59,
+      "target": 31,
+      "source_name": "CWL_PRI_SW_TEMPSPT",
+      "target_name": "CHL_SW_TEMP_3",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": 25,
+      "known_gain": 1.0,
+      "boundary": "controlled unit3",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    },
+    {
+      "source": 49,
+      "target": 52,
+      "source_name": "CT_SW_TEMPSPT",
+      "target_name": "CT_SW_TEMP_3",
+      "relation": 3,
+      "relation_type": "actuator",
+      "feature": 26,
+      "known_gain": 1.0,
+      "boundary": "controlled unit3",
+      "equation": "feedback regulation toward observed historical reference while flow is active",
+      "lags": [
+        0
+      ],
+      "evidence": "LBNL Chiller Plant inventory Figure2/Table1; historical setpoints only",
+      "limitation": "soft reference message only; no future setpoints, no direct output projection, no assumed settling time",
+      "absolute_reference": true
+    }
+  ],
+  "adjacency_convention": "A[target,source]; query target receives key source",
+  "lag_units": "minutes at native 1-minute sampling",
+  "rho_cp": 4180000.0,
+  "policy": "fixed direct equipment relations; no graph powers; binary input controls retained",
+  "version": "v4_known_control_boundary_reference",
+  "base_feature_count": 20,
+  "pressure_reference_pa": 239364.6786720917,
+  "retained_segment_lengths": [
+    367878
+  ],
+  "kappa": 0.2855106513482521
+}

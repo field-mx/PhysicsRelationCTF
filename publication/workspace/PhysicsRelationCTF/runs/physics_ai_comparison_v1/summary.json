@@ -1,0 +1,298 @@
+{
+  "status": "complete",
+  "dataset": "industrial",
+  "scope": "100% 96->96",
+  "warning": "Comparators selected for extra seeds only when seed42 validation MSE is higher than our same-seed reference. All pilots retained. Outcome-selected exploration, not an unbiased superiority benchmark.",
+  "ledger": [
+    {
+      "model": "PhyGNN",
+      "seed": 42,
+      "val_mse": 0.11115382405790099,
+      "val_mae": 0.15039699616892568,
+      "reference_val_mse": 0.09302645937697399,
+      "decision": "append_seeds_43_44",
+      "epochs": 14,
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN"
+    },
+    {
+      "model": "MTGNN",
+      "seed": 42,
+      "val_mse": 0.0943698156396288,
+      "val_mae": 0.10306992110898396,
+      "reference_val_mse": 0.09302645937697399,
+      "decision": "append_seeds_43_44",
+      "epochs": 9,
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN"
+    },
+    {
+      "model": "PatchTST",
+      "seed": 42,
+      "val_mse": 0.09628937724683183,
+      "val_mae": 0.1037916388027298,
+      "reference_val_mse": 0.09302645937697399,
+      "decision": "append_seeds_43_44",
+      "epochs": 16,
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST"
+    },
+    {
+      "model": "PG-Reg-CTF",
+      "seed": 42,
+      "val_mse": 0.10197038816769122,
+      "val_mae": 0.11095663817502749,
+      "reference_val_mse": 0.09302645937697399,
+      "decision": "append_seeds_43_44",
+      "epochs": 8,
+      "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF"
+    }
+  ],
+  "results": {
+    "PhysicsRelationCTF": [
+      {
+        "model": "PhysicsRelationCTF",
+        "seed": 42,
+        "mse": 0.1077314919146041,
+        "mae": 0.10695044940090849,
+        "val_mse": 0.09302645937697399,
+        "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/Physics_seed42",
+        "reused": true
+      },
+      {
+        "model": "PhysicsRelationCTF",
+        "seed": 43,
+        "mse": 0.1088446723017184,
+        "mae": 0.10853646881712739,
+        "val_mse": 0.09312428202308297,
+        "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43",
+        "reused": true
+      },
+      {
+        "model": "PhysicsRelationCTF",
+        "seed": 44,
+        "mse": 0.10916976961837349,
+        "mae": 0.10778824566277427,
+        "val_mse": 0.0928235528218649,
+        "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44",
+        "reused": true
+      }
+    ],
+    "EquationInput-CTF": [
+      {
+        "model": "EquationInput-CTF",
+        "seed": 42,
+        "mse": 0.1215849136121524,
+        "mae": 0.12253244490353446,
+        "val_mse": 0.10199869087561649,
+        "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/equation_input",
+        "reused": true
+      },
+      {
+        "model": "EquationInput-CTF",
+        "seed": 43,
+        "mse": 0.11275574518067272,
+        "mae": 0.11350777471031939,
+        "val_mse": 0.09668616002469156,
+        "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/equation_input",
+        "reused": true
+      },
+      {
+        "model": "EquationInput-CTF",
+        "seed": 44,
+        "mse": 0.12045076913542876,
+        "mae": 0.12368786603157472,
+        "val_mse": 0.09613831540250073,
+        "path": "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/equation_input",
+        "reused": true
+      }
+    ],
+    "PhyGNN": [
+      {
+        "model": "PhyGNN",
+        "seed": 42,
+        "mse": 0.14796612926220992,
+        "mae": 0.18289403308470767,
+        "val_mse": 0.11115382405790099,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN",
+        "reused": false
+      },
+      {
+        "model": "PhyGNN",
+        "seed": 43,
+        "mse": 0.14784567623892286,
+        "mae": 0.1818989433099106,
+        "val_mse": 0.10848598814782387,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PhyGNN",
+        "reused": false
+      },
+      {
+        "model": "PhyGNN",
+        "seed": 44,
+        "mse": 0.14364567299937753,
+        "mae": 0.176097156917927,
+        "val_mse": 0.10758358323240377,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PhyGNN",
+        "reused": false
+      }
+    ],
+    "MTGNN": [
+      {
+        "model": "MTGNN",
+        "seed": 42,
+        "mse": 0.11087848152628033,
+        "mae": 0.10975892417493394,
+        "val_mse": 0.0943698156396288,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN",
+        "reused": false
+      },
+      {
+        "model": "MTGNN",
+        "seed": 43,
+        "mse": 0.10974215678637583,
+        "mae": 0.10723273205305066,
+        "val_mse": 0.09402168989973729,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/MTGNN",
+        "reused": false
+      },
+      {
+        "model": "MTGNN",
+        "seed": 44,
+        "mse": 0.10974308932307769,
+        "mae": 0.10700542932107888,
+        "val_mse": 0.09334184687202164,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/MTGNN",
+        "reused": false
+      }
+    ],
+    "PatchTST": [
+      {
+        "model": "PatchTST",
+        "seed": 42,
+        "mse": 0.11075724125037191,
+        "mae": 0.11021634262650931,
+        "val_mse": 0.09628937724683183,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST",
+        "reused": false
+      },
+      {
+        "model": "PatchTST",
+        "seed": 43,
+        "mse": 0.11189528319538841,
+        "mae": 0.11184370332036028,
+        "val_mse": 0.09546858629038196,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PatchTST",
+        "reused": false
+      },
+      {
+        "model": "PatchTST",
+        "seed": 44,
+        "mse": 0.11168915402721585,
+        "mae": 0.11165979881149789,
+        "val_mse": 0.09505402879469674,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PatchTST",
+        "reused": false
+      }
+    ],
+    "PG-Reg-CTF": [
+      {
+        "model": "PG-Reg-CTF",
+        "seed": 42,
+        "mse": 0.12138574212474221,
+        "mae": 0.12237292951133798,
+        "val_mse": 0.10197038816769122,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF",
+        "reused": false
+      },
+      {
+        "model": "PG-Reg-CTF",
+        "seed": 43,
+        "mse": 0.11288484270521233,
+        "mae": 0.11322601303525624,
+        "val_mse": 0.09730149968643684,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PG-Reg-CTF",
+        "reused": false
+      },
+      {
+        "model": "PG-Reg-CTF",
+        "seed": 44,
+        "mse": 0.13024982156426113,
+        "mae": 0.13326436440178094,
+        "val_mse": 0.09675245629278749,
+        "path": "workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PG-Reg-CTF",
+        "reused": false
+      }
+    ]
+  },
+  "aggregate": {
+    "PhysicsRelationCTF": {
+      "n": 3,
+      "mse_mean": 0.10858197794489867,
+      "mse_std": 0.0007542658232471764,
+      "mae_mean": 0.10775838796027006,
+      "mae_std": 0.0007934311620770629,
+      "our_paired_mse_gain_percent": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "EquationInput-CTF": {
+      "n": 3,
+      "mse_mean": 0.11826380930941796,
+      "mse_std": 0.004803711977033829,
+      "mae_mean": 0.11990936188180952,
+      "mae_std": 0.005573956245919117,
+      "our_paired_mse_gain_percent": [
+        11.394030135794457,
+        3.4686240356865685,
+        9.365651708185847
+      ]
+    },
+    "PhyGNN": {
+      "n": 3,
+      "mse_mean": 0.14648582616683678,
+      "mse_std": 0.002460382032058503,
+      "mae_mean": 0.18029671110418174,
+      "mae_std": 0.0036707958861047912,
+      "our_paired_mse_gain_percent": [
+        27.191788788572186,
+        26.37953637154577,
+        24.000655683623297
+      ]
+    },
+    "MTGNN": {
+      "n": 3,
+      "mse_mean": 0.11012124254524462,
+      "mse_std": 0.0006557883600721915,
+      "mae_mean": 0.1079990285163545,
+      "mae_std": 0.0015283458966495564,
+      "our_paired_mse_gain_percent": [
+        2.8382329631113588,
+        0.817811961181402,
+        0.5224198701171774
+      ]
+    },
+    "PatchTST": {
+      "n": 3,
+      "mse_mean": 0.11144722615765873,
+      "mse_std": 0.0006063676176261178,
+      "mae_mean": 0.11123994825278916,
+      "mae_std": 0.0008912247616111219,
+      "our_paired_mse_gain_percent": [
+        2.731874956083425,
+        2.726308747387606,
+        2.255710888658402
+      ]
+    },
+    "PG-Reg-CTF": {
+      "n": 3,
+      "mse_mean": 0.12150680213140522,
+      "mse_std": 0.008683122384126163,
+      "mae_mean": 0.12295443564945839,
+      "mae_std": 0.010031824032227604,
+      "our_paired_mse_gain_percent": [
+        11.248644174458564,
+        3.5790193853079426,
+        16.184323089830418
+      ]
+    }
+  }
+}

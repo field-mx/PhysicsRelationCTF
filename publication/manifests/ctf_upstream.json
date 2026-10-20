@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/jinkwan1115/ChannelTokenFormer.git",
+  "commit": "b1c100effb9c27cd25de07e91de7f9005d18d5e7",
+  "redistributed": false,
+  "files": {
+    "models/ChannelTokenFormer.py": "a444765919b9cc4f5dea022ebd32aa3a082dd3b877b84da03faafae1c76f47c7",
+    "layers/CTF_Embed.py": "388cda5430ea848bb62735a23a3932917d88adc807c8e52f8eb2df2bf6e6a2b1",
+    "layers/SelfAttention_Family.py": "11ed088ef4923f83aafab3493d3b445594e6886c60bcd232435f4b859ecef901",
+    "layers/Embed.py": "463994998e276affbe9b7cd8331b5b4cf14c4426749161d9d20c31998c0bbb4f",
+    "utils/masking.py": "02f453e52cfaec65e34132923add80e7132f188706680fa86d7bd884976e09ef"
+  }
+}

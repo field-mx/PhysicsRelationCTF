@@ -1,0 +1,33 @@
+{
+  "checkpoints": {
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_bias": "16e362704bc083a1c28cc86a402569d8c03e5dcc345f465ac62942e4a146fe2b",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/no_equation": "a1f0eda7c4f92830a58c29f0ca4bbd88a826b88aed020f38293dc3c42f1aeda0",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/equation_input": "20f91b9272247bb62db1e0c152d389e6f9de73d913beb33fec23c5701cd3666d",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_bias": "c679a0a106d8c3e813a78d1776d4623df2091f2811410d2ab7bbacd35ed37c76",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/no_equation": "5e667d7bea0ebb1404b9f00398051e9a37d4837a0b979be532df57b4c884c5f6",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/equation_input": "9fa522d51590ee79ac754c6ab172335ac73b00f3c6ce4e62dfdbe60438b1f683",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_bias": "3056dd85d0540f1c42522917a9b9fe00b5a09e84fd57d182eec9df505d62a420",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/no_equation": "3f5907bbeaf4c1af851c4150770cb5bd6e2aca40f469322049f0fbe927828f09",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/equation_input": "a64bafb0dcb0930d7c475660243b2832147502531ee7477e4f270ebdac416245",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_bias": "1e104b7bf9841245fe46bbdc153769c710b3134337cdb1c7d163b4f9dbf282ce",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/no_equation": "6d3b975e0b41720a0353aaee9b6866e8c2b7a7d296c318a03e191b00ad584303",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/equation_input": "7b8e0aa4e4c0dd455738712842bfe4f328b520c94588a2cb3c2224798f3ff09f",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_bias": "e3d5cc29d9345841c19c24e4ab3dc419ade4f7d0e8be33bb0ffd3c1d89a09154",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/no_equation": "c82df11c3d5e3a40fd7d7d635cf25a83376875341225b76b84856a7bc903106c",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/equation_input": "03d3b2a32f1ff0a5e646658aca200d2ed1e13312b3f6bee0afd179ce0d949504",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_bias": "694b7d1af489730f64ed92f29edb3ef74e22278e80b5075da046a03f983bcd96",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/no_equation": "6dcdd0f8f69cd8f1b9dd57cffbcfa0202c44c7719626592d15ed85b69f5e3e43",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/equation_input": "b87292cd4de3a2c2ff9a8038221753db85cb899fd860fcdb77ff7ab3c66bc088",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_bias": "34e6526a888a5dd66435825cb33fa58e8a41a554ca55922ad3759495da3ca5a7",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/no_equation": "a10de0ff21c624fea2023a84152331d9592ee0d03946d48ad6903674f1486699",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/equation_input": "d8f714ca2bd35bc4181ecd6510f8e1338c468353eef627471d4cd8b5cc13f331",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_bias": "e69d33839e36bc4858d93260e5f183d645213331eda37e52821cec596b9c5a93",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/no_equation": "80958b118e5e00d53bff659698dd95f4d114ad03289d31c003a4dfcf8b79f173",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/equation_input": "7dd187eb95f9881aab859878171be479e7773e1988028d95e924503d56120ac8",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_bias": "8dad0fc61fb78ea2a60a6d36bb3539cae643a95930dbd20328a333f32c9142f4",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/no_equation": "4a64961cedbbb4a5ea6ba967d8fac26a2d725aee9760cfd9a8a578d5194a97f8",
+    "workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/equation_input": "93c45f0c3312f0398fd239af0e31c65559384dc5ffd745a58d83eec80c26e1b2"
+  },
+  "protocol_sha256": "9a19c24df117374cd0526a515e8cd1e3bcd5d02372e6b21e936ae888e8475e08",
+  "policy": "All 27 validation-selected checkpoints locked before test"
+}

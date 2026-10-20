@@ -1,0 +1,14 @@
+{
+  "kind": "no_equation",
+  "ratio": 1.0,
+  "seed": 42,
+  "best_epoch": 31,
+  "best_val_mse": 0.07369485628794083,
+  "best_val_mae": 0.04306398755917756,
+  "epochs_completed": 32,
+  "test_evaluated": false,
+  "seconds": 517.9180631879717,
+  "parameters": 1698235,
+  "backend_kind": "Physics",
+  "variant": "no_equation"
+}

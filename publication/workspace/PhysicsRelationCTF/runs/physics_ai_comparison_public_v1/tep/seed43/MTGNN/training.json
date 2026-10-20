@@ -1,0 +1,13 @@
+{
+  "dataset": "tep",
+  "model": "MTGNN",
+  "seed": 43,
+  "best_val_mse": 0.8706091313533121,
+  "best_val_mae": 0.7264067218893743,
+  "best_epoch": 16,
+  "epochs_completed": 16,
+  "parameter_count": 202756,
+  "seconds": 268.9479266339913,
+  "test_evaluated": false,
+  "checkpoint_sha256": "c330faa5da05a2d46c0bddee43f676012da78f0847672f357ec8cd5434dc9fb5"
+}

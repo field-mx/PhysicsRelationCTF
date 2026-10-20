@@ -1,0 +1,64 @@
+dataset,model,seed,mse,mae,path,reused
+industrial,PhysicsRelationCTF,42,0.1077314919146041,0.10695044940090849,workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/Physics_seed42,True
+industrial,PhysicsRelationCTF,43,0.1088446723017184,0.10853646881712739,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43,True
+industrial,PhysicsRelationCTF,44,0.10916976961837349,0.10778824566277427,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44,True
+industrial,Original CTF,42,0.10912231106191896,0.10796176151927284,workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/CTF_seed42,True
+industrial,Original CTF,43,0.10858619867879898,0.10828039675929425,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed43,True
+industrial,Original CTF,44,0.10932176246166156,0.10804212944628665,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed44,True
+industrial,EquationInput-CTF,42,0.1215849136121524,0.12253244490353446,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed42/development/equation_input,True
+industrial,EquationInput-CTF,43,0.11275574518067272,0.11350777471031939,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed43/development/equation_input,True
+industrial,EquationInput-CTF,44,0.12045076913542876,0.12368786603157472,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/industrial/seed44/development/equation_input,True
+industrial,PhyGNN,42,0.14796612926220992,0.18289403308470767,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PhyGNN,True
+industrial,PhyGNN,43,0.14784567623892286,0.1818989433099106,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PhyGNN,True
+industrial,PhyGNN,44,0.14364567299937753,0.176097156917927,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PhyGNN,True
+industrial,MTGNN,42,0.11087848152628033,0.10975892417493394,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/MTGNN,True
+industrial,MTGNN,43,0.10974215678637583,0.10723273205305066,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/MTGNN,True
+industrial,MTGNN,44,0.10974308932307769,0.10700542932107888,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/MTGNN,True
+industrial,PatchTST,42,0.11075724125037191,0.11021634262650931,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PatchTST,True
+industrial,PatchTST,43,0.11189528319538841,0.11184370332036028,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PatchTST,True
+industrial,PatchTST,44,0.11168915402721585,0.11165979881149789,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PatchTST,True
+industrial,PG-Reg-CTF,42,0.12138574212474221,0.12237292951133798,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed42/PG-Reg-CTF,True
+industrial,PG-Reg-CTF,43,0.11288484270521233,0.11322601303525624,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed43/PG-Reg-CTF,True
+industrial,PG-Reg-CTF,44,0.13024982156426113,0.13326436440178094,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/industrial/seed44/PG-Reg-CTF,True
+lbnl,PhysicsRelationCTF,42,0.002533907933042052,0.004493299268895224,workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/v7_lr3e4/train100/Physics_seed42,True
+lbnl,PhysicsRelationCTF,43,0.002593820953338975,0.004642120171120306,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed43,True
+lbnl,PhysicsRelationCTF,44,0.002522337800162226,0.004548945870818473,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed44,True
+lbnl,Original CTF,42,0.0025883509203923944,0.004511992185873186,workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/common_lr3e4/train100/CTF_seed42,True
+lbnl,Original CTF,43,0.0025323236757659,0.0048480094215768155,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed43,True
+lbnl,Original CTF,44,0.002589358839528798,0.004528705932792377,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed44,True
+lbnl,EquationInput-CTF,42,0.0025948664746061377,0.004649376254677585,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed42/development/equation_input,True
+lbnl,EquationInput-CTF,43,0.0025360023797629436,0.004523147930879901,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed43/development/equation_input,True
+lbnl,EquationInput-CTF,44,0.0025374414755390223,0.004728386788202107,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/lbnl/seed44/development/equation_input,True
+lbnl,PhyGNN,42,0.00537170781572954,0.03271022460383574,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PhyGNN,False
+lbnl,PhyGNN,43,0.006087388611328335,0.03727561857693729,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PhyGNN,False
+lbnl,PhyGNN,44,0.006767602843182692,0.038960942294837375,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PhyGNN,False
+lbnl,MTGNN,42,0.002389709252870077,0.004297988337902447,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/MTGNN,False
+lbnl,MTGNN,43,0.0024141242937944277,0.004158294106735228,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/MTGNN,False
+lbnl,MTGNN,44,0.0024018958390189045,0.004223869475459351,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/MTGNN,False
+lbnl,PatchTST,42,0.0025128562708705547,0.004422394894728832,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PatchTST,False
+lbnl,PatchTST,43,0.0025532341926647077,0.004357929458221058,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PatchTST,False
+lbnl,PatchTST,44,0.002534761629494012,0.004371369992184848,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PatchTST,False
+lbnl,PG-Reg-CTF,42,0.005102337736981952,0.0078640939438371,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed42/PG-Reg-CTF,False
+lbnl,PG-Reg-CTF,43,0.0030500890140238404,0.005653697858565639,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed43/PG-Reg-CTF,False
+lbnl,PG-Reg-CTF,44,0.0051354702216436805,0.0077872757690461555,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/lbnl/seed44/PG-Reg-CTF,False
+tep,PhysicsRelationCTF,42,0.8217049854277599,0.7007267899966256,workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/Physics,True
+tep,PhysicsRelationCTF,43,0.819653834107054,0.6993614686885934,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/Physics,True
+tep,PhysicsRelationCTF,44,0.8222073007157925,0.7006175798676005,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/Physics,True
+tep,Original CTF,42,0.8269295614755318,0.702979791439295,workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/CTF,True
+tep,Original CTF,43,0.8259295764958433,0.7022097278509245,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/CTF,True
+tep,Original CTF,44,0.8283783558762111,0.7034131065675011,workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/CTF,True
+tep,EquationInput-CTF,42,0.7973823715779206,0.6880223395303832,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed42/development/equation_input,True
+tep,EquationInput-CTF,43,0.7965422916524918,0.687294784654597,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed43/development/equation_input,True
+tep,EquationInput-CTF,44,0.7974463014793246,0.6879592389277661,workspace/PhysicsRelationCTF/runs/paper_minimal_v1/tep/seed44/development/equation_input,True
+tep,PhyGNN,42,0.8667983619533086,0.7317111349467069,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PhyGNN,False
+tep,PhyGNN,43,0.867203407825936,0.7321935050509395,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PhyGNN,False
+tep,PhyGNN,44,0.8656164650431931,0.731219183688817,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PhyGNN,False
+tep,MTGNN,42,0.8652615881833093,0.7246539747993798,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/MTGNN,False
+tep,MTGNN,43,0.8682535455074285,0.7264527333361033,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/MTGNN,False
+tep,MTGNN,44,0.864051955623226,0.7241779242098775,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/MTGNN,False
+tep,PatchTST,42,1.011558530493246,0.7897630194562724,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PatchTST,False
+tep,PatchTST,43,1.0095818331591564,0.7887137337157211,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PatchTST,False
+tep,PatchTST,44,1.010663273925992,0.7892019442211843,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PatchTST,False
+tep,PG-Reg-CTF,42,0.7980885859616786,0.6885711087777421,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed42/PG-Reg-CTF,False
+tep,PG-Reg-CTF,43,0.7985102627804336,0.6887122466611587,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed43/PG-Reg-CTF,False
+tep,PG-Reg-CTF,44,0.7983116939962573,0.6885577152278406,workspace/PhysicsRelationCTF/runs/physics_ai_comparison_public_v1/tep/seed44/PG-Reg-CTF,False

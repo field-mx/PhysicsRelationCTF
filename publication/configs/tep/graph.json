@@ -1,0 +1,1317 @@
+{
+  "channels": [
+    "xmeas_1",
+    "xmeas_2",
+    "xmeas_3",
+    "xmeas_4",
+    "xmeas_5",
+    "xmeas_6",
+    "xmeas_7",
+    "xmeas_8",
+    "xmeas_9",
+    "xmeas_10",
+    "xmeas_11",
+    "xmeas_12",
+    "xmeas_13",
+    "xmeas_14",
+    "xmeas_15",
+    "xmeas_16",
+    "xmeas_17",
+    "xmeas_18",
+    "xmeas_19",
+    "xmeas_20",
+    "xmeas_21",
+    "xmeas_22",
+    "xmeas_23",
+    "xmeas_24",
+    "xmeas_25",
+    "xmeas_26",
+    "xmeas_27",
+    "xmeas_28",
+    "xmeas_29",
+    "xmeas_30",
+    "xmeas_31",
+    "xmeas_32",
+    "xmeas_33",
+    "xmeas_34",
+    "xmeas_35",
+    "xmeas_36",
+    "xmeas_37",
+    "xmeas_38",
+    "xmeas_39",
+    "xmeas_40",
+    "xmeas_41",
+    "xmv_1",
+    "xmv_2",
+    "xmv_3",
+    "xmv_4",
+    "xmv_5",
+    "xmv_6",
+    "xmv_7",
+    "xmv_8",
+    "xmv_9",
+    "xmv_10",
+    "xmv_11"
+  ],
+  "relations": [
+    "valve_flow",
+    "pressure_flow",
+    "compressor",
+    "heat_transfer",
+    "cooling_balance",
+    "liquid_density"
+  ],
+  "features": [
+    {
+      "name": "feed_A",
+      "op": "feed_A",
+      "target": 0,
+      "inputs": [
+        43
+      ],
+      "equation": "F_A = u3 * (100/100) * 0.359/35.3145",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        565,
+        569
+      ],
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "feed_D",
+      "op": "feed_D",
+      "target": 1,
+      "inputs": [
+        41
+      ],
+      "equation": "F_D = u1 * (400/100) * MW_Dfeed * 0.454",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        565,
+        569
+      ],
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "feed_E",
+      "op": "feed_E",
+      "target": 2,
+      "inputs": [
+        42
+      ],
+      "equation": "F_E = u2 * (400/100) * MW_Efeed * 0.454",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        565,
+        569
+      ],
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "feed_AC",
+      "op": "feed_AC",
+      "target": 3,
+      "inputs": [
+        44
+      ],
+      "equation": "F_AC = u4 * (1500/100) * 0.359/35.3145",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        565,
+        569
+      ],
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "purge",
+      "op": "purge",
+      "target": 9,
+      "inputs": [
+        46,
+        12,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        585,
+        589
+      ],
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "recycle",
+      "op": "recycle",
+      "target": 4,
+      "inputs": [
+        45,
+        15,
+        12,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        590,
+        603
+      ],
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "compressor_work",
+      "op": "compressor_work",
+      "target": 19,
+      "inputs": [
+        15,
+        12,
+        10,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        590,
+        596
+      ],
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "reactor_feed",
+      "op": "reactor_feed",
+      "target": 5,
+      "inputs": [
+        15,
+        6
+      ],
+      "equation": "Ffeed = k_flow * sqrt(max(Pv_kPa-Pr_kPa,0)); k_flow estimated on Train only",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        576,
+        580
+      ],
+      "limitation": "Full feed mixture molecular weight unobserved: one effective nonnegative coefficient; no invented component measurements.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "steam",
+      "op": "steam",
+      "target": 18,
+      "inputs": [
+        49,
+        17
+      ],
+      "equation": "Fsteam = u9*(0.03/100)*max(100-Tstrip,0)*1040*0.454",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        572,
+        572
+      ],
+      "limitation": "Steam actuator has 120 s time constant; quasi-static command approximation.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "product_flow",
+      "op": "product_flow",
+      "target": 16,
+      "inputs": [
+        48,
+        17,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        1490,
+        1504
+      ],
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "reactor_cooling",
+      "op": "reactor_cooling",
+      "target": 20,
+      "inputs": [
+        50,
+        8,
+        7
+      ],
+      "equation": "Twr_eq = (Fwr*500.53*35 + UAr*1e6/1.8*Tr)/(Fwr*500.53+UAr*1e6/1.8)",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        663,
+        674
+      ],
+      "limitation": "Quasi-steady cooling-water balance; nominal inlet 35 C and agitator 50%; no inlet fault claimed.",
+      "output_units": "same native units as target"
+    },
+    {
+      "name": "separator_cooling",
+      "op": "separator_cooling",
+      "target": 21,
+      "inputs": [
+        51,
+        8
+      ],
+      "equation": "Tws_eq = (Fws*500.53*40 + UAeff*1e6/1.8*Tr)/(Fws*500.53+UAeff*1e6/1.8)",
+      "source": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f",
+      "source_lines": [
+        674,
+        677
+      ],
+      "limitation": "Unobserved reactor outlet molar flow: effective UA estimated from Train, bounded by simulator maximum 0.404655; nominal inlet 40 C.",
+      "output_units": "same native units as target"
+    }
+  ],
+  "edges": [
+    {
+      "source": 43,
+      "target": 0,
+      "source_name": "xmv_3",
+      "target_name": "xmeas_1",
+      "relation": 0,
+      "relation_type": "valve_flow",
+      "feature": 0,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "F_A = u3 * (100/100) * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L565",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements."
+    },
+    {
+      "source": 41,
+      "target": 1,
+      "source_name": "xmv_1",
+      "target_name": "xmeas_2",
+      "relation": 0,
+      "relation_type": "valve_flow",
+      "feature": 1,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "F_D = u1 * (400/100) * MW_Dfeed * 0.454",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L565",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements."
+    },
+    {
+      "source": 42,
+      "target": 2,
+      "source_name": "xmv_2",
+      "target_name": "xmeas_3",
+      "relation": 0,
+      "relation_type": "valve_flow",
+      "feature": 2,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "F_E = u2 * (400/100) * MW_Efeed * 0.454",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L565",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements."
+    },
+    {
+      "source": 44,
+      "target": 3,
+      "source_name": "xmv_4",
+      "target_name": "xmeas_4",
+      "relation": 0,
+      "relation_type": "valve_flow",
+      "feature": 3,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "F_AC = u4 * (1500/100) * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L565",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements."
+    },
+    {
+      "source": 46,
+      "target": 9,
+      "source_name": "xmv_6",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 12,
+      "target": 9,
+      "source_name": "xmeas_13",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 28,
+      "target": 9,
+      "source_name": "xmeas_29",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 29,
+      "target": 9,
+      "source_name": "xmeas_30",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 30,
+      "target": 9,
+      "source_name": "xmeas_31",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 31,
+      "target": 9,
+      "source_name": "xmeas_32",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 32,
+      "target": 9,
+      "source_name": "xmeas_33",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 33,
+      "target": 9,
+      "source_name": "xmeas_34",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 34,
+      "target": 9,
+      "source_name": "xmeas_35",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 35,
+      "target": 9,
+      "source_name": "xmeas_36",
+      "target_name": "xmeas_10",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 4,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Fpurge = 0.151169*u6*sqrt(Psep_mmHg-760)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L585",
+      "limitation": "XMV command approximates unobserved valve position; 5-9 s actuator time constant vs 180 s sampling; noisy measurements. Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 45,
+      "target": 4,
+      "source_name": "xmv_5",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 15,
+      "target": 4,
+      "source_name": "xmeas_16",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 12,
+      "target": 4,
+      "source_name": "xmeas_13",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 28,
+      "target": 4,
+      "source_name": "xmeas_29",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 29,
+      "target": 4,
+      "source_name": "xmeas_30",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 30,
+      "target": 4,
+      "source_name": "xmeas_31",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 31,
+      "target": 4,
+      "source_name": "xmeas_32",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 32,
+      "target": 4,
+      "source_name": "xmeas_33",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 33,
+      "target": 4,
+      "source_name": "xmeas_34",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 34,
+      "target": 4,
+      "source_name": "xmeas_35",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 35,
+      "target": 4,
+      "source_name": "xmeas_36",
+      "target_name": "xmeas_5",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 5,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Frec = max(CPFLMX+CPFLMX/1.197*(1-PR^3)-53.349*u5*sqrt(Pv-Ps),0)/MWsep * 0.359/35.3145",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition. Compressor constants are simulator nominal values."
+    },
+    {
+      "source": 15,
+      "target": 19,
+      "source_name": "xmeas_16",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 12,
+      "target": 19,
+      "source_name": "xmeas_13",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 10,
+      "target": 19,
+      "source_name": "xmeas_11",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 28,
+      "target": 19,
+      "source_name": "xmeas_29",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 29,
+      "target": 19,
+      "source_name": "xmeas_30",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 30,
+      "target": 19,
+      "source_name": "xmeas_31",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 31,
+      "target": 19,
+      "source_name": "xmeas_32",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 32,
+      "target": 19,
+      "source_name": "xmeas_33",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 33,
+      "target": 19,
+      "source_name": "xmeas_34",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 34,
+      "target": 19,
+      "source_name": "xmeas_35",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 35,
+      "target": 19,
+      "source_name": "xmeas_36",
+      "target_name": "xmeas_20",
+      "relation": 2,
+      "relation_type": "compressor",
+      "feature": 6,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "W = FLMS*(Ts+273.15)*1.8e-6*1.9872*(Pv-Ps)/(MWsep*Ps)*293.07",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L590",
+      "limitation": "Gas composition analyzer has 6-minute sample/delay; use last observed composition, not hidden current composition."
+    },
+    {
+      "source": 15,
+      "target": 5,
+      "source_name": "xmeas_16",
+      "target_name": "xmeas_6",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 7,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Ffeed = k_flow * sqrt(max(Pv_kPa-Pr_kPa,0)); k_flow estimated on Train only",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L576",
+      "limitation": "Full feed mixture molecular weight unobserved: one effective nonnegative coefficient; no invented component measurements."
+    },
+    {
+      "source": 6,
+      "target": 5,
+      "source_name": "xmeas_7",
+      "target_name": "xmeas_6",
+      "relation": 1,
+      "relation_type": "pressure_flow",
+      "feature": 7,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2
+      ],
+      "equation": "Ffeed = k_flow * sqrt(max(Pv_kPa-Pr_kPa,0)); k_flow estimated on Train only",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L576",
+      "limitation": "Full feed mixture molecular weight unobserved: one effective nonnegative coefficient; no invented component measurements."
+    },
+    {
+      "source": 49,
+      "target": 18,
+      "source_name": "xmv_9",
+      "target_name": "xmeas_19",
+      "relation": 3,
+      "relation_type": "heat_transfer",
+      "feature": 8,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fsteam = u9*(0.03/100)*max(100-Tstrip,0)*1040*0.454",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L572",
+      "limitation": "Steam actuator has 120 s time constant; quasi-static command approximation."
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "source_name": "xmeas_18",
+      "target_name": "xmeas_19",
+      "relation": 3,
+      "relation_type": "heat_transfer",
+      "feature": 8,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fsteam = u9*(0.03/100)*max(100-Tstrip,0)*1040*0.454",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L572",
+      "limitation": "Steam actuator has 120 s time constant; quasi-static command approximation."
+    },
+    {
+      "source": 48,
+      "target": 16,
+      "source_name": "xmv_8",
+      "target_name": "xmeas_17",
+      "relation": 5,
+      "relation_type": "liquid_density",
+      "feature": 9,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L1490",
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes."
+    },
+    {
+      "source": 17,
+      "target": 16,
+      "source_name": "xmeas_18",
+      "target_name": "xmeas_17",
+      "relation": 5,
+      "relation_type": "liquid_density",
+      "feature": 9,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L1490",
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes."
+    },
+    {
+      "source": 36,
+      "target": 16,
+      "source_name": "xmeas_37",
+      "target_name": "xmeas_17",
+      "relation": 5,
+      "relation_type": "liquid_density",
+      "feature": 9,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L1490",
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes."
+    },
+    {
+      "source": 37,
+      "target": 16,
+      "source_name": "xmeas_38",
+      "target_name": "xmeas_17",
+      "relation": 5,
+      "relation_type": "liquid_density",
+      "feature": 9,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L1490",
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes."
+    },
+    {
+      "source": 38,
+      "target": 16,
+      "source_name": "xmeas_39",
+      "target_name": "xmeas_17",
+      "relation": 5,
+      "relation_type": "liquid_density",
+      "feature": 9,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L1490",
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes."
+    },
+    {
+      "source": 39,
+      "target": 16,
+      "source_name": "xmeas_40",
+      "target_name": "xmeas_17",
+      "relation": 5,
+      "relation_type": "liquid_density",
+      "feature": 9,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L1490",
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes."
+    },
+    {
+      "source": 40,
+      "target": 16,
+      "source_name": "xmeas_41",
+      "target_name": "xmeas_17",
+      "relation": 5,
+      "relation_type": "liquid_density",
+      "feature": 9,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "equation": "Fprod = (u8*1000/100)/35.3145 * sum_k(z_k MW_k/(AD_k+BD_k*T+CD_k*T^2))",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L1490",
+      "limitation": "Liquid composition D-H renormalized; unobserved trace light species omitted; analyzer delay 15 minutes."
+    },
+    {
+      "source": 50,
+      "target": 20,
+      "source_name": "xmv_10",
+      "target_name": "xmeas_21",
+      "relation": 4,
+      "relation_type": "cooling_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "equation": "Twr_eq = (Fwr*500.53*35 + UAr*1e6/1.8*Tr)/(Fwr*500.53+UAr*1e6/1.8)",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L663",
+      "limitation": "Quasi-steady cooling-water balance; nominal inlet 35 C and agitator 50%; no inlet fault claimed."
+    },
+    {
+      "source": 8,
+      "target": 20,
+      "source_name": "xmeas_9",
+      "target_name": "xmeas_21",
+      "relation": 4,
+      "relation_type": "cooling_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "equation": "Twr_eq = (Fwr*500.53*35 + UAr*1e6/1.8*Tr)/(Fwr*500.53+UAr*1e6/1.8)",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L663",
+      "limitation": "Quasi-steady cooling-water balance; nominal inlet 35 C and agitator 50%; no inlet fault claimed."
+    },
+    {
+      "source": 7,
+      "target": 20,
+      "source_name": "xmeas_8",
+      "target_name": "xmeas_21",
+      "relation": 4,
+      "relation_type": "cooling_balance",
+      "feature": 10,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "equation": "Twr_eq = (Fwr*500.53*35 + UAr*1e6/1.8*Tr)/(Fwr*500.53+UAr*1e6/1.8)",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L663",
+      "limitation": "Quasi-steady cooling-water balance; nominal inlet 35 C and agitator 50%; no inlet fault claimed."
+    },
+    {
+      "source": 51,
+      "target": 21,
+      "source_name": "xmv_11",
+      "target_name": "xmeas_22",
+      "relation": 4,
+      "relation_type": "cooling_balance",
+      "feature": 11,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "equation": "Tws_eq = (Fws*500.53*40 + UAeff*1e6/1.8*Tr)/(Fws*500.53+UAeff*1e6/1.8)",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L674",
+      "limitation": "Unobserved reactor outlet molar flow: effective UA estimated from Train, bounded by simulator maximum 0.404655; nominal inlet 40 C."
+    },
+    {
+      "source": 8,
+      "target": 21,
+      "source_name": "xmeas_9",
+      "target_name": "xmeas_22",
+      "relation": 4,
+      "relation_type": "cooling_balance",
+      "feature": 11,
+      "known_gain": 1.0,
+      "absolute_reference": true,
+      "lags": [
+        0,
+        1,
+        2,
+        4,
+        8
+      ],
+      "equation": "Tws_eq = (Fws*500.53*40 + UAeff*1e6/1.8*Tr)/(Fws*500.53+UAeff*1e6/1.8)",
+      "evidence": "https://github.com/camaramm/tennessee-eastman-profBraatz/blob/master/teprob.f#L674",
+      "limitation": "Unobserved reactor outlet molar flow: effective UA estimated from Train, bounded by simulator maximum 0.404655; nominal inlet 40 C."
+    }
+  ],
+  "base_feature_count": 12,
+  "adjacency_convention": "A[target,source]",
+  "lag_units": "180-second native samples; candidate alignment ranges, not known process delays",
+  "excluded": [
+    "Hidden-state reaction kinetics: reactor partial pressures unobserved.",
+    "Exact total/component/energy balances require unobserved reactor outlet, vapor return, inventories and enthalpies.",
+    "No pairwise correlations used as physical topology; no transitive graph powers."
+  ],
+  "k_flow": 2.1242498772998477,
+  "ua_separator": 0.1693507560658839
+}

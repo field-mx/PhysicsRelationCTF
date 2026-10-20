@@ -1,0 +1,284 @@
+{
+  "status": "complete",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "ratio": 1.0,
+  "results": {
+    "industrial": {
+      "CTF": {
+        "mse_mean": 0.1090100907341265,
+        "mse_std": 0.0003804057979870444,
+        "mae_mean": 0.10809476257495125,
+        "mae_std": 0.00016570995359556606
+      },
+      "Physics": {
+        "mse_mean": 0.10858197794489867,
+        "mse_std": 0.0007542658232471764,
+        "mae_mean": 0.10775838796027006,
+        "mae_std": 0.0007934311620770629
+      },
+      "paired": [
+        {
+          "seed": 42,
+          "ctf_mse": 0.10912231106191896,
+          "physics_mse": 0.1077314919146041,
+          "ctf_mae": 0.10796176151927284,
+          "physics_mae": 0.10695044940090849,
+          "mse_gain_percent": 1.2745506705092304,
+          "mae_gain_percent": 0.9367317688530041
+        },
+        {
+          "seed": 43,
+          "ctf_mse": 0.10858619867879898,
+          "physics_mse": 0.1088446723017184,
+          "ctf_mae": 0.10828039675929425,
+          "physics_mae": 0.10853646881712739,
+          "mse_gain_percent": -0.2380354281339121,
+          "mae_gain_percent": -0.23648976684337572
+        },
+        {
+          "seed": 44,
+          "ctf_mse": 0.10932176246166156,
+          "physics_mse": 0.10916976961837349,
+          "ctf_mae": 0.10804212944628665,
+          "physics_mae": 0.10778824566277427,
+          "mse_gain_percent": 0.13903255844541554,
+          "mae_gain_percent": 0.23498591226730237
+        }
+      ],
+      "mse_wins": 2,
+      "mae_wins": 2,
+      "mse_gain_percent": 0.39272766983745483,
+      "mae_gain_percent": 0.31118493317190854,
+      "runs": [
+        {
+          "seed": 42,
+          "kind": "CTF",
+          "mse": 0.10912231106191896,
+          "mae": 0.10796176151927284,
+          "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/CTF_seed42"
+        },
+        {
+          "seed": 42,
+          "kind": "Physics",
+          "mse": 0.1077314919146041,
+          "mae": 0.10695044940090849,
+          "path": "workspace/PhysicsRelationCTF/runs/random_gaps_v1/train100/Physics_seed42"
+        },
+        {
+          "seed": 43,
+          "kind": "CTF",
+          "mse": 0.10858619867879898,
+          "mae": 0.10828039675929425,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed43"
+        },
+        {
+          "seed": 43,
+          "kind": "Physics",
+          "mse": 0.1088446723017184,
+          "mae": 0.10853646881712739,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43"
+        },
+        {
+          "seed": 44,
+          "kind": "CTF",
+          "mse": 0.10932176246166156,
+          "mae": 0.10804212944628665,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed44"
+        },
+        {
+          "seed": 44,
+          "kind": "Physics",
+          "mse": 0.10916976961837349,
+          "mae": 0.10778824566277427,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44"
+        }
+      ]
+    },
+    "lbnl": {
+      "CTF": {
+        "mse_mean": 0.0025700111452290307,
+        "mse_std": 3.264219648165854e-05,
+        "mae_mean": 0.004629569180080793,
+        "mae_std": 0.0001893592925172942
+      },
+      "Physics": {
+        "mse_mean": 0.002550022228847751,
+        "mse_std": 3.836943046238534e-05,
+        "mae_mean": 0.004561455103611335,
+        "mae_std": 7.519491946648621e-05
+      },
+      "paired": [
+        {
+          "seed": 42,
+          "ctf_mse": 0.0025883509203923944,
+          "physics_mse": 0.002533907933042052,
+          "ctf_mae": 0.004511992185873186,
+          "physics_mae": 0.004493299268895224,
+          "mse_gain_percent": 2.1033850905382097,
+          "mae_gain_percent": 0.41429409023554403
+        },
+        {
+          "seed": 43,
+          "ctf_mse": 0.0025323236757659,
+          "physics_mse": 0.002593820953338975,
+          "ctf_mae": 0.0048480094215768155,
+          "physics_mae": 0.004642120171120306,
+          "mse_gain_percent": -2.4284919878765336,
+          "mae_gain_percent": 4.246882226345676
+        },
+        {
+          "seed": 44,
+          "ctf_mse": 0.002589358839528798,
+          "physics_mse": 0.002522337800162226,
+          "ctf_mae": 0.004528705932792377,
+          "physics_mae": 0.004548945870818473,
+          "mse_gain_percent": 2.588325663613635,
+          "mae_gain_percent": -0.4469254203400266
+        }
+      ],
+      "mse_wins": 2,
+      "mae_wins": 2,
+      "mse_gain_percent": 0.7777754745689403,
+      "mae_gain_percent": 1.4712832624367407,
+      "runs": [
+        {
+          "seed": 42,
+          "kind": "CTF",
+          "mse": 0.0025883509203923944,
+          "mae": 0.004511992185873186,
+          "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/common_lr3e4/train100/CTF_seed42"
+        },
+        {
+          "seed": 42,
+          "kind": "Physics",
+          "mse": 0.002533907933042052,
+          "mae": 0.004493299268895224,
+          "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/optimization_v2/v7_lr3e4/train100/Physics_seed42"
+        },
+        {
+          "seed": 43,
+          "kind": "CTF",
+          "mse": 0.0025323236757659,
+          "mae": 0.0048480094215768155,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed43"
+        },
+        {
+          "seed": 43,
+          "kind": "Physics",
+          "mse": 0.002593820953338975,
+          "mae": 0.004642120171120306,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed43"
+        },
+        {
+          "seed": 44,
+          "kind": "CTF",
+          "mse": 0.002589358839528798,
+          "mae": 0.004528705932792377,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed44"
+        },
+        {
+          "seed": 44,
+          "kind": "Physics",
+          "mse": 0.002522337800162226,
+          "mae": 0.004548945870818473,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed44"
+        }
+      ]
+    },
+    "tep": {
+      "CTF": {
+        "mse_mean": 0.8270791646158621,
+        "mse_std": 0.0012312253807187977,
+        "mae_mean": 0.7028675419525735,
+        "mae_std": 0.0006094916277762281
+      },
+      "Physics": {
+        "mse_mean": 0.8211887067502022,
+        "mse_std": 0.0013527585465120274,
+        "mae_mean": 0.7002352795176066,
+        "mae_std": 0.0007587099160719324
+      },
+      "paired": [
+        {
+          "seed": 42,
+          "ctf_mse": 0.8269295614755318,
+          "physics_mse": 0.8217049854277599,
+          "ctf_mae": 0.702979791439295,
+          "physics_mae": 0.7007267899966256,
+          "mse_gain_percent": 0.631804242002106,
+          "mae_gain_percent": 0.3204930597018354
+        },
+        {
+          "seed": 43,
+          "ctf_mse": 0.8259295764958433,
+          "physics_mse": 0.819653834107054,
+          "ctf_mae": 0.7022097278509245,
+          "physics_mae": 0.6993614686885934,
+          "mse_gain_percent": 0.7598398903954188,
+          "mae_gain_percent": 0.40561374321145593
+        },
+        {
+          "seed": 44,
+          "ctf_mse": 0.8283783558762111,
+          "physics_mse": 0.8222073007157925,
+          "ctf_mae": 0.7034131065675011,
+          "physics_mae": 0.7006175798676005,
+          "mse_gain_percent": 0.7449561081169505,
+          "mae_gain_percent": 0.3974231747745106
+        }
+      ],
+      "mse_wins": 3,
+      "mae_wins": 3,
+      "mse_gain_percent": 0.7122000066820354,
+      "mae_gain_percent": 0.37450334207416874,
+      "runs": [
+        {
+          "seed": 42,
+          "kind": "CTF",
+          "mse": 0.8269295614755318,
+          "mae": 0.702979791439295,
+          "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/CTF"
+        },
+        {
+          "seed": 42,
+          "kind": "Physics",
+          "mse": 0.8217049854277599,
+          "mae": 0.7007267899966256,
+          "path": "workspace/PhysicsRelationCTF/runs/TEP/window_search_v1/ratio_20x20/development/Physics"
+        },
+        {
+          "seed": 43,
+          "kind": "CTF",
+          "mse": 0.8259295764958433,
+          "mae": 0.7022097278509245,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/CTF"
+        },
+        {
+          "seed": 43,
+          "kind": "Physics",
+          "mse": 0.819653834107054,
+          "mae": 0.6993614686885934,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/Physics"
+        },
+        {
+          "seed": 44,
+          "kind": "CTF",
+          "mse": 0.8283783558762111,
+          "mae": 0.7034131065675011,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/CTF"
+        },
+        {
+          "seed": 44,
+          "kind": "Physics",
+          "mse": 0.8222073007157925,
+          "mae": 0.7006175798676005,
+          "path": "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/Physics"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "lbnl_doi": "10.25984/1881324",
+  "lbnl_csv_sha256": "060eae14189c81486259facfa6731691b583d76021555f7d7a24b98beebbb223",
+  "tep_doi": "10.7910/DVN/6C3JR1",
+  "tep_raw_files": [
+    {
+      "file": "TEP_FaultFree_Training.RData",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/averkij/tennessee-eastman-process-simulation-dataset/TEP_FaultFree_Training.RData",
+      "bytes": 24678017,
+      "sha256": "12d1055b852763fac09ef36bd7c9612a800c8bf7b6f75f344d12119206f9e940"
+    },
+    {
+      "file": "TEP_FaultFree_Testing.RData",
+      "url": "https://www.kaggle.com/api/v1/datasets/download/averkij/tennessee-eastman-process-simulation-dataset/TEP_FaultFree_Testing.RData",
+      "bytes": 47327663,
+      "sha256": "4f45afafa469793eeb7203fb9ed10ed0b1724c73c9c95537f15a0889ade0ebd4"
+    }
+  ],
+  "source_links_checked": "2026-10-20"
+}

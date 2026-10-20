@@ -1,0 +1,13 @@
+{
+  "dataset": "lbnl",
+  "model": "PG-Reg-CTF",
+  "seed": 43,
+  "best_val_mse": 0.07821992192435452,
+  "best_val_mae": 0.04760178434723322,
+  "best_epoch": 31,
+  "epochs_completed": 32,
+  "parameter_count": 1668704,
+  "seconds": 911.3098388999933,
+  "test_evaluated": false,
+  "checkpoint_sha256": "713f19ce1a9e4aa53a1ba54f2b9692ba12ce5f7ba0c17d6659de8aa66b59ccf2"
+}

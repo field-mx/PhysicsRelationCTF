@@ -1,0 +1,8 @@
+{
+  "pressure_reference_pa": 239364.6786720917,
+  "raw_reference_inH2O": 960.960801796,
+  "training_rows": 367878,
+  "source": "Measured CWL_SEC_DPSPT, training only; constant excluded from prediction targets",
+  "mechanism": "Official LBNL inventory Table1: differential-pressure feedback control",
+  "limitation": "soft historical boundary guidance, not a guarantee of reaching the setpoint"
+}

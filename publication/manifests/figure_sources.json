@@ -1,0 +1,149 @@
+[
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_structure/fig01_architecture.png",
+    "destination": "figures/architecture/model_architecture.png",
+    "source_sha256": "dabdc2aec1a80eed8b4f00583a3ec631e3aa3ddc09fcb48c5bb488ee32c842be",
+    "exported_sha256": "dabdc2aec1a80eed8b4f00583a3ec631e3aa3ddc09fcb48c5bb488ee32c842be",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_structure/fig01_architecture.pdf",
+    "destination": "figures/architecture/model_architecture.pdf",
+    "source_sha256": "0f63a13443007c54b0dcc775046ac47831eccad28ee877a5ce077398c52cad36",
+    "exported_sha256": "0f63a13443007c54b0dcc775046ac47831eccad28ee877a5ce077398c52cad36",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_topology_attention/PRCTF_topology_attention.png",
+    "destination": "figures/architecture/topology_attention.png",
+    "source_sha256": "2ff386f290ab6983801ba4000eba6c85ea6eb3a779a05253d3701b4a5f2181a0",
+    "exported_sha256": "2ff386f290ab6983801ba4000eba6c85ea6eb3a779a05253d3701b4a5f2181a0",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_topology_attention/PRCTF_topology_attention.pdf",
+    "destination": "figures/architecture/topology_attention.pdf",
+    "source_sha256": "3904e69fe3af42d08d64653a95a5a975821be5cc52dc9cfcf763adcb1f70b013",
+    "exported_sha256": "3904e69fe3af42d08d64653a95a5a975821be5cc52dc9cfcf763adcb1f70b013",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_physics_message/PRCTF_physics_message.png",
+    "destination": "figures/architecture/physics_message.png",
+    "source_sha256": "59dd12ba8c7758a50b725eca3b28ebbdcfa3fcd36a42d5a0317d70cba31f6ec3",
+    "exported_sha256": "59dd12ba8c7758a50b725eca3b28ebbdcfa3fcd36a42d5a0317d70cba31f6ec3",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_physics_message/PRCTF_physics_message.pdf",
+    "destination": "figures/architecture/physics_message.pdf",
+    "source_sha256": "d6753941750fe2631ec69cf4312fc70ae95d5adb4450263ce7b415bcdbdafce2",
+    "exported_sha256": "d6753941750fe2631ec69cf4312fc70ae95d5adb4450263ce7b415bcdbdafce2",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_topology_zh.png",
+    "destination": "figures/topology/electrolyzer_topology_zh.png",
+    "source_sha256": "4d9bbb9924fa608c62207bd7ac805fb4ea4738ba38478d7116ecd58e7d55fff5",
+    "exported_sha256": "4d9bbb9924fa608c62207bd7ac805fb4ea4738ba38478d7116ecd58e7d55fff5",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_topology_zh.pdf",
+    "destination": "figures/topology/electrolyzer_topology_zh.pdf",
+    "source_sha256": "69dcd36db9058220615ed618d81251979ecbe67846c8aefa66a51c655d87278a",
+    "exported_sha256": "69dcd36db9058220615ed618d81251979ecbe67846c8aefa66a51c655d87278a",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_topology_en.png",
+    "destination": "figures/topology/electrolyzer_topology_en.png",
+    "source_sha256": "7c176ed3098e98d6ae0ea8710a1233e148753c0dcbd120b319569fbce936df3e",
+    "exported_sha256": "7c176ed3098e98d6ae0ea8710a1233e148753c0dcbd120b319569fbce936df3e",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_topology_en.pdf",
+    "destination": "figures/topology/electrolyzer_topology_en.pdf",
+    "source_sha256": "b6900916091ad7fb62b72be92f063037ac56b1fa57d639f568ee098deecae8c3",
+    "exported_sha256": "b6900916091ad7fb62b72be92f063037ac56b1fa57d639f568ee098deecae8c3",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_attention_zh.png",
+    "destination": "figures/topology/electrolyzer_attention_zh.png",
+    "source_sha256": "2d884125fa6ea0390c77bc9bdb00318e7a54e624a01cac8e7e669700b7a28c04",
+    "exported_sha256": "2d884125fa6ea0390c77bc9bdb00318e7a54e624a01cac8e7e669700b7a28c04",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_attention_zh.pdf",
+    "destination": "figures/topology/electrolyzer_attention_zh.pdf",
+    "source_sha256": "0dd0f0eada5ff62ee7f2a9886e10dc0f08249e38b51d3ef51212b4023606d489",
+    "exported_sha256": "0dd0f0eada5ff62ee7f2a9886e10dc0f08249e38b51d3ef51212b4023606d489",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_attention_en.png",
+    "destination": "figures/topology/electrolyzer_attention_en.png",
+    "source_sha256": "24f39910eaa920dfa03b1a4965742735177001d7919e0f8b5e5ddb452c4bb570",
+    "exported_sha256": "24f39910eaa920dfa03b1a4965742735177001d7919e0f8b5e5ddb452c4bb570",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_attention_en.pdf",
+    "destination": "figures/topology/electrolyzer_attention_en.pdf",
+    "source_sha256": "401f6664767ce8191a5728bd352b8627f07777c171f03f91e858654be21beb62",
+    "exported_sha256": "401f6664767ce8191a5728bd352b8627f07777c171f03f91e858654be21beb62",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_channel_attention_zh.png",
+    "destination": "figures/topology/electrolyzer_channel_attention_zh.png",
+    "source_sha256": "f8b3f8815cd68a80e0e4a8770e33b6b1662ca0b97000642f1d05f8abbd90d42f",
+    "exported_sha256": "f8b3f8815cd68a80e0e4a8770e33b6b1662ca0b97000642f1d05f8abbd90d42f",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_channel_attention_zh.pdf",
+    "destination": "figures/topology/electrolyzer_channel_attention_zh.pdf",
+    "source_sha256": "ee4c9b42eb2db70ea6d9efa6f64cd480ab5edcb46c2c7190eb607c3a4e77818b",
+    "exported_sha256": "ee4c9b42eb2db70ea6d9efa6f64cd480ab5edcb46c2c7190eb607c3a4e77818b",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_channel_attention_en.png",
+    "destination": "figures/topology/electrolyzer_channel_attention_en.png",
+    "source_sha256": "9b47c4171bd6ab76291f028d80760047c06d8ff1d5c967ca23a4f11da99ebe7c",
+    "exported_sha256": "9b47c4171bd6ab76291f028d80760047c06d8ff1d5c967ca23a4f11da99ebe7c",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/PRCTF_electrolyzer_topology/electrolyzer_channel_attention_en.pdf",
+    "destination": "figures/topology/electrolyzer_channel_attention_en.pdf",
+    "source_sha256": "f1e67c106007373b50346045d0eca089007c2c71e302b2a452f6774fb35f51cb",
+    "exported_sha256": "f1e67c106007373b50346045d0eca089007c2c71e302b2a452f6774fb35f51cb",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/selected_lowpass_channels/PT010003_TT010305_full_test.png",
+    "destination": "figures/industrial/lowpass_test_predictions.png",
+    "source_sha256": "dfa5714e9354c95739c22192df620fe4ba7dc670450b210ee48b1b620c58157f",
+    "exported_sha256": "dfa5714e9354c95739c22192df620fe4ba7dc670450b210ee48b1b620c58157f",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/selected_lowpass_channels/PT010003_TT010305_full_test.pdf",
+    "destination": "figures/industrial/lowpass_test_predictions.pdf",
+    "source_sha256": "dff611971054706efeee0e8fc0acd2e1d5bad81bcbe8c58b124429de6a552ddc",
+    "exported_sha256": "dff611971054706efeee0e8fc0acd2e1d5bad81bcbe8c58b124429de6a552ddc",
+    "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/figures/原始信号.PNG",
+    "destination": "figures/industrial/raw_signal_overview.png",
+    "source_sha256": "f05f55184c13720e671b919fdfa6b65aa5fc549d732e96c8bce140008e702299",
+    "exported_sha256": "f05f55184c13720e671b919fdfa6b65aa5fc549d732e96c8bce140008e702299",
+    "transformation": "none"
+  }
+]

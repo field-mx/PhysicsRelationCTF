@@ -1,0 +1,14 @@
+{
+  "scope": "Environment inspected for packaging/synthetic checks; not asserted as original training environment",
+  "python": "3.10.12",
+  "packages": {
+    "torch": "2.14.0",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3",
+    "einops": "0.8.1",
+    "reformer-pytorch": "1.4.4",
+    "requests": "2.32.3",
+    "matplotlib": "3.10.9"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "kind": "equation_input",
+  "ratio": 1.0,
+  "seed": 42,
+  "best_epoch": 29,
+  "best_val_mse": 0.07364733048949366,
+  "best_val_mae": 0.04288554927827657,
+  "epochs_completed": 32,
+  "test_evaluated": false,
+  "seconds": 849.62378476304,
+  "parameters": 1668704,
+  "backend_kind": "CTF",
+  "variant": "equation_input"
+}

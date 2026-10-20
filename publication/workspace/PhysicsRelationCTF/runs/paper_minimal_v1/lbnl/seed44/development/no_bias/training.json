@@ -1,0 +1,14 @@
+{
+  "kind": "no_bias",
+  "ratio": 1.0,
+  "seed": 44,
+  "best_epoch": 30,
+  "best_val_mse": 0.07376035318835132,
+  "best_val_mae": 0.04280021264605389,
+  "epochs_completed": 32,
+  "test_evaluated": false,
+  "seconds": 511.7923860549927,
+  "parameters": 1698235,
+  "backend_kind": "Physics",
+  "variant": "no_bias"
+}

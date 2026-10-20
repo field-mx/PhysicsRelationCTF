@@ -1,0 +1,18 @@
+{
+  "checkpoints": {
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed43": "990511414768d1a332092a0a2054ea8aa93d3072d722b10b89483ab96ad7e601",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed43": "330b404288ff296127b916cd2daa897a39738d6afba4e1803077f27ef3e0dec5",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed43": "5d438ce3f60b27a09ef07e8b0e49b84b650cfb7ba7b3836e1087edc21d98a9ba",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed43": "5285ca3432895f7bc142e811a782b5ba68341d8ce2cd3181b58ec6898fa48f1f",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/CTF": "fb130a2bc2c00498a27936c782cdffed3b686c40cc2d193a966c2181088c4134",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed43/ratio_20x20/development/Physics": "15e572e9115ee2fd5f8d28090fe70bfb7561a71641c6aba886ab7d367b142154",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/CTF_seed44": "2a8de608b0c01c3def3c3e268297ecc936b9dd5e7049ce4fa69c89af6d366f61",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/industrial/train100/Physics_seed44": "53ca6ac7fa680cc65d0ad17691717f191606af221043857d05d38989ae405b75",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/CTF_seed44": "4ae609433790856f94d647635cb5925183149d6068cf6f385b1ee7f9db864e9a",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/lbnl/train100/Physics_seed44": "aac7abcc316375c0d8113eec95aacb4c5c11cd4021ffe490336956ed9d73f01a",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/CTF": "ace00c7152aefe35444fdb95e20b13056733b1106db1ea845479b61ed92b17d0",
+    "workspace/PhysicsRelationCTF/runs/multiseed_100_v1/tep/seed44/ratio_20x20/development/Physics": "815c00c9681de3d67372125ec9f24bf6019a5f6b7e03946ba5afce6079429dc1"
+  },
+  "protocol_sha256": "346d95ae93330770b7f55708b450fe4cadac505b9949f2843731b3c023ee3a28",
+  "policy": "All 12 validation-selected checkpoints locked before test. No search or seed removal."
+}

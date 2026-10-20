@@ -1,0 +1,11 @@
+{
+  "url": "https://fdddata.lbl.gov/data/Simulated_LBNL_FDD_Data_Sets_Chiller_Plant/LBNL_FDD_Data_Sets_Chiller_Plant.zip",
+  "doi": "10.25984/1881324",
+  "archive_etag": "\"5da2a04d-63a11f19585f9\"",
+  "archive_bytes": 1570938957,
+  "member": "ChillerPlant.csv",
+  "crc32": 2443164732,
+  "csv_sha256": "060eae14189c81486259facfa6731691b583d76021555f7d7a24b98beebbb223",
+  "csv_bytes": 429363044,
+  "kind": "EnergyPlus-Modelica simulation; normal operation only"
+}

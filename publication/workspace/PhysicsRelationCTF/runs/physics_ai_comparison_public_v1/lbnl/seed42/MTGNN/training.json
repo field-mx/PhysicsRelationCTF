@@ -1,0 +1,13 @@
+{
+  "dataset": "lbnl",
+  "model": "MTGNN",
+  "seed": 42,
+  "best_val_mse": 0.07314681841352517,
+  "best_val_mae": 0.041591384851937925,
+  "best_epoch": 31,
+  "epochs_completed": 32,
+  "parameter_count": 1688416,
+  "seconds": 167.8232990890392,
+  "test_evaluated": false,
+  "checkpoint_sha256": "25c466245c6179e6d5a19cf9419a20cddb56749cd5d5ce965ea3fd99f45535ed"
+}

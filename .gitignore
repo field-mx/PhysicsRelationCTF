@@ -42,3 +42,6 @@ __pycache__/
 # IDE
 .vscode/
 .idea/
+
+# Manuscripts, reference PDFs and internal paper-review material stay local.
+/paper/

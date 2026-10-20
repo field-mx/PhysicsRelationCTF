@@ -1,0 +1,7 @@
+# Install an appropriate PyTorch build separately (study APIs require >=2.7).
+numpy==2.2.6
+pandas==2.2.3
+scipy==1.15.3
+einops==0.8.1
+reformer-pytorch==1.4.4
+requests==2.32.3

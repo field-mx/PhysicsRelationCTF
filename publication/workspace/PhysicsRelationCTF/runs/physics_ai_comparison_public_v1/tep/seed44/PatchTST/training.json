@@ -1,0 +1,13 @@
+{
+  "dataset": "tep",
+  "model": "PatchTST",
+  "seed": 44,
+  "best_val_mse": 1.0379753299048025,
+  "best_val_mae": 0.8000170444209427,
+  "best_epoch": 12,
+  "epochs_completed": 16,
+  "parameter_count": 1602686,
+  "seconds": 124.7762759620091,
+  "test_evaluated": false,
+  "checkpoint_sha256": "a5acfae746a5ca5d0f760202e2ed7af89014880686c177edeff13d10836489d4"
+}

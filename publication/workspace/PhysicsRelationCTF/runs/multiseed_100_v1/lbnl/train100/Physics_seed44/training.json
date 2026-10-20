@@ -1,0 +1,12 @@
+{
+  "kind": "Physics",
+  "ratio": 1.0,
+  "seed": 44,
+  "best_epoch": 32,
+  "best_val_mse": 0.07383001545806919,
+  "best_val_mae": 0.042917952375810385,
+  "epochs_completed": 32,
+  "test_evaluated": false,
+  "seconds": 522.1510711701121,
+  "parameters": 1698235
+}

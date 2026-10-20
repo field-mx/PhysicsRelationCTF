@@ -1,0 +1,13 @@
+{
+  "dataset": "tep",
+  "model": "PhyGNN",
+  "seed": 42,
+  "best_val_mse": 0.8756416538429129,
+  "best_val_mae": 0.7359357858166028,
+  "best_epoch": 16,
+  "epochs_completed": 16,
+  "parameter_count": 58788,
+  "seconds": 120.18315322499257,
+  "test_evaluated": false,
+  "checkpoint_sha256": "3bb35c7e7a7e51e53a9e1607b334c4fd337acb8b8c884a7c1c46d8ebd9b52398"
+}
