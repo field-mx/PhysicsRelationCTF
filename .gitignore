@@ -1,47 +1,24 @@
-# 图片 / 文档
-*.png
-*.pdf
-
-# 数据
-*.csv
-*.xlsx
-*.xls
-*.npy
-*.npz
-*.mat
-*.h5
-*.hdf5
-*.pkl
-*.pickle
-*.jsonl
-
-data/
-dataset/
-datasets/
-
-# 模型权重
-*.pt
-*.pth
-*.ckpt
-*.safetensors
-
-# 训练输出
-outputs/
-checkpoints/
-logs/
-wandb/
-
-# runs/ 下仅同步最新实验
-runs/*
-!runs/random_gaps_v1/
-
-# Python 缓存
+# The publication directory is a whitelist-built export, not the full lab tree.
 __pycache__/
 *.pyc
-
-# IDE
-.vscode/
-.idea/
-
-# Manuscripts, reference PDFs and internal paper-review material stay local.
-/paper/
+.pytest_cache/
+.venv/
+outputs/
+*.pth
+*.pt
+*.ckpt
+*.npz
+*.npy
+*.parquet
+*.RData
+*.xlsx
+*.xls
+paper/
+workspace/CTF/
+**/vendor/
+# Public evidence CSV/JSON and approved PNG/PDF figures are intentionally allowed.
+!figures/**/*.png
+!figures/**/*.pdf
+!results/*.csv
+!workspace/**/data/
+!workspace/**/data/*.json
