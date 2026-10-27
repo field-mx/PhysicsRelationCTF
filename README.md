@@ -2,90 +2,128 @@
 
 **English** | [简体中文](README_zh-CN.md)
 
-## Physics-guided multivariate forecasting with incomplete process knowledge
+## A Physical-Equation-Guided Network for Multivariate Time Series Forecasting in Alkaline Electrolyzers
 
-PhysicsRelationCTF integrates **sparse physical relationships** and **equation-derived messages** into ChannelTokenFormer (CTF). It retains the native local tokens, channel tokens, masked attention and **channel-token decoder**. Known relationships guide information exchange; computable equation features supply its numerical content; data-driven attention and small residual modules learn what the available physics does not describe.
+PRCTF is a physics-guided forecasting network for **industrial alkaline electrolyzer monitoring**. It combines the temporal and cross-channel representations of ChannelTokenFormer (CTF) with two complementary sources of process knowledge: **physical topology** guides channel interactions, and **equation-derived messages** enrich the information being aggregated.
 
-**Research question: How can a forecaster use partial physical knowledge when measurements, equipment parameters and dynamic equations are insufficient for a complete mechanistic model?**
+The industrial task uses **96 seconds of history to forecast the next 96 seconds across 56 monitoring channels**. The research question is practical: how can available process relationships improve forecasting when equipment parameters, measurement boundaries and dynamic equations are not sufficient for a complete electrolyzer model?
 
 <p align="center">
-  <img src="figures/architecture/model_architecture.png" alt="PRCTF overview: native CTF enhanced by physical topology and equation messages" width="100%">
+  <img src="figures/architecture/model_architecture.png" alt="PRCTF: CTF local and channel tokens enhanced by physical topology and equation-derived messages, followed by channel-token decoding" width="100%">
 </p>
 
-*Overview. Two complementary interfaces inject physical knowledge into channel-token attention. This is a conceptual diagram: equation messages are fused inside attention, not added as a separate correction to the final forecast.*
+*Model overview, corresponding to the method illustrated in the paper's Fig. 3. The two physical interfaces operate inside attention; they do not form a separate future-curve correction or replace the native channel tokens.*
 
-> Research code, archived experiment evidence and approved finished figures. The manuscript, industrial numerical observations and trained weights are not distributed. Three-seed mean MSE reductions versus Original CTF are **0.393% / 0.778% / 0.712%** on the industrial electrolyzer / LBNL / TEP tasks. These are not claims of universal superiority.
+> On the industrial dataset, three-seed mean normalized MSE decreases from **0.10901 to 0.10858** versus Original CTF, a **0.393%** reduction. The largest paired-seed reduction is **1.275%**. LBNL and TEP provide additional simulation-based checks of the physical modules; they are not electrolyzer simulations or zero-shot transfer experiments.
+
+This README follows the revised manuscript's evidence chain: **electrolyzer forecasting problem → physical relationship analysis → model construction → simulation-based module validation → industrial forecasting comparison**. The manuscript PDF itself, industrial numerical data and trained weights are not uploaded.
 
 ### Navigation
 
-- [1. Problem discovery and research question](#problem)
-- [2. Architecture and physical-information injection](#architecture)
-- [3. Physical modeling in three systems](#physics)
-- [4. Experiments and results](#results)
+- [1. Electrolyzer monitoring problem](#problem)
+- [2. From physical equations to usable prior information](#physics)
+- [3. Model architecture and information injection](#architecture)
+- [4. Experiments and paper results](#results)
 - [5. Installation and quick verification](#quick-start)
 - [6. Public-data preparation and training](#reproduce)
 - [7. Code and experiment map](#code-map)
-- [8. Figures and industrial examples](#figures)
+- [8. Released figures and paper correspondence](#figures)
 - [9. Scope and limitations](#limits)
 - [10. Attribution, licence and citation](#citation)
 
 <a id="problem"></a>
-## 1. Problem discovery and research question
+## 1. Electrolyzer monitoring problem
 
-### 1.1 The application: forecasting is not only curve fitting
+### 1.1 Engineering objective
 
-Industrial monitoring systems record electrical, thermal, pressure, flow, liquid-level and composition measurements. Their future trajectories can support process monitoring and operating decisions. These quantities interact through material transport, energy exchange and feedback control, but have different units and response times.
+An alkaline electrolyzer monitoring system records current, voltage, temperature, pressure, flow, liquid level and gas composition. Forecasting these variables provides a view of upcoming operating trends and can supply information for process monitoring and later warning or decision systems.
 
-Our starting application is an **industrial alkaline water electrolysis system**. A useful predictor must extract information from coupled measurements without assuming that every statistical association corresponds to a known physical dependency.
+The modeling difficulty is that the signals reflect coupled electrical, electrochemical, gas–liquid, circulation, cooling and control processes. Their units and response times differ, while some sensor locations, operating actions and equipment parameters are unavailable.
 
 <p align="center">
-  <img src="figures/industrial/raw_signal_overview.png" alt="Author-approved overview of original industrial sensor signals" width="100%">
+  <img src="figures/industrial/raw_signal_overview.png" alt="Approved overview of measured industrial electrolyzer monitoring signals" width="100%">
 </p>
 
-*Illustrative industrial measurements. This approved image is a qualitative overview, not a downloadable numerical dataset.*
+*Industrial measurement example. This is an approved finished image, not a release of the underlying numerical records.*
 
-### 1.2 The gap: physical knowledge is available, but incomplete
+### 1.2 Why combine partial physics with a data-driven forecaster?
 
-Complete plant modeling requires equipment parameters, measurement boundaries, operating conditions and dynamic relationships that are often unavailable in historical monitoring studies. Nevertheless, useful local knowledge remains: power depends on current and voltage, gas-generation reference rates follow Faraday's law, and thermal transport involves flow and temperature differences.
+Known equations provide useful relationships even when they cannot close the whole plant model. Current is related to electrochemical gas generation; current and voltage determine electrical power; circulation and temperature differences characterize thermal transport. However, a reaction-generation reference is not automatically equal to a downstream flow-meter reading.
 
-Using this partial knowledge raises two distinct questions:
+PRCTF uses the available knowledge as guidance and reference information, while retaining data-driven learning for unknown dependencies and dynamics. Forecast accuracy is the evaluated outcome: **the experiments do not directly establish fault-detection accuracy, warning lead time, closed-loop safety or performance under unseen operating conditions**.
 
-| Question | Difficulty | PRCTF interface |
+<a id="physics"></a>
+## 2. From physical equations to usable prior information
+
+This section corresponds to the paper's electrolyzer mechanism analysis. The measurements are organized by process meaning rather than connected simply because they share the same units.
+
+| Process knowledge | Available relationship or feature | How it is used |
 |---|---|---|
-| **Which channels have a supported relationship?** | A sparse known graph should guide interaction without declaring unknown connections invalid. | A soft physical bias in channel-token attention. |
-| **What information should pass along the relationship?** | A connection alone does not execute an equation or reconcile different measurement scales. | Equation-derived messages, target-scale mapping and small relation adapters. |
+| Electrical input | `P = UI` | Relates current/voltage to electrical input and thermal-state prediction. |
+| Electrochemical polarization | Cell voltage depends on reversible voltage, overpotentials and ohmic drop. | Supports current/temperature-to-voltage relationships; the complete polarization voltage is not solved. |
+| Faradaic generation | Ideal per-cell references `I/(2F)` and `I/(4F)`. | Supplies gas-generation reference features, not calibrated equipment outlet flows. |
+| Electrolyte heat transport | Circulation flow × outlet-to-inlet temperature difference. | Provides heat-transport proxies without pretending unknown material properties are known. |
+| Cooling | Cooling-water return-to-supply temperature difference. | Supplies a measured thermal reference. |
+| Gas/liquid inventory and impurities | Local balance relationships, separator pressures, levels, make-up flows and pressure difference. | Supports selected relationships and available proxies; the full inventory and impurity dynamics remain unresolved. |
+| Same-boundary measurements | Paired measurements or derived signals with documented common boundaries. | Provides selected consistency relationships, not an all-to-all same-unit graph. |
 
-The principle is **calculate what the available physics describes, learn unknown dynamics, and compensate for unmodeled effects**. A few local equations are not treated as a closed model of the entire plant.
+### 2.1 Step one: represent which channels are related
 
-### 1.3 Why retain CTF?
+The frozen industrial graph contains **56 channels, 73 directed relationships and 9 relation types**. The node illustration displays the **32 incident channels**; channels without a prior edge are still retained in the forecasting task and native data attention.
 
-CTF organizes within-channel history and cross-channel exchange through local and channel tokens. This creates explicit insertion points for interaction guidance and numerical messages. PRCTF therefore enhances the existing backbone rather than replacing channel tokens with the output of another GCN encoder.
+The nine types are electrical, electrochemical, gas generation, gas transport, thermal, hydraulic, gas inventory, impurity and same-boundary consistency. Only direct supported relationships are included; no correlation graph, manually expanded `A²/A³` or standalone GCN encoder defines the selected model.
 
-The contribution concerns the **representation and use of incomplete physical information**, not a new forecasting backbone or a claim that attention and classical GCN are mathematically identical.
+<p align="center">
+  <img src="figures/topology/electrolyzer_topology_en.png" alt="Electrolyzer prior graph: 32 incident measurement channels and 73 directed relationships" width="100%">
+</p>
+
+<p align="center">
+  <img src="figures/topology/electrolyzer_channel_attention_en.png" alt="The same 73 directed relationships represented as a source-to-target channel matrix" width="100%">
+</p>
+
+*The node graph and matrix express the same fixed prior, as in the paper's Fig. 2. Rows receive information; columns supply it. These are prior-support diagrams, not learned attention heatmaps or identified causal effects.*
+
+### 2.2 Step two: represent what the relationships can calculate
+
+Known functions are applied to **historical measurements only**. For example, a 96-point current history yields a 96-point ideal hydrogen-generation reference `I/(2F)`. Missing cell count, Faradaic efficiency, gas inventories and transport conditions prevent interpreting that reference as the equipment's measured outlet flow.
+
+Equation features are mapped to the target representation using training-only observation calibration, admissible historical alignment and a lightweight relation adapter. For the Faraday example, constant rescaling does not create an independent measurement: the contribution is its physically motivated representation and routing into the target channel, not a complete generation-to-outflow solution.
+
+Together, the graph and equation features provide **structural guidance and numerical reference content**. The data-driven path continues to learn dependencies and responses not described by these partial relationships.
+
+Exact sources, relation types and limits are retained in [industrial graph.json](configs/industrial/graph.json) and the [equation implementation](workspace/PhysicsRelationCTF/physics.py). LBNL and TEP use their own [graphs](configs/lbnl/graph.json), [equations and graph definitions](configs/tep/graph.json), rather than copying electrolyzer physics.
 
 <a id="architecture"></a>
-## 2. Architecture and physical-information injection
+## 3. Model architecture and information injection
 
-### 2.1 Unchanged CTF backbone
+### 3.1 Preserve the original CTF prediction path
 
-1. Normalize each historical channel and divide it into complete patches.
-2. Embed patches as **local tokens** and introduce native learnable **channel tokens**.
-3. Preserve the CTF mask: local tokens read local tokens from the same channel; channel tokens read their own local history and cross-channel tokens in the same slot.
-4. Stack attention layers and decode forecasts **only from the final channel tokens**.
+PRCTF retains CTF's patch embedding, learnable channel tokens, masked attention and **channel-token decoder**:
 
-Token construction, masking and readout remain unchanged. The selected tasks use complete observed patches, without copied observations to make lengths divisible. Neither local-token decoding nor the old `GCN → replacement channel latent` path is used.
+1. Normalize each channel's history and embed complete patches as local tokens.
+2. Introduce the original learnable channel tokens.
+3. Allow local tokens to read same-channel local tokens; channel tokens read their local history and other channels' channel tokens at matching slots.
+4. Decode the updated channel tokens into the multistep forecast.
 
-### 2.2 Interface A: physical topology guides attention
+The industrial configuration has 4 observed patches of length 24 and 2 channel tokens per channel. It does not use local-token decoding, synthetic padding or the abandoned `GCN → replacement channel token` path.
 
-A directed relationship from source `j` to target `i` uses the convention:
+### 3.2 Structural interface: topology-guided attention bias
+
+The adjacency convention is:
 
 ```math
 A^{\mathrm{phys}}_{ij}=1 \quad\Longleftrightarrow\quad j\rightarrow i.
 ```
 
-**Rows receive information as Queries; columns provide information as Keys/Values.** This fixed graph contains supported relationships, not correlations or a complete causal model. A lightweight network adjusts existing-edge strengths from historical context; it does not invent new physical edges.
+A lightweight network modulates the strength of existing physical edges using historical context. In the industrial implementation:
 
-At the relevant channel-token positions, attention becomes:
+```math
+b_{ij}(X)=1+\tfrac12\tanh\!\left(g_\phi(\xi_{ij}(X))+a_{r_{ij}}\right).
+```
+
+Here `xi_ij` summarizes the relevant histories, and `a_r` is a learnable baseline for the relationship type. Modulation is bounded within `(0.5, 1.5)` and does not add new physical edges.
+
+The bias is lifted to **same-slot Channel–Channel positions** and added to the native attention scores:
 
 ```math
 \alpha^{(l)}=\mathrm{Softmax}_{\mathrm{key}}\left(
@@ -93,24 +131,17 @@ At the relevant channel-token positions, attention becomes:
 \right).
 ```
 
-`B` is the physical bias lifted into the token layout, `M` is the original mask, and `beta_l` controls layer-wise guidance. The bias applies **only to same-slot Channel–Channel positions**. Local–Local, Local–Channel and Channel–Local masking is unchanged. Other originally allowed cross-channel connections remain data-driven.
+`M` remains the original CTF mask. A positive bias favors an information source; it is not a claim that the physical response has a positive sign. Other originally allowed interactions remain data-driven.
 
 <p align="center">
-  <img src="figures/architecture/topology_attention.png" alt="Directed physical relationships mapped to same-slot channel-token attention positions" width="100%">
+  <img src="figures/architecture/topology_attention.png" alt="Sparse physical relationships mapped to the corresponding channel-token attention positions" width="100%">
 </p>
 
-*Topology-to-attention mapping. Layers highlight different paths for explanation but share the same physical prior. Colored cells indicate supported positions, not measured attention strength. Multiple layers propagate already-mixed channel representations without manually adding physical graph powers.*
+*Topology-to-attention mapping, corresponding to the paper's Fig. 4. Both layers share the same prior; highlighted paths illustrate successive message propagation. This has the aggregation interpretation of a graph network, but is not algebraically identical to classical GCN.*
 
-### 2.3 Interface B: equations supply numerical messages
+### 3.3 Content interface: equation-derived messages
 
-The content interface uses **observed history only**:
-
-1. **Calculate equation features**, such as power `UI` and the per-cell hydrogen-generation reference `I/(2F)`.
-2. **Map them to the target representation**, using train-calibrated observation gains and alignment restricted to each relationship's admissible historical offsets.
-3. **Embed and adapt**, reusing a patch projection and a small relation-specific adapter to address equation–measurement mismatch.
-4. **Fuse inside attention**, supplementing native values with equation messages and bounded residual messages on physical edges.
-
-In the industrial implementation, message construction is summarized by:
+After target-scale preprocessing and historical alignment, relation-aware message construction is summarized by:
 
 ```math
 p^{\mathrm{phys}}_{ij}
@@ -120,105 +151,91 @@ E_P(\phi^{\mathrm{eq}}_{ij})\Vert E_P(z^{\mathrm{lag}}_{j\to i})
 \right).
 ```
 
-`phi_eq` denotes the equation feature after scale conversion and alignment; `z_lag` is aligned source history; `r_ij` is the known relationship type. The selected industrial configuration uses centered equation variations, not an assumed exact absolute sensor-output equation.
+`phi_eq` is the preprocessed equation feature, `z_lag` is aligned source history, and `E_P` reuses the CTF patch projection. The adapter combines **equation and source-history encodings**; it does not simply append a reference flow to the initial target-flow token.
 
 <p align="center">
-  <img src="figures/architecture/physics_message.png" alt="Historical observations converted into equation messages and fused with CTF values and residuals" width="100%">
+  <img src="figures/architecture/physics_message.png" alt="Historical observations converted into physical messages, projected and fused with native CTF value features" width="100%">
 </p>
 
-*Equation-message pipeline. Known functions supply relationship content; small adapters and history-based residuals address observation mismatch and unmodeled effects.*
+*Equation-message construction and fusion, corresponding to the paper's Fig. 5. Historical observations supply equation features; projection and lightweight adaptation produce messages compatible with CTF.*
 
-Aggregation has the schematic form:
+### 3.4 Fuse physics and data within attention
+
+The industrial aggregation can be summarized as:
 
 ```math
 O_i^{(l)}=O_{\mathrm{data},i}^{(l)}
-+\sum_{j:\,j\to i\in\mathcal{E}}\omega_{ij}^{(l)}
-\left(\gamma_l\overline{p}_{ij}^{(l)}+\rho_l\overline{r}_{ij}^{(l)}\right).
++\sum_{j:\,j\to i\in\mathcal E}\widetilde\alpha_{ij}^{(l)}
+\left(\gamma_l\overline p_{ij}^{(l)}+\rho_l\overline r_{ij}^{(l)}\right).
 ```
 
-Native data aggregation is retained. In the industrial instance, `omega` is the corresponding native attention weight, including training-time dropout. Public-data instances additionally use their documented conditional-neighbor weighting, validity and historical-consistency handling. They share the two-interface idea, **not identical processing in every detail**.
+The physical messages reuse the topology-guided attention weights. A small residual network uses source/target local histories to compensate for unmodeled effects. Native value aggregation remains active for all originally allowed sources. The result continues through the unchanged CTF encoder and channel-token decoder; no separate predicted correction curve is added afterward.
 
-### 2.4 Known physics, unknown dynamics and strength control
+Learnable `beta`, `gamma` and `rho` control topology guidance, equation injection and residual compensation. Industrial parameters use nonnegative/bounded parameterizations and message-norm control. Explicitly disabling **all three** enhancement paths recovers the paired Original CTF forward path; setting `beta = 0` alone does not.
 
-| Component | Responsibility | Not assumed |
-|---|---|---|
-| Fixed graph and equation functions | Record relationships and calculate available features. | A complete topology or closed dynamic simulator. |
-| Data attention and relation adapters | Learn remaining dependencies and observation mismatch. | Identification of all device parameters or true propagation delays. |
-| Small residual messages | Compensate for effects absent from selected equations. | A separately predicted future correction curve. |
-| Learnable `beta`, `gamma`, `rho` | Control topology guidance, equation messages and residuals. | Larger initial strengths are always better. |
-
-Industrial strengths use `beta = softplus(theta_beta)`, `gamma = 2 sigmoid(theta_gamma)`, and `rho = 0.02 sigmoid(theta_rho)`; message norms are controlled relative to native values. Explicitly disabling **all three** interfaces restores the paired Original CTF forward path. Setting only `beta = 0` does not disable equation or residual messages.
-
-<a id="physics"></a>
-## 3. Physical modeling in three systems
-
-Applying the framework to another system requires its corresponding graph, equations and observation mapping. Electrolyzer physics is not copied unchanged to the public datasets.
-
-| System | Measurements | Encoded knowledge examples | Important boundary |
-|---|---|---|---|
-| Industrial alkaline electrolyzer | Current, voltage, temperatures, pressures, flows, levels and gas composition. | `P = UI`; Faraday references `I/(2F)`, `I/(4F)`; flow–temperature-difference heat proxies; cooling temperature difference; separator pressure difference. | Unknown cell count, efficiencies, inventories and measurement boundaries prevent exact closure. |
-| LBNL simulated chiller plant | Water temperatures/flows, power, pressures, pump/fan states and control references. | Water-side heat transport, chiller energy-balance features, mixing, affinity relationships and historical control references. | Effective calibration and consistency handling address nominal equations that do not fit every operating condition. |
-| Tennessee Eastman process | Process flows, pressures, temperatures, compositions and manipulated variables. | Simulator-supported valve–flow, pressure–flow, compressor, heat-transfer, cooling-balance and liquid-density relations. | Noisy measurements, delayed analyzers and imperfect command–valve correspondence; unavailable hidden-state kinetics are not invented. |
-
-Selected graphs contain **73 directed edges / 9 relation types** for 56 industrial channels, **112 / 6** for 73 LBNL channels, and **52 / 6** for 52 TEP channels. Entries retain equation sources, relation types, candidate historical offsets and limitations.
-
-<details>
-<summary>Industrial topology and its channel-attention representation</summary>
-
-<p align="center">
-  <img src="figures/topology/electrolyzer_topology_en.png" alt="Industrial directed topology labeled with physical measurement names" width="100%">
-</p>
-
-<p align="center">
-  <img src="figures/topology/electrolyzer_channel_attention_en.png" alt="Channel-level matrix representation of the same industrial topology" width="100%">
-</p>
-
-The node graph and matrix represent the same prior, not learned attention heatmaps. Token-level lifting repeats each relationship at matching channel-token slots. Chinese figures and the full masked-attention mapping are in [figures/topology](figures/topology).
-
-</details>
-
-Exact definitions: [industrial graph](configs/industrial/graph.json), [LBNL graph](configs/lbnl/graph.json), [TEP graph](configs/tep/graph.json). These snapshots, rather than schematic figures, define the selected experiments.
+The executable industrial snapshot uses `representation="centered"`. Public instances additionally use their documented target-level representations, validity checks and conditional-neighbor aggregation. Consult [configuration snapshots](configs) and the [source map](#code-map) for actual reproduction details.
 
 <a id="results"></a>
-## 4. Experiments and results
+## 4. Experiments and paper results
 
-### 4.1 Evaluation contract
+### 4.1 Fixed evaluation protocol
 
-The full-data comparisons use **three fixed seeds: 42, 43 and 44**. Each CTF–PRCTF pair shares split membership, observations, forecast horizon, targets, preprocessing, common backbone initialization and training policy.
+The full-data experiments use **seeds 42, 43 and 44**. CTF–PRCTF pairs share data splits, observations, horizons, targets, preprocessing, common backbone initialization and training policy. Train statistics define normalization and observation calibration; validation error selects checkpoints.
 
-| Dataset | Sampling interval | Inputs / scored targets | History → forecast | Patch |
+| Dataset and role | Sampling | Inputs / targets | History → forecast | Patch |
 |---|---|---:|---:|---:|
-| Industrial electrolyzer | 1 second | 56 / 56 | 96 → 96 points | 24 |
-| LBNL simulated chiller plant | 1 minute | 73 / 58 | 96 → 96 points | 24 |
-| TEP | 3 minutes | 52 / 52 | 20 → 20 points | 5 |
+| Industrial electrolyzer: application evaluation | 1 s | 56 / 56 | 96 → 96 points | 24 |
+| LBNL chiller: simulation-based module validation | 1 min | 73 / 58 | 96 → 96 points | 24 |
+| TEP: simulation-based module validation | 3 min | 52 / 52 | 20 → 20 points | 5 |
 
-Not all LBNL control/setpoint inputs are scored targets. TEP windows never cross simulation-run boundaries. Normalization and empirical calibration use training data; checkpoints are selected on validation data. Different tasks' normalized errors are **not** directly comparable or pooled.
+The industrial horizon is a **minute-scale task setting**, not an identified physical time constant or a demonstrated optimal horizon. The public tasks use different sampling intervals and therefore different physical forecast durations. Instances are modeled and trained separately; this is not zero-shot transfer.
 
-### 4.2 Original CTF versus PRCTF
+LBNL uses the fault-free EnergyPlus–Modelica chiller-plant simulation, with water temperatures, flows, power, control and weather variables. TEP uses fault-free chemical-process trajectories with 41 measured and 11 manipulated variables. Public dataset sources and fixed subsets are listed [below](#reproduce).
 
-Values are **mean ± sample standard deviation** across seeds (`ddof = 1`); lower is better.
+### 4.2 Simulation-based validation of the two physical modules
+
+The paper's Table 6 compares the full model with **separately trained** controls disabling one interface. Values below are three-seed means; extra digits retain the nearly tied TEP result.
+
+| Dataset | Configuration | Normalized MSE | Normalized MAE |
+|---|---|---:|---:|
+| LBNL | **Full PRCTF** | **0.00255002** | **0.00456146** |
+| LBNL | w/o attention bias | 0.00255095 | 0.00460462 |
+| LBNL | w/o equation messages | 0.00257068 | 0.00464841 |
+| TEP | Full PRCTF | 0.82118871 | 0.70023528 |
+| TEP | **w/o attention bias** | **0.82118710** | **0.70023496** |
+| TEP | w/o equation messages | 0.82708094 | 0.70287048 |
+
+- **Attention bias:** `no_bias` fixes `beta = 0` but retains equation and residual messages. Its removal slightly worsens LBNL; TEP is effectively unchanged and marginally favors the ablation.
+- **Equation messages:** `no_equation` fixes `gamma = 0`. Full PRCTF reduces mean MSE by **0.804% on LBNL and 0.712% on TEP** relative to this control.
+- The numerical equation-message interface has the more consistent contribution. These results do not establish that both interfaces independently improve every system.
+
+Source: [complete ablation and input-control records](results/ablation_and_input_per_seed.csv). Industrial component records are retained there as supplementary evidence.
+
+### 4.3 Paired CTF–PRCTF comparison
+
+The paper's Table 7 reports the following three-seed means. Lower is better; normalization and target definitions are specific to each task.
 
 | Dataset | Model | Normalized MSE | Normalized MAE |
 |---|---|---:|---:|
-| Industrial | Original CTF | 0.10901009 ± 0.00038041 | 0.10809476 ± 0.00016571 |
-| Industrial | **PRCTF** | **0.10858198 ± 0.00075427** | **0.10775839 ± 0.00079343** |
-| LBNL | Original CTF | 0.00257001 ± 0.00003264 | 0.00462957 ± 0.00018936 |
-| LBNL | **PRCTF** | **0.00255002 ± 0.00003837** | **0.00456146 ± 0.00007519** |
-| TEP | Original CTF | 0.82707916 ± 0.00123123 | 0.70286754 ± 0.00060949 |
-| TEP | **PRCTF** | **0.82118871 ± 0.00135276** | **0.70023528 ± 0.00075871** |
+| Industrial electrolyzer | Original CTF | 0.10901009 | 0.10809476 |
+| Industrial electrolyzer | **PRCTF** | **0.10858198** | **0.10775839** |
+| LBNL | Original CTF | 0.00257001 | 0.00462957 |
+| LBNL | **PRCTF** | **0.00255002** | **0.00456146** |
+| TEP | Original CTF | 0.82707916 | 0.70286754 |
+| TEP | **PRCTF** | **0.82118871** | **0.70023528** |
 
-Reduction is `100 × (CTF error − PRCTF error) / CTF error`: **positive means lower PRCTF error**. Mean-error reductions use the two across-seed means, not independently selected best runs.
+Reduction is `100 × (CTF error − PRCTF error) / CTF error`; **positive means a lower error**.
 
 | Dataset | Mean MSE reduction | Mean MAE reduction | Largest paired-seed MSE reduction | MSE wins |
 |---|---:|---:|---:|---:|
-| Industrial | **0.393%** | 0.311% | 1.275% | 2 / 3 |
+| Industrial electrolyzer | **0.393%** | 0.311% | 1.275% | 2 / 3 |
 | LBNL | **0.778%** | 1.471% | 2.588% | 2 / 3 |
 | TEP | **0.712%** | 0.375% | 0.760% | 3 / 3 |
 
-These results support **small mean gains over CTF in three physical settings**, with 7 of 9 paired MSE wins. Maximum single-seed reductions are not average performance. Three seeds do not establish statistical significance or independent-plant replication.
+The result supports small mean gains over the same CTF backbone after system-specific physical modeling. It does not establish universal superiority, a monotonic few-shot advantage or significance from three seeds. A best-seed reduction is not an average reduction.
 
 <details>
-<summary>All nine paired-seed MSE comparisons, including regressions</summary>
+<summary>All nine paired-seed MSE results, including regressions</summary>
 
 | Dataset | Seed | CTF MSE | PRCTF MSE | Reduction |
 |---|---:|---:|---:|---:|
@@ -232,64 +249,43 @@ These results support **small mean gains over CTF in three physical settings**, 
 | TEP | 43 | 0.82592958 | 0.81965383 | +0.760% |
 | TEP | 44 | 0.82837836 | 0.82220730 | +0.745% |
 
-Source: [ctf_prctf_paired.csv](results/ctf_prctf_paired.csv), also containing per-pair MAE.
+Per-pair MAE is also available in [ctf_prctf_paired.csv](results/ctf_prctf_paired.csv). Standard deviations and metric-specific minima are retained in [method_comparison_summary.csv](results/method_comparison_summary.csv).
 
 </details>
 
-### 4.3 Component controls: what contributes?
+### 4.4 Industrial forecasting comparison
 
-These controls are trained separately, not merely switches applied to one trained checkpoint. Compare the **full model directly with the model disabling an interface**:
+Following the paper's Table 8, the application comparison contains **Original CTF, MTGNN, PatchTST, a forecasting adaptation of PhyGNN, and PRCTF**. Mean averages the three fixed seeds; Best is the minimum of the corresponding metric across those runs and need not come from the same seed for MSE and MAE.
 
-| Dataset | Full PRCTF mean MSE | `no_bias` mean MSE | `no_equation` mean MSE |
-|---|---:|---:|---:|
-| Industrial | 0.10858198 | 0.10874063 | 0.10924427 |
-| LBNL | 0.00255002 | 0.00255095 | 0.00257068 |
-| TEP | 0.82118871 | 0.82118710 | 0.82708094 |
+| Model | MSE Mean | MSE Best | MAE Mean | MAE Best | Recorded training time (s) |
+|---|---:|---:|---:|---:|---:|
+| Original CTF | 0.10901 | 0.10859 | 0.10809 | 0.10796 | 514.1 |
+| MTGNN | 0.11012 | 0.10974 | 0.10800 | 0.10701 | 182.2 |
+| PatchTST | 0.11145 | 0.11076 | 0.11124 | 0.11022 | 89.2 |
+| PhyGNN adapted | 0.14649 | 0.14365 | 0.18030 | 0.17610 | **69.8** |
+| **PRCTF** | **0.10858** | **0.10773** | **0.10776** | **0.10695** | 615.2 |
 
-- `no_bias` disables **beta only**, not the graph or equation/residual messages. Full PRCTF has slightly lower mean MSE on Industrial and LBNL; TEP is effectively unchanged and marginally favors `no_bias`.
-- `no_equation` disables **gamma only**; other branches can still use equation-related context. Full PRCTF lowers mean MSE by **0.606% / 0.804% / 0.712%** relative to this control on Industrial / LBNL / TEP.
-- Explicit equation messages contribute more consistently; the evidence does not show every interface is independently useful everywhere.
+Within these five evaluated configurations, PRCTF has the lowest mean and best MSE/MAE. Mean MSE is **0.393% lower than CTF, 1.398% lower than MTGNN and 2.571% lower than PatchTST**. It is not the fastest model: the timing column contains archived average training durations, not a parameter-matched or controlled hardware-efficiency benchmark.
 
-Source: [ablation_and_input_per_seed.csv](results/ablation_and_input_per_seed.csv). The direct-input control tests whether simply supplying equation features matches the proposed injection mechanism.
+PhyGNN retains the publicly available graph aggregation module with an added forecast head; this is an adaptation, not a full reproduction of its original task. Comparator expansion followed a seed-42 pilot, so the ranking is an exploratory application comparison. See [adaptation disclosures](workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/UPSTREAM.md).
 
-### 4.4 Other methods and physics-informed controls
+Sources: [per-seed methods](results/method_comparison_per_seed.csv) and [mean/std/best/time summary](results/method_comparison_summary.csv).
 
-The archive retains **7 methods × 3 datasets × 3 seeds = 63 records**: PRCTF, Original CTF, MTGNN, PatchTST, a forecasting adaptation of PhyGNN, EquationInput-CTF and PG-Reg-CTF. The last two are custom controls, not independent published architectures or a standard full-system PINN.
+### 4.5 Industrial prediction examples
 
-**PRCTF is not best among all retained methods everywhere.** MTGNN and PatchTST obtain lower mean MSE on LBNL; direct equation input and the regularized control obtain lower mean MSE on TEP. Industrial comparator expansion followed a seed-42 pilot selection and is exploratory, not an unbiased architecture leaderboard.
+<p align="center">
+  <img src="figures/industrial/lowpass_test_predictions.png" alt="Filtered industrial test predictions for instrument-air header pressure and hydrogen-cooler outlet temperature" width="100%">
+</p>
 
-<details>
-<summary>Complete method-level mean errors and archived training time</summary>
+*The two channels illustrated in the paper's Fig. 6: instrument-air header field pressure and hydrogen-cooler outlet temperature. Blue denotes filtered observations; red is PRCTF; gray dashed is Original CTF.*
 
-Times are archived mean seconds, not a controlled hardware-efficiency benchmark. All rows use seeds 42/43/44. Standard deviations and metric-specific best values are in the CSV.
+These curves come from a **separate single-seed low-pass experiment**, with Train/Validation/Test data causally filtered using a second-order Butterworth low-pass filter at 0.05 Hz. Successive 96-step forecasts are stitched across the complete test segment; the plot is not one long open-loop forecast. This filtered illustration does **not** generate the raw-data three-seed main results above. Numerical table evidence and curve examples must keep their respective preprocessing definitions.
 
-| Dataset | Method | Mean MSE | Mean MAE | Archived training time (s) |
-|---|---|---:|---:|---:|
-| Industrial | Original CTF | 0.10901009 | 0.10809476 | 514.08 |
-| Industrial | **PRCTF** | **0.10858198** | **0.10775839** | 615.17 |
-| Industrial | MTGNN | 0.11012124 | 0.10799903 | 182.18 |
-| Industrial | PatchTST | 0.11144723 | 0.11123995 | 89.18 |
-| Industrial | PhyGNN adapted | 0.14648583 | 0.18029671 | 69.83 |
-| Industrial | EquationInput-CTF | 0.11826381 | 0.11990936 | 472.50 |
-| Industrial | PG-Reg-CTF | 0.12150680 | 0.12295444 | 511.56 |
-| LBNL | Original CTF | 0.00257001 | 0.00462957 | 449.79 |
-| LBNL | **PRCTF** | 0.00255002 | 0.00456146 | 521.15 |
-| LBNL | MTGNN | **0.00240191** | **0.00422672** | 162.06 |
-| LBNL | PatchTST | 0.00253362 | 0.00438390 | 71.18 |
-| LBNL | PhyGNN adapted | 0.00607557 | 0.03631560 | 30.75 |
-| LBNL | EquationInput-CTF | 0.00255610 | 0.00463364 | 850.74 |
-| LBNL | PG-Reg-CTF | 0.00442930 | 0.00710169 | 543.65 |
-| TEP | Original CTF | 0.82707916 | 0.70286754 | 634.95 |
-| TEP | **PRCTF** | 0.82118871 | 0.70023528 | 737.27 |
-| TEP | MTGNN | 0.86585570 | 0.72509488 | 272.31 |
-| TEP | PatchTST | 1.01060121 | 0.78922623 | 125.17 |
-| TEP | PhyGNN adapted | 0.86653941 | 0.73170794 | 114.27 |
-| TEP | EquationInput-CTF | **0.79712365** | **0.68775879** | 992.96 |
-| TEP | PG-Reg-CTF | 0.79830351 | 0.68861369 | 1059.45 |
+### 4.6 Complete historical evidence remains available
 
-</details>
+The repository retains **63 records: 7 methods × 3 datasets × 3 seeds**, including EquationInput-CTF and PG-Reg-CTF as additional custom controls. These are not included among the five primary application comparators above, nor described as separately published architectures or a standard full-system PINN.
 
-Sources: [per-seed records](results/method_comparison_per_seed.csv), [mean/std/best/time summary](results/method_comparison_summary.csv), [adapter disclosures](workspace/PhysicsRelationCTF/runs/physics_ai_comparison_v1/UPSTREAM.md).
+PRCTF does not outperform every retained method on every dataset: MTGNN and PatchTST have lower mean MSE on LBNL, while EquationInput-CTF and PG-Reg-CTF have lower mean MSE on TEP. Those results remain in the [complete summary](results/method_comparison_summary.csv) and [results notes](results/README.md), rather than being removed to match the paper's narrower comparison scope.
 
 <a id="quick-start"></a>
 ## 5. Installation and quick verification
@@ -317,8 +313,27 @@ CTF is fetched at `b1c100effb9c27cd25de07e91de7f9005d18d5e7`, not bundled. The f
 ### 5.2 Check files, tables and synthetic forwards
 
 ```bash
-# Standard-library checks; no data downloads or training.
-python scripts/verify_package.py
+# Verify unchanged code, configs, results, figures and supporting documents.
+python - <<'PY'
+import hashlib
+import json
+from pathlib import Path
+
+root = Path.cwd()
+docs = {'README.md', 'README_zh-CN.md'}
+rows = json.loads((root / 'manifests/files.json').read_text())['files']
+checked = 0
+for row in rows:
+    if row['path'] in docs:
+        continue
+    path = root / row['path']
+    assert path.is_file() and not path.is_symlink(), row['path']
+    assert path.stat().st_size == row['bytes'], row['path']
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256'], row['path']
+    checked += 1
+print(f'Verified {checked} unchanged non-README release files.')
+PY
+
 python scripts/summarize_results.py
 
 # Separate processes, after dependencies and CTF are available.
@@ -326,6 +341,8 @@ python scripts/smoke_test.py --dataset industrial
 python scripts/smoke_test.py --dataset lbnl
 python scripts/smoke_test.py --dataset tep
 ```
+
+The release manifest `manifests/files.json` retains the original packaging hashes. This documentation-only revision does not change it: running `scripts/verify_package.py` directly reports a README snapshot mismatch. The check above excludes only these two README files and still verifies every other manifest entry. Result verification does not retrain or reevaluate models.
 
 Smoke tests use paired common backbone weights, check finite outputs, explicitly disable all physical interfaces and compare against CTF. Recorded CPU packaging checks had maximum absolute differences of **0.0** for all three tasks. These are synthetic execution/equivalence checks, not accuracy tests. Industrial synthetic unit statistics are labeled and never substituted for industrial training data.
 
@@ -418,37 +435,32 @@ The sibling `workspace/` layout preserves relative imports; it is not the full l
 `paper_minimal_v1` is a component-experiment folder name, not manuscript content. Some historical orchestrators require original caches, weight locks or private calibration. Use `scripts/` for supported checkpoint-free construction and public Train/Validation runs rather than assuming every archived orchestrator is standalone.
 
 <a id="figures"></a>
-## 8. Figures and industrial examples
+## 8. Released figures and paper correspondence
 
-These are approved finished assets, not manuscript files or reference-paper PDFs.
+Only previously released finished assets are linked below. This README-only update adds no manuscript files or new figures.
 
-| Figure | PNG | PDF |
+| Paper content | Released PNG | Released PDF |
 |---|---|---|
-| Architecture | [View](figures/architecture/model_architecture.png) | [Download](figures/architecture/model_architecture.pdf) |
-| Topology-to-attention mapping | [View](figures/architecture/topology_attention.png) | [Download](figures/architecture/topology_attention.pdf) |
-| Equation-message pipeline | [View](figures/architecture/physics_message.png) | [Download](figures/architecture/physics_message.pdf) |
-| Industrial topology, English | [View](figures/topology/electrolyzer_topology_en.png) | [Download](figures/topology/electrolyzer_topology_en.pdf) |
+| Fig. 2(a): industrial topology, English | [View](figures/topology/electrolyzer_topology_en.png) | [Download](figures/topology/electrolyzer_topology_en.pdf) |
+| Fig. 2(b): channel-relation submatrix, English | [View](figures/topology/electrolyzer_channel_attention_en.png) | [Download](figures/topology/electrolyzer_channel_attention_en.pdf) |
 | Industrial topology, Chinese | [View](figures/topology/electrolyzer_topology_zh.png) | [Download](figures/topology/electrolyzer_topology_zh.pdf) |
-| Filtered forecast example | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
+| Fig. 3: model overview | [View](figures/architecture/model_architecture.png) | [Download](figures/architecture/model_architecture.pdf) |
+| Fig. 4: topology-to-attention mapping | [View](figures/architecture/topology_attention.png) | [Download](figures/architecture/topology_attention.pdf) |
+| Fig. 5: equation-message pipeline | [View](figures/architecture/physics_message.png) | [Download](figures/architecture/physics_message.pdf) |
+| Fig. 6: low-pass forecast examples | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
 
-<p align="center">
-  <img src="figures/industrial/lowpass_test_predictions.png" alt="Selected industrial pressure and hydrogen-cooler outlet-temperature predictions from a separate filtered-data experiment" width="100%">
-</p>
-
-*Separate filtered-data illustration: instrument-air header pressure and hydrogen-cooler outlet temperature. Train/Validation/Test inputs and targets were causally filtered with a second-order Butterworth low-pass filter at 0.05 Hz. Curves stitch successive forecast windows, not one 4847-step open-loop forecast, and do not generate the raw-data three-seed table above.*
-
-See [figure notes](figures/README.md) and [figure provenance](manifests/figure_sources.json). Diagrams use simplified layouts; graph snapshots and source define the exact computation.
+Figure numbers identify corresponding content, not byte-identical embedded artwork in the revised PDF. The revised process/measurement schematic (Fig. 1) is not newly released in this update. See [figure notes](figures/README.md) and [asset provenance](manifests/figure_sources.json); configuration snapshots and source remain the computational reference.
 
 <a id="limits"></a>
 ## 9. Scope and limitations
 
-- **Supported:** partial knowledge can enter attention as guidance and equation messages; the three selected full-data tasks show small mean gains over the same CTF backbone after system-specific adaptation.
+- **Supported:** PRCTF improves mean forecasting error on the available industrial electrolyzer records and evaluated configurations; the public simulations provide numerical module-validation evidence, not proof of a universal cross-industry model or zero-shot transfer.
 - **Not established:** universal superiority, zero-shot plant transfer, statistical significance from three seeds, strict conservation, causal discovery, or an advantage that must grow with data scarcity.
 - **Interpretability:** relationship sources, equation calculations and insertion locations are inspectable. Attention weights and fitted observation gains are not identified causal effects or physical constants.
 - **Uncertain relationships:** public instances include documented validity and historical-consistency checks, not a guarantee that every incorrect prior is detected and suppressed.
 - **Development exposure:** seed 42 and fixed Test sets were observed during development. Additional seeds do not turn previously observed tests into blind evaluations.
 - **Comparison:** applicable physics methods share available physical information, but architectures are not parameter-count or runtime matched. Adaptations and pilot-selection limits remain disclosed.
-- **Validation:** content/hash checks and synthetic forwards were completed; fresh bulk acquisition and full retraining were not rerun during packaging. Cross-hardware bit-identical accuracy is not promised.
+- **Validation:** synthetic forwards were recorded for the original package. This update changes only the READMEs and rechecks other manifest files and result tables, without new downloads, training or model evaluation. README snapshot hashes are explained in Section 5.2; cross-hardware bit-identical accuracy is not promised.
 - **Scarcity:** earlier few-shot and SDWPF bias-only studies did not establish a monotonic scarcity advantage; those outcomes are not presented as successful scarcity validation here.
 
 Details: [VALIDATION.md](VALIDATION.md), [REPRODUCIBILITY.md](REPRODUCIBILITY.md), [results/README.md](results/README.md).
