@@ -2,11 +2,17 @@
 
 **English** | [简体中文](README_zh-CN.md)
 
-## A Physical-Equation-Guided Network for Multivariate Time Series Forecasting in Alkaline Electrolyzers
+## Physics-Guided Forecasting for Electrolyzer Monitoring and Fault Early-Warning Support
 
-PRCTF is a physics-guided forecasting network for **industrial alkaline electrolyzer monitoring**. It combines the temporal and cross-channel representations of ChannelTokenFormer (CTF) with two complementary sources of process knowledge: **physical topology** guides channel interactions, and **equation-derived messages** enrich the information being aggregated.
+**Fault early warning in complex physical systems requires information about how operating conditions may evolve.** In hydrogen-production equipment, measurements of current, voltage, temperature, pressure, flow and gas composition describe the present operating state. Forecasting their future trajectories can provide advance information for subsequent anomaly assessment, fault early warning and operating decisions.
 
-The industrial task uses **96 seconds of history to forecast the next 96 seconds across 56 monitoring channels**. The research question is practical: how can available process relationships improve forecasting when equipment parameters, measurement boundaries and dynamic equations are not sufficient for a complete electrolyzer model?
+Reliable forecasting is difficult because these variables interact through electrochemical, thermal, fluid and control processes. Researchers often know some physical relationships, but lack the equipment parameters, measurement boundaries and dynamic equations needed for a complete mechanistic model. The central question is therefore: **how can a forecasting model use the physical knowledge that is available, while learning the dynamics that remain unknown?**
+
+**PhysicsRelationCTF (PRCTF)** addresses this question by enhancing **ChannelTokenFormer (CTF)** at two levels of attention. Physical topology guides **which channels exchange information**; equation-derived messages provide **what the known relationships can calculate**. Data-driven attention and a lightweight residual branch learn unknown dependencies and unmodeled effects.
+
+**Application workflow:** multisensor monitoring → **PRCTF forecasts future measurements** → downstream anomaly assessment and fault early warning.
+
+The industrial model uses **96 seconds of history to forecast the next 96 seconds across 56 monitoring channels**. The experiments evaluate this forecasting stage. Fault-warning accuracy and warning lead time require a separate downstream evaluation.
 
 <p align="center">
   <img src="figures/architecture/model_architecture.png" alt="PRCTF: CTF local and channel tokens enhanced by physical topology and equation-derived messages, followed by channel-token decoding" width="100%">
@@ -14,13 +20,14 @@ The industrial task uses **96 seconds of history to forecast the next 96 seconds
 
 *Model overview, corresponding to the method illustrated in the paper's Fig. 3. The two physical interfaces operate inside attention; they do not form a separate future-curve correction or replace the native channel tokens.*
 
-> On the industrial dataset, three-seed mean normalized MSE decreases from **0.10901 to 0.10858** versus Original CTF, a **0.393%** reduction. The largest paired-seed reduction is **1.275%**. LBNL and TEP provide additional simulation-based checks of the physical modules; they are not electrolyzer simulations or zero-shot transfer experiments.
+> **Archived forecasting results:** on the industrial dataset, three-seed mean normalized MSE decreases from **0.10901 to 0.10858** versus Original CTF, a **0.393%** reduction. The largest paired-seed reduction is **1.275%**. LBNL and Tennessee Eastman Process (TEP) simulations provide additional checks using physical knowledge specific to each system.
 
-This README follows the revised manuscript's evidence chain: **electrolyzer forecasting problem → physical relationship analysis → model construction → simulation-based module validation → industrial forecasting comparison**. The manuscript PDF itself, industrial numerical data and trained weights are not uploaded.
+This repository provides the model implementation, physical relationship configurations, archived experiment records and figures. The sections below connect the engineering motivation to the physical modeling, attention design, evidence and reproduction steps. The manuscript PDF, industrial numerical data and trained weights remain private.
 
 ### Navigation
 
-- [1. Electrolyzer monitoring problem](#problem)
+- [1. From fault early warning to sensor forecasting](#problem)
+  - [Hardware and software platform](#hardware)
 - [2. From physical equations to usable prior information](#physics)
 - [3. Model architecture and information injection](#architecture)
 - [4. Experiments and paper results](#results)
@@ -32,13 +39,19 @@ This README follows the revised manuscript's evidence chain: **electrolyzer fore
 - [10. Attribution, licence and citation](#citation)
 
 <a id="problem"></a>
-## 1. Electrolyzer monitoring problem
+## 1. From fault early warning to sensor forecasting
 
-### 1.1 Engineering objective
+### 1.1 Why forecast monitoring variables?
 
-An alkaline electrolyzer monitoring system records current, voltage, temperature, pressure, flow, liquid level and gas composition. Forecasting these variables provides a view of upcoming operating trends and can supply information for process monitoring and later warning or decision systems.
+Monitoring tells operators what the equipment is doing now. Forecasting adds an estimate of what its measured operating state may do next. For an alkaline electrolyzer, predicted temperature, pressure, flow and gas-composition trends can supply advance information to a downstream warning system.
 
-The modeling difficulty is that the signals reflect coupled electrical, electrochemical, gas–liquid, circulation, cooling and control processes. Their units and response times differ, while some sensor locations, operating actions and equipment parameters are unavailable.
+The project separates this application into three connected stages:
+
+| Stage | Purpose | Role in this project |
+|---|---|---|
+| Multisensor monitoring | Record the equipment's measured operating state. | Industrial monitoring records supply the forecasting data; a separately developed acquisition platform is shown below. |
+| Future-trajectory forecasting | Estimate upcoming changes across process variables. | PRCTF performs the 56-channel, 96-second forecasting task evaluated in the experiments. |
+| Anomaly assessment and early warning | Combine forecasts with application-specific limits, residuals or operating rules. | Downstream use of the forecasts; warning performance is not measured by the reported forecasting errors. |
 
 <p align="center">
   <img src="figures/industrial/raw_signal_overview.png" alt="Approved overview of measured industrial electrolyzer monitoring signals" width="100%">
@@ -46,16 +59,50 @@ The modeling difficulty is that the signals reflect coupled electrical, electroc
 
 *Industrial measurement example. This is an approved finished image, not a release of the underlying numerical records.*
 
-### 1.2 Why combine partial physics with a data-driven forecaster?
+### 1.2 Why use physics-guided AI for this forecasting task?
 
-Known equations provide useful relationships even when they cannot close the whole plant model. Current is related to electrochemical gas generation; current and voltage determine electrical power; circulation and temperature differences characterize thermal transport. However, a reaction-generation reference is not automatically equal to a downstream flow-meter reading.
+The measurements reflect coupled electrical, electrochemical, gas–liquid, circulation, cooling and control processes. A purely data-driven forecaster learns useful statistical dependencies, but does not explicitly distinguish relationships supported by process knowledge. A complete mechanistic predictor, meanwhile, would require parameters, boundary conditions and operating actions that are unavailable in these monitoring records.
 
-PRCTF uses the available knowledge as guidance and reference information, while retaining data-driven learning for unknown dependencies and dynamics. Forecast accuracy is the evaluated outcome: **the experiments do not directly establish fault-detection accuracy, warning lead time, closed-loop safety or performance under unseen operating conditions**.
+Partial knowledge can still help. Current is related to electrochemical gas generation; current and voltage determine electrical power; circulation and temperature differences characterize thermal transport. PRCTF turns these relationships into **attention guidance and equation-derived messages**, while retaining the CTF forecasting path for effects that the available physics cannot describe.
+
+The design follows one principle: **compute what the known physics supports, and learn the remaining dynamics from data**. For example, a Faradaic generation reference is physically informative, but its relationship to a downstream flow-meter reading still involves unknown equipment gains, inventories and transport responses.
+
+<a id="hardware"></a>
+### 1.3 Hardware and software platform
+
+To connect measurement acquisition with forecasting applications, the project also includes an engineering platform comprising in-house temperature-voltage measurement probes, a data acquisition (DAQ) box and multichannel monitoring software.
+
+The hardware supports measurement acquisition. When connected to a host computer, the monitoring software can process compatible signals and run the forecasting model as part of a real-time monitoring and warning workflow. Model inference runs on the host computer.
+
+> **Data provenance:** The industrial records used for the paper's training, validation and testing were **not collected using the hardware shown below**. These photographs illustrate a separately developed acquisition and monitoring platform, not the origin of the reported experimental dataset.
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="figures/hardware/电解槽测量图.png"><img src="figures/hardware/电解槽测量图.png" alt="Industrial alkaline electrolyzer fitted with in-house temperature-voltage measurement probes" width="100%"></a>
+      <br><strong>Industrial electrolyzer and temperature-voltage measurement probes.</strong> The inset highlights probe installation on the electrolyzer stack.
+    </td>
+    <td width="50%" valign="top">
+      <a href="figures/hardware/电解槽测量箱.png"><img src="figures/hardware/电解槽测量箱.png" alt="Interior of the in-house electrolyzer data acquisition box, including the acquisition board, ADC modules and isolation circuitry" width="100%"></a>
+      <br><strong>In-house data acquisition box.</strong> The enclosure integrates the acquisition board, ADC modules, signal isolation, power supply and protection components.
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <a href="figures/hardware/软硬件结合.png"><img src="figures/hardware/软硬件结合.png" alt="Electrolyzer data acquisition box connected to a laptop displaying the in-house multichannel real-time monitoring software" width="85%"></a>
+</p>
+
+*Computer-connected acquisition and multichannel monitoring. The software displays acquired signals and provides the host-side platform for integrating forecasting and warning functions.*
+
+Deployment requires measurements compatible with the checkpoint's channel definitions, units, sampling rate, normalization and physical relationships. The pictured temperature-voltage probes alone do not establish availability of all 56 channels required by the archived industrial model.
+
+The photographs document the acquisition and monitoring platform; the experiment tables evaluate forecasting accuracy. The public materials include these photographs and descriptions, while hardware designs, acquisition firmware and monitoring-software source code remain outside this release.
 
 <a id="physics"></a>
 ## 2. From physical equations to usable prior information
 
-This section corresponds to the paper's electrolyzer mechanism analysis. The measurements are organized by process meaning rather than connected simply because they share the same units.
+Using partial physics requires answering two questions: **which measurements have a known physical relationship, and what useful information can that relationship provide?** The first yields a sparse directed graph; the second yields features computed from historical observations. The electrolyzer example below organizes measurements by process meaning and available equations.
 
 | Process knowledge | Available relationship or feature | How it is used |
 |---|---|---|
@@ -95,6 +142,8 @@ Exact sources, relation types and limits are retained in [industrial graph.json]
 
 <a id="architecture"></a>
 ## 3. Model architecture and information injection
+
+The two knowledge sources enter the same CTF forecasting backbone through complementary interfaces. **Topology changes the preference for reading a source; equation messages enrich the content read from that source.** The original data-driven path remains available to learn dependencies beyond the known physical relationships.
 
 ### 3.1 Preserve the original CTF prediction path
 
@@ -177,6 +226,8 @@ The executable industrial snapshot uses `representation="centered"`. Public inst
 
 <a id="results"></a>
 ## 4. Experiments and paper results
+
+The experiments test whether partial physical knowledge improves **multivariate forecasting accuracy**, and whether topology guidance and equation messages contribute to that improvement. Industrial electrolyzer records provide the application case; LBNL and TEP simulations test the same integration approach with different physical relationships. All tables below retain the archived paper-experiment protocol and values.
 
 ### 4.1 Fixed evaluation protocol
 
@@ -342,7 +393,7 @@ python scripts/smoke_test.py --dataset lbnl
 python scripts/smoke_test.py --dataset tep
 ```
 
-The release manifest `manifests/files.json` retains the original packaging hashes. This documentation-only revision does not change it: running `scripts/verify_package.py` directly reports a README snapshot mismatch. The check above excludes only these two README files and still verifies every other manifest entry. Result verification does not retrain or reevaluate models.
+The release manifest `manifests/files.json` retains the original packaging hashes. Documentation revisions do not rewrite it: running `scripts/verify_package.py` directly reports a README snapshot mismatch. The check above excludes only these two README files and still verifies every other original manifest entry. The newly added hardware photographs are outside that historical snapshot and are listed in Section 1.3. Result verification does not retrain or reevaluate models.
 
 Smoke tests use paired common backbone weights, check finite outputs, explicitly disable all physical interfaces and compare against CTF. Recorded CPU packaging checks had maximum absolute differences of **0.0** for all three tasks. These are synthetic execution/equivalence checks, not accuracy tests. Industrial synthetic unit statistics are labeled and never substituted for industrial training data.
 
@@ -437,7 +488,7 @@ The sibling `workspace/` layout preserves relative imports; it is not the full l
 <a id="figures"></a>
 ## 8. Released figures and paper correspondence
 
-Only previously released finished assets are linked below. This README-only update adds no manuscript files or new figures.
+The table links released model figures and the accompanying engineering-platform photographs. Hardware photographs document the setup, not an additional forecasting or fault-warning experiment. No manuscript files are added.
 
 | Paper content | Released PNG | Released PDF |
 |---|---|---|
@@ -448,19 +499,23 @@ Only previously released finished assets are linked below. This README-only upda
 | Fig. 4: topology-to-attention mapping | [View](figures/architecture/topology_attention.png) | [Download](figures/architecture/topology_attention.pdf) |
 | Fig. 5: equation-message pipeline | [View](figures/architecture/physics_message.png) | [Download](figures/architecture/physics_message.pdf) |
 | Fig. 6: low-pass forecast examples | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
+| Hardware: electrolyzer and temperature-voltage probes | [View](figures/hardware/电解槽测量图.png) | Not applicable |
+| Hardware: in-house data acquisition box | [View](figures/hardware/电解槽测量箱.png) | Not applicable |
+| Software: computer-connected multichannel monitoring | [View](figures/hardware/软硬件结合.png) | Not applicable |
 
 Figure numbers identify corresponding content, not byte-identical embedded artwork in the revised PDF. The revised process/measurement schematic (Fig. 1) is not newly released in this update. See [figure notes](figures/README.md) and [asset provenance](manifests/figure_sources.json); configuration snapshots and source remain the computational reference.
 
 <a id="limits"></a>
 ## 9. Scope and limitations
 
+- **Application role:** PRCTF supplies future sensor trajectories to support downstream fault early warning. The reported MSE and MAE evaluate forecasting; they do not measure fault classification, false alarms or warning lead time.
 - **Supported:** PRCTF improves mean forecasting error on the available industrial electrolyzer records and evaluated configurations; the public simulations provide numerical module-validation evidence, not proof of a universal cross-industry model or zero-shot transfer.
 - **Not established:** universal superiority, zero-shot plant transfer, statistical significance from three seeds, strict conservation, causal discovery, or an advantage that must grow with data scarcity.
 - **Interpretability:** relationship sources, equation calculations and insertion locations are inspectable. Attention weights and fitted observation gains are not identified causal effects or physical constants.
 - **Uncertain relationships:** public instances include documented validity and historical-consistency checks, not a guarantee that every incorrect prior is detected and suppressed.
 - **Development exposure:** seed 42 and fixed Test sets were observed during development. Additional seeds do not turn previously observed tests into blind evaluations.
 - **Comparison:** applicable physics methods share available physical information, but architectures are not parameter-count or runtime matched. Adaptations and pilot-selection limits remain disclosed.
-- **Validation:** synthetic forwards were recorded for the original package. This update changes only the READMEs and rechecks other manifest files and result tables, without new downloads, training or model evaluation. README snapshot hashes are explained in Section 5.2; cross-hardware bit-identical accuracy is not promised.
+- **Validation:** synthetic forwards were recorded for the original package. Documentation and hardware-photo additions do not include new training, forecasting evaluation or fault-warning validation. README snapshot hashes and the historical manifest's scope are explained in Section 5.2; cross-hardware bit-identical accuracy is not promised.
 - **Scarcity:** earlier few-shot and SDWPF bias-only studies did not establish a monotonic scarcity advantage; those outcomes are not presented as successful scarcity validation here.
 
 Details: [VALIDATION.md](VALIDATION.md), [REPRODUCIBILITY.md](REPRODUCIBILITY.md), [results/README.md](results/README.md).
