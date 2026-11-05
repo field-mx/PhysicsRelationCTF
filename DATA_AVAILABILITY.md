@@ -8,19 +8,26 @@ and gas-composition measurements. Of 61 original channels, 56 nonconstant
 channels are evaluated; exclusions are determined from training observations.
 The 1 Hz task uses 96 observed points to predict 96 future points.
 
-The numerical industrial observations, filtered observations, empirical gain and
-normalization statistics, numerical source series for figures, and trained
-weights are **not distributed in this publication companion**. No promise of
-public release, request-based access, or unrestricted reuse of those data is
+The numerical industrial observations, filtered observations and numerical
+source series for figures are **not distributed**. No promise of public
+release, request-based access or unrestricted reuse of those observations is
 made. These conditions concern distribution here, not an invented legal or
 ethical justification.
+
+The author has now authorized publication of the archived seed-42 PRCTF weights
+and the empirical gain/normalization statistics required for their inference.
+They are included in [weights/industrial/prctf_seed42.pt](weights/industrial/prctf_seed42.pt),
+with provenance and hashes in [weights/manifest.json](weights/manifest.json).
+These are fitted model and aggregate calibration artifacts, not raw time-series
+observations. The equivalent LBNL and TEP reference bundles are also released.
 
 The author has authorized the finished illustrative images under
 `figures/industrial/`, including `raw_signal_overview.png`. They show selected
 signals or forecasting examples but do not provide the full machine-readable
 dataset. The code and relationship schema permit inspection of the method;
 industrial accuracy cannot be independently regenerated without authorized
-access to the original records and preprocessing/calibration.
+access to the original records, even though the trained inference model is now
+available.
 
 ## 2. LBNL simulated chiller plant
 

@@ -15,9 +15,21 @@ traceability, **not falsely advertised as zero-setup portable launchers**.
 
 The supported portable model constructor is `scripts/model_factory.py`.
 It restores the selected public-data graph, calibration and initialization
-without loading an unpublished weight checkpoint. Industrial construction uses
-synthetic unit statistics solely for shape/equivalence tests. No trained weights
-or industrial fitted statistics are included.
+without loading a trained checkpoint. Industrial construction through this
+checkpoint-free path uses synthetic unit statistics solely for shape/equivalence
+tests. It must not be used as a trained deployment model.
+
+## Pretrained inference
+
+The new `weights/` release contains the archived seed-42 PRCTF reference for
+each dataset, including fitted normalization and physical calibration.
+`scripts/pretrained.py` reconstructs the original model from that bundle and
+loads the complete state strictly. `scripts/predict.py` accepts named-channel
+CSV histories and returns physical-unit forecasts without retraining or access
+to the original experiment directories. See [deployment instructions](weights/README.md)
+and [validation records](weights/VALIDATION.md). These weights correspond to the
+paper's archived protocol; the industrial post-noon retraining is not included.
+Raw industrial observation sequences remain private.
 
 ## Task and metric contracts
 

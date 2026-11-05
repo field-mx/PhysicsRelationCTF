@@ -1,5 +1,9 @@
 # Publication-package validation
 
+For the newer trained-weight and inference release, see
+[weights/VALIDATION.md](weights/VALIDATION.md). The checks below describe the
+original checkpoint-free packaging snapshot and its original distribution scope.
+
 Date: 2026-10-20. Packaging and publication do not change model mathematics or
 source observations and do not retrain a model. No original files are deleted.
 

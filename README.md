@@ -22,7 +22,9 @@ The industrial model uses **96 seconds of history to forecast the next 96 second
 
 > **Archived forecasting results:** on the industrial dataset, three-seed mean normalized MSE decreases from **0.10901 to 0.10858** versus Original CTF, a **0.393%** reduction. The largest paired-seed reduction is **1.275%**. LBNL and Tennessee Eastman Process (TEP) simulations provide additional checks using physical knowledge specific to each system.
 
-This repository provides the model implementation, physical relationship configurations, archived experiment records and figures. The sections below connect the engineering motivation to the physical modeling, attention design, evidence and reproduction steps. The manuscript PDF, industrial numerical data and trained weights remain private.
+This repository provides the model implementation, physical relationship configurations, archived experiment records, figures and **[pretrained PRCTF weights](weights/README.md)** for all three systems. The weight bundles include the fitted normalization and calibration needed for inference. The manuscript PDF and industrial observation sequences remain private.
+
+**Deploy without retraining:** after [installing dependencies and the pinned CTF source](#quick-start), run `python scripts/predict.py --dataset industrial --input history.csv --output outputs/forecast.csv`. See [pretrained inference](#pretrained) for the input contract.
 
 ### Navigation
 
@@ -32,6 +34,7 @@ This repository provides the model implementation, physical relationship configu
 - [3. Model architecture and information injection](#architecture)
 - [4. Experiments and paper results](#results)
 - [5. Installation and quick verification](#quick-start)
+  - [Pretrained weights and inference](#pretrained)
 - [6. Public-data preparation and training](#reproduce)
 - [7. Code and experiment map](#code-map)
 - [8. Released figures and paper correspondence](#figures)
@@ -364,27 +367,8 @@ CTF is fetched at `b1c100effb9c27cd25de07e91de7f9005d18d5e7`, not bundled. The f
 ### 5.2 Check files, tables and synthetic forwards
 
 ```bash
-# Verify unchanged code, configs, results, figures and supporting documents.
-python - <<'PY'
-import hashlib
-import json
-from pathlib import Path
-
-root = Path.cwd()
-docs = {'README.md', 'README_zh-CN.md'}
-rows = json.loads((root / 'manifests/files.json').read_text())['files']
-checked = 0
-for row in rows:
-    if row['path'] in docs:
-        continue
-    path = root / row['path']
-    assert path.is_file() and not path.is_symlink(), row['path']
-    assert path.stat().st_size == row['bytes'], row['path']
-    assert hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256'], row['path']
-    checked += 1
-print(f'Verified {checked} unchanged non-README release files.')
-PY
-
+# Verify the current release, including documentation and pretrained weights.
+python scripts/verify_package.py
 python scripts/summarize_results.py
 
 # Separate processes, after dependencies and CTF are available.
@@ -393,11 +377,31 @@ python scripts/smoke_test.py --dataset lbnl
 python scripts/smoke_test.py --dataset tep
 ```
 
-The release manifest `manifests/files.json` retains the original packaging hashes. Documentation revisions do not rewrite it: running `scripts/verify_package.py` directly reports a README snapshot mismatch. The check above excludes only these two README files and still verifies every other original manifest entry. The newly added hardware photographs are outside that historical snapshot and are listed in Section 1.3. Result verification does not retrain or reevaluate models.
+The current release manifest covers the documentation, hardware photographs and pretrained bundles as well as the original code and evidence. The original packaging manifest is preserved in [files.packaging-v1.json](manifests/files.packaging-v1.json). Result verification does not retrain or reevaluate models.
 
 Smoke tests use paired common backbone weights, check finite outputs, explicitly disable all physical interfaces and compare against CTF. Recorded CPU packaging checks had maximum absolute differences of **0.0** for all three tasks. These are synthetic execution/equivalence checks, not accuracy tests. Industrial synthetic unit statistics are labeled and never substituted for industrial training data.
 
 Append `--device cuda:0` for a GPU, or supply an existing pinned checkout with `--ctf-root /path/to/ChannelTokenFormer`.
+
+<a id="pretrained"></a>
+### 5.3 Pretrained weights and inference
+
+The three released models are the **seed-42 reference checkpoints** from the archived full-data experiments, with epochs selected by validation error. No new training or seed selection was performed. The industrial checkpoint uses the original full training pool, not the later post-noon retraining.
+
+| Model | Trained weights | Real history → forecast | Inputs / returned targets |
+|---|---|---|---|
+| Industrial electrolyzer | [prctf_seed42.pt](weights/industrial/prctf_seed42.pt) | 96 → 96, 1 s sampling | 56 / 56 |
+| LBNL chiller plant | [prctf_seed42.pt](weights/lbnl/prctf_seed42.pt) | 96 → 96, 60 s sampling | 73 / 58 |
+| TEP | [prctf_seed42.pt](weights/tep/prctf_seed42.pt) | 20 → 20, 180 s sampling | 52 / 52 |
+
+```bash
+python scripts/predict.py --dataset industrial \
+  --input /path/to/history.csv --output outputs/forecast.csv --device cpu
+```
+
+CSV headers must contain the required channel IDs; the script selects the last complete historical window and restores channel order by name. Supply physical-unit values, not already standardized values. Industrial input uses the original measurement units; LBNL requires its prepared SI values; TEP uses native dataset units. The loader applies the training-fitted normalization and returns forecasts in the same physical units. It does not pad missing histories, fill nonfinite values or overwrite an existing output.
+
+For CUDA, use `--device cuda:0`. The [Python API and complete unit contract](weights/README.md) also cover batched inference and LBNL target selection. [manifest.json](weights/manifest.json) records hashes, input schemas and checkpoint provenance. [Deployment checks](weights/VALIDATION.md) verify full-state export and inference behavior without distributing industrial observation series.
 
 <a id="reproduce"></a>
 ## 6. Public-data preparation and training
@@ -445,7 +449,7 @@ All three selected CTF backbones use hidden dimension 256, FFN dimension 1024, 2
 
 ### 6.3 Industrial reproduction boundary
 
-Industrial observations, fitted scaling/gain statistics, weights and numerical figure-source series are not distributed. Graphs, schema, source, metrics and approved images support inspection, but industrial accuracy cannot be regenerated without authorized access to the original records. No unsupported promise of request-based access is made.
+Industrial observation sequences and numerical figure-source series are not distributed. The [pretrained bundle](weights/industrial/prctf_seed42.pt) now includes trained weights and the aggregate scaling/gain statistics required for inference on compatible measurements. Reproducing industrial training and test errors still requires authorized access to the original records. No unsupported promise of request-based access is made.
 
 <a id="code-map"></a>
 ## 7. Code and experiment map
@@ -456,9 +460,11 @@ Industrial observations, fitted scaling/gain statistics, weights and numerical f
 ├── DATA_AVAILABILITY.md           # Sources, subsets and access boundaries
 ├── REPRODUCIBILITY.md             # Training/evaluation contract
 ├── configs/{industrial,lbnl,tep}/  # Selected model/physical-graph snapshots
+├── weights/                      # Trained PRCTF bundles and inference contracts
 ├── results/                      # Complete comparison/control tables
 ├── figures/                      # Approved finished PNG/PDF figures
-├── scripts/                      # Portable construction, preparation and checks
+├── scripts/                      # Inference, construction, preparation and checks
+├── tests/                        # Pretrained deployment checks
 ├── manifests/                    # File hashes and provenance
 └── workspace/
     ├── PhysicsRelationCTF/        # Selected model/experiment source and evidence
@@ -471,6 +477,8 @@ The sibling `workspace/` layout preserves relative imports; it is not the full l
 | What to inspect | Entry point |
 |---|---|
 | Portable paired construction | [scripts/model_factory.py](scripts/model_factory.py) |
+| Trained model loading and Python inference | [scripts/pretrained.py](scripts/pretrained.py) |
+| Named-channel CSV forecasting | [scripts/predict.py](scripts/predict.py) |
 | Industrial bias, messages, aggregation and residual | [relation_model.py](workspace/PhysicsRelationCTF/relation_model.py) |
 | Industrial equation functions and relation/offset definitions | [physics.py](workspace/PhysicsRelationCTF/physics.py) |
 | Original channel-token readout wrapper | [PhysicsGuidedCTF/model.py](workspace/PhysicsGuidedCTF/model.py) |
@@ -515,7 +523,7 @@ Figure numbers identify corresponding content, not byte-identical embedded artwo
 - **Uncertain relationships:** public instances include documented validity and historical-consistency checks, not a guarantee that every incorrect prior is detected and suppressed.
 - **Development exposure:** seed 42 and fixed Test sets were observed during development. Additional seeds do not turn previously observed tests into blind evaluations.
 - **Comparison:** applicable physics methods share available physical information, but architectures are not parameter-count or runtime matched. Adaptations and pilot-selection limits remain disclosed.
-- **Validation:** synthetic forwards were recorded for the original package. Documentation and hardware-photo additions do not include new training, forecasting evaluation or fault-warning validation. README snapshot hashes and the historical manifest's scope are explained in Section 5.2; cross-hardware bit-identical accuracy is not promised.
+- **Validation:** historical synthetic construction checks and the new [pretrained deployment checks](weights/VALIDATION.md) verify execution and state restoration. This release does not add training, forecasting benchmarks or fault-warning validation; cross-hardware bit-identical accuracy is not promised.
 - **Scarcity:** earlier few-shot and SDWPF bias-only studies did not establish a monotonic scarcity advantage; those outcomes are not presented as successful scarcity validation here.
 
 Details: [VALIDATION.md](VALIDATION.md), [REPRODUCIBILITY.md](REPRODUCIBILITY.md), [results/README.md](results/README.md).

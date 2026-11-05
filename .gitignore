@@ -7,6 +7,9 @@ outputs/
 *.pth
 *.pt
 *.ckpt
+!weights/industrial/prctf_seed42.pt
+!weights/lbnl/prctf_seed42.pt
+!weights/tep/prctf_seed42.pt
 *.npz
 *.npy
 *.parquet

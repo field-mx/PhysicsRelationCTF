@@ -22,7 +22,9 @@
 
 > **归档预测结果：** 工业数据上，相比Original CTF，三种子平均归一化MSE由**0.10901降至0.10858**，降幅为**0.393%**；配对单种子最高降幅为**1.275%**。LBNL冷水机组与Tennessee Eastman过程（TEP）仿真进一步使用各自系统的物理知识进行验证。
 
-本仓库提供模型实现、物理关系配置、归档实验记录及图像。下文从工程需求出发，依次介绍物理建模、注意力设计、实验依据与复现步骤。论文PDF、工业数值数据及训练权重保留在本地。
+本仓库提供模型实现、物理关系配置、归档实验记录、图像，以及三个系统的**[PRCTF预训练权重](weights/README_zh-CN.md)**。权重包同时包含推理所需的归一化与标定参数。论文PDF与工业原始观测序列保留在本地。
+
+**无需重训即可部署：** [安装依赖并获取固定版本CTF](#quick-start)后，运行`python scripts/predict.py --dataset industrial --input history.csv --output outputs/forecast.csv`。输入要求见[预训练推理](#pretrained)。
 
 ### 目录
 
@@ -32,6 +34,7 @@
 - [3. 模型结构与物理信息嵌入](#architecture)
 - [4. 实验设置与论文结果](#results)
 - [5. 安装与快速核验](#quick-start)
+  - [预训练权重与推理](#pretrained)
 - [6. 公开数据准备与训练](#reproduce)
 - [7. 代码与实验位置](#code-map)
 - [8. 已公开插图与论文对应关系](#figures)
@@ -364,27 +367,8 @@ python scripts/fetch_upstreams.py --ctf
 ### 5.2 检查文件、表格与模型前向过程
 
 ```bash
-# 使用标准库核对未改动的代码、配置、结果、图片及辅助文档。
-python - <<'PY'
-import hashlib
-import json
-from pathlib import Path
-
-root = Path.cwd()
-docs = {'README.md', 'README_zh-CN.md'}
-rows = json.loads((root / 'manifests/files.json').read_text())['files']
-checked = 0
-for row in rows:
-    if row['path'] in docs:
-        continue
-    path = root / row['path']
-    assert path.is_file() and not path.is_symlink(), row['path']
-    assert path.stat().st_size == row['bytes'], row['path']
-    assert hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256'], row['path']
-    checked += 1
-print(f'Verified {checked} unchanged non-README release files.')
-PY
-
+# 核对当前发布文件，包括文档与预训练权重。
+python scripts/verify_package.py
 python scripts/summarize_results.py
 
 # 安装依赖并获取 CTF 后，分别运行各实例的合成输入测试。
@@ -393,11 +377,31 @@ python scripts/smoke_test.py --dataset lbnl
 python scripts/smoke_test.py --dataset tep
 ```
 
-发布清单`manifests/files.json`保留原打包快照的哈希，后续文档修改不改写该快照。直接运行`scripts/verify_package.py`会报告README与旧快照不一致；上方校验仅排除这两份说明文件，其余原清单文件仍逐项检查。新增硬件照片不属于该历史快照，展示位置见第1.3节。结果核对不重新训练或评价模型。
+当前发布清单覆盖文档、硬件照片、预训练权重及原有代码与证据。原打包清单保留为[files.packaging-v1.json](manifests/files.packaging-v1.json)。结果核对不重新训练或评价模型。
 
 测试使用相同公共骨干权重构造配对模型，检查输出有限，并在显式关闭全部物理接口后与 CTF 比较。已记录的三组 CPU 打包测试最大绝对差均为 **0.0**。这只验证合成输入下的执行与退化等价性，不验证预测精度。工业测试中的合成单位统计量有明确标注，不会替代真实工业训练数据。
 
 可添加 `--device cuda:0` 在 GPU 上执行；也可通过 `--ctf-root /path/to/ChannelTokenFormer` 指定已存在的固定版本 CTF 目录。
+
+<a id="pretrained"></a>
+### 5.3 预训练权重与推理
+
+发布的三个模型为归档全数据实验中的**固定seed=42参考检查点**，训练轮次由验证误差选择。本次没有重新训练或筛选种子。电解槽权重使用原始完整训练池，不是后来仅用12:00之后记录的重训版本。
+
+| 模型 | 训练后权重 | 真实历史→预测 | 输入／默认输出通道 |
+|---|---|---|---|
+| 工业电解槽 | [prctf_seed42.pt](weights/industrial/prctf_seed42.pt) | 96→96，间隔1 s | 56／56 |
+| LBNL冷水机组 | [prctf_seed42.pt](weights/lbnl/prctf_seed42.pt) | 96→96，间隔60 s | 73／58 |
+| TEP | [prctf_seed42.pt](weights/tep/prctf_seed42.pt) | 20→20，间隔180 s | 52／52 |
+
+```bash
+python scripts/predict.py --dataset industrial \
+  --input /path/to/history.csv --output outputs/forecast.csv --device cpu
+```
+
+CSV表头需包含要求的通道ID；脚本读取最后一个完整历史窗口，按名称恢复通道顺序。输入物理单位下的数值，不要提前标准化。电解槽使用原测量单位，LBNL使用预处理后的SI量，TEP使用原数据单位。加载器自动应用训练时的归一化参数，并将预测恢复为相同物理单位。不会补齐短历史、填补非有限值或覆盖已有输出文件。
+
+GPU推理使用`--device cuda:0`。[Python接口与完整单位说明](weights/README_zh-CN.md)还介绍批量推理和LBNL目标选择。[manifest.json](weights/manifest.json)记录哈希、输入定义与检查点来源；[部署核验记录](weights/VALIDATION.md)说明权重导出及推理检查，不分发工业原始观测序列。
 
 <a id="reproduce"></a>
 ## 6. 公开数据准备与训练
@@ -445,7 +449,7 @@ python scripts/train_public.py --dataset tep --kind Physics --seed 42 --device c
 
 ### 6.3 工业数据的复现边界
 
-工业数值观测、拟合得到的尺度与增益统计、模型权重和作图源序列不随仓库分发。公开的图、数据结构说明、模型代码、指标与成品图可供检查方法，但没有原始记录授权访问就不能重新生成工业精度结果。仓库不作未经确认的“可申请获取数据”等承诺。
+工业原始观测序列与作图源序列不随仓库分发。[预训练包](weights/industrial/prctf_seed42.pt)现已包含模型权重，以及对兼容测量进行推理所需的尺度与增益聚合统计。重新训练和核对工业测试误差，仍需原始记录的授权访问。仓库不作未经确认的“可申请获取数据”等承诺。
 
 <a id="code-map"></a>
 ## 7. 代码与实验位置
@@ -456,9 +460,11 @@ python scripts/train_public.py --dataset tep --kind Physics --seed 42 --device c
 ├── DATA_AVAILABILITY.md           # 数据来源、子集与访问边界
 ├── REPRODUCIBILITY.md             # 训练评价约定与限制
 ├── configs/{industrial,lbnl,tep}/  # 冻结的模型配置与物理图
+├── weights/                      # 训练后PRCTF权重与推理输入约定
 ├── results/                      # 完整对比与组件对照表格
 ├── figures/                      # 获准公开的 PNG/PDF 成品图
-├── scripts/                      # 模型构造、数据准备和核验入口
+├── scripts/                      # 推理、模型构造、数据准备和核验入口
+├── tests/                        # 预训练模型部署检查
 ├── manifests/                    # 文件哈希与来源映射
 └── workspace/
     ├── PhysicsRelationCTF/        # 精选模型、实验源码与数值证据
@@ -471,6 +477,8 @@ python scripts/train_public.py --dataset tep --kind Physics --seed 42 --device c
 | 查看内容 | 代码入口 |
 |---|---|
 | 可移植的配对模型构造 | [scripts/model_factory.py](scripts/model_factory.py) |
+| 训练后模型加载与Python推理 | [scripts/pretrained.py](scripts/pretrained.py) |
+| 按通道名称读取CSV并预测 | [scripts/predict.py](scripts/predict.py) |
 | 电解槽拓扑偏置、消息投影、聚合与残差 | [relation_model.py](workspace/PhysicsRelationCTF/relation_model.py) |
 | 电解槽方程函数、关系类型和历史范围 | [physics.py](workspace/PhysicsRelationCTF/physics.py) |
 | 原生 CTF 通道 token 解码封装 | [PhysicsGuidedCTF/model.py](workspace/PhysicsGuidedCTF/model.py) |
@@ -515,7 +523,7 @@ python scripts/train_public.py --dataset tep --kind Physics --seed 42 --device c
 - **关系失准处理：** 公开实例包含已记录的方程有效性与历史一致性检查，但不能保证识别和抑制所有错误先验。
 - **开发阶段暴露：** 种子 42 和固定测试集曾用于早期开发；增加种子有助于观察重复性，但不能将已经观察过的测试集重新称为盲测。
 - **比较条件：** 适用的物理方法使用同一可用物理信息预算；不同架构并非参数量或运行时间完全匹配。适配方式及预实验筛选限制均有记录。
-- **核验范围：** 原打包版本已记录合成前向测试；后续文档与硬件照片更新不构成新增训练、预测评价或故障预警验证。README旧哈希差异及历史清单范围见第5.2节，不保证跨软硬件逐位相同的精度。
+- **核验范围：** 历史合成构造测试与新增[预训练部署检查](weights/VALIDATION.md)核对代码执行和状态恢复。本次发布没有新增训练、预测精度基准或故障预警验证，不保证跨软硬件逐位相同的精度。
 - **少数据结论：** 之前的 few-shot 与 SDWPF 纯偏置实验未确立“数据越少，物理优势越大”的单调规律；本说明不将其改写为成功验证。
 
 详细记录：[VALIDATION.md](VALIDATION.md)、[REPRODUCIBILITY.md](REPRODUCIBILITY.md)、[results/README.md](results/README.md)。

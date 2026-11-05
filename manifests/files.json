@@ -1,10 +1,11 @@
 {
-  "version": "publication-companion",
+  "version": "publication-companion-pretrained-v1",
+  "previous_manifest": "manifests/files.packaging-v1.json",
   "files": [
     {
       "path": ".gitignore",
-      "bytes": 404,
-      "sha256": "3f82475b79d28248bd7d068b8bc5cf637cd12a3dbc8395279c1c5dac616789f8"
+      "bytes": 499,
+      "sha256": "022eb33a9ca28032412f9eaaff3e95e73362e5cbff1e60b73205cc4919b6683d"
     },
     {
       "path": "CITATION.md",
@@ -13,8 +14,8 @@
     },
     {
       "path": "DATA_AVAILABILITY.md",
-      "bytes": 4833,
-      "sha256": "e3a929398eda2c90a7da4c53e6a2ca875e4ec3912a5dec329db98e29b50749b7"
+      "bytes": 5266,
+      "sha256": "1e700d40bd8db02c6915ead32230b4b715469600c7c588634282d1efe793f8b1"
     },
     {
       "path": "LICENSE_STATUS.md",
@@ -23,18 +24,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 33153,
-      "sha256": "fbf5dc69e39f5ab31e530470d67d5afbd6e18a6171d4fc7efe478a712f1fa27d"
+      "bytes": 44172,
+      "sha256": "9c5798e98728668afb336937eeb6b37ccb411d2cc8d080f052d78a7cd90cf43a"
     },
     {
       "path": "README_zh-CN.md",
-      "bytes": 32306,
-      "sha256": "aa944a11e0d7721477bcf684112c5a4e9d9e8c0e62e33c893fb87982ceb45d85"
+      "bytes": 39645,
+      "sha256": "d3949191c7b0b96e83ef58f5f58fffd5675aa5a28bcacfed91a0cdcc3ae342fa"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "bytes": 5605,
-      "sha256": "4583a59addc26fc0568acde0e74653dd678dfdf1d4654456eceb035d3553c61f"
+      "bytes": 6324,
+      "sha256": "4becd20219e9dd7fb0c032cd7dcf2a946718fe378ba30b0521ab8a8b3650d860"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -43,8 +44,8 @@
     },
     {
       "path": "VALIDATION.md",
-      "bytes": 2366,
-      "sha256": "eecbe1929aa01ba1c92d424bbcad8e7006ada4566d8b3403491ac2461d01cda2"
+      "bytes": 2582,
+      "sha256": "eae3dd5e6badf4a970a8fc8eff1abae8157060261c46aba6ddbb323e8ba3dcae"
     },
     {
       "path": "configs/industrial/data_schema.json",
@@ -137,6 +138,21 @@
       "sha256": "2ff386f290ab6983801ba4000eba6c85ea6eb3a779a05253d3701b4a5f2181a0"
     },
     {
+      "path": "figures/hardware/电解槽测量图.png",
+      "bytes": 3826273,
+      "sha256": "4cb0deae5f92c9b1568d86b6c05cc2d463b13a4f1800ade3d079249d2050d4ac"
+    },
+    {
+      "path": "figures/hardware/电解槽测量箱.png",
+      "bytes": 3668605,
+      "sha256": "c8be0c5a6115dd887c556145b793e8c938a2882783a0bacff42c1718a71c0d99"
+    },
+    {
+      "path": "figures/hardware/软硬件结合.png",
+      "bytes": 3903111,
+      "sha256": "91d2b6fe26137bf8dd0b1c2ae75a697314c086a871a485d19cb26dda7b2c88c9"
+    },
+    {
       "path": "figures/industrial/lowpass_test_predictions.pdf",
       "bytes": 305831,
       "sha256": "dff611971054706efeee0e8fc0acd2e1d5bad81bcbe8c58b124429de6a552ddc"
@@ -222,6 +238,11 @@
       "sha256": "ba63f55e2d6d9af649296f8be57d90a1f4a691fd7cb423c0260ea7106ac0b925"
     },
     {
+      "path": "manifests/files.packaging-v1.json",
+      "bytes": 105834,
+      "sha256": "07a9c2c8114ff84d10143eec0c6a188a9160688d0a3a286e52c498b00cbc94c2"
+    },
+    {
       "path": "manifests/packaging_environment.json",
       "bytes": 361,
       "sha256": "841a8bfb3dea39db5572c0e80c1bc9765766f02cdaf0a035ecc36c01291b1274"
@@ -272,6 +293,11 @@
       "sha256": "bdaabb4c322ad58af16943527dac6036cb13821d9254c3a8588210fabc50c26f"
     },
     {
+      "path": "scripts/export_pretrained.py",
+      "bytes": 5443,
+      "sha256": "c3f1706a1a8152d55e3d3aa98423431346531ef8ea1c8444c0d71f3cd8cc13f0"
+    },
+    {
       "path": "scripts/fetch_upstreams.py",
       "bytes": 2121,
       "sha256": "efdfbe4bc73b112cea83262a50d0ec1f8ffbd21e605acce77b18a32132887e33"
@@ -282,9 +308,19 @@
       "sha256": "05c6f26e9aef2f13f8e96a8568265ba417bb338c089d46ee7fa2f5b46cc758a2"
     },
     {
+      "path": "scripts/predict.py",
+      "bytes": 2744,
+      "sha256": "fb3942b03e5fb3bbf45f87fc6d3448d2ec5980154892afb67b73d50cc4527f57"
+    },
+    {
       "path": "scripts/prepare_public_data.py",
       "bytes": 2566,
       "sha256": "a7de758197d5e7ad805e96d450680b0a6a7110b37fb7361159e38fde0c4a19b0"
+    },
+    {
+      "path": "scripts/pretrained.py",
+      "bytes": 4872,
+      "sha256": "ed4b205b2a4ce8d1ba190176cc332768f870c39f69808d24944e693b5b532104"
     },
     {
       "path": "scripts/smoke_test.py",
@@ -305,6 +341,46 @@
       "path": "scripts/verify_package.py",
       "bytes": 888,
       "sha256": "dc4bffc1008ac2931543c81a63c74fb0332ec5639985bd0f217b9ffd49583dd3"
+    },
+    {
+      "path": "tests/test_pretrained.py",
+      "bytes": 5051,
+      "sha256": "b6bc8d3a0b464910bdce01d7f477c3281c1bb35077619fb2c26ae1166a2fcb73"
+    },
+    {
+      "path": "weights/README.md",
+      "bytes": 5685,
+      "sha256": "001b032c0aa480554a568190e5de6cb47a02124fa448788418c59697b06bf57f"
+    },
+    {
+      "path": "weights/README_zh-CN.md",
+      "bytes": 5265,
+      "sha256": "48c10482c9c8bc739b0d521858ffb2d8e1c2a4e8d08b27c550dd9b63c3f5592e"
+    },
+    {
+      "path": "weights/VALIDATION.md",
+      "bytes": 2287,
+      "sha256": "54e18d61b9823fcdfa98f527560bbc37c31bcfea90450f58ac3c1ff106015fac"
+    },
+    {
+      "path": "weights/industrial/prctf_seed42.pt",
+      "bytes": 12017167,
+      "sha256": "a07d8df103c32adacf297908dc3df14d261357cc73faa18c560bf4586f5b079e"
+    },
+    {
+      "path": "weights/lbnl/prctf_seed42.pt",
+      "bytes": 11982479,
+      "sha256": "96767fcfcb4c72547591d00350cd2277f3881e9af67c5894f34cef862814f842"
+    },
+    {
+      "path": "weights/manifest.json",
+      "bytes": 10112,
+      "sha256": "882d23b5a165d3d0046c4b1a8d0d36657d1eaab1f3c30fd255ff341b50f43169"
+    },
+    {
+      "path": "weights/tep/prctf_seed42.pt",
+      "bytes": 11760077,
+      "sha256": "46beed1a48569f527df4974d6cdd377ca23dd618d8d997e33162d1b3aa7a905a"
     },
     {
       "path": "workspace/GNN_Transformer/equation_topology.py",
@@ -2122,6 +2198,11 @@
       "sha256": "e0a3f75202631bc59dbc72bbbc8e996dd80051a35672263ab49572522a480f08"
     },
     {
+      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data.py",
+      "bytes": 1997,
+      "sha256": "f035458d4bb939b58f797c013638f0bb01ae6a839d48477614339a41855eb0ea"
+    },
+    {
       "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data/control_reference.json",
       "bytes": 395,
       "sha256": "f0289a721cd2d9de3f125fce3d5698eaf571db60dee0b4f1abeff23f6c37b55c"
@@ -2135,11 +2216,6 @@
       "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data/provenance.json",
       "bytes": 463,
       "sha256": "bb8bd5329e799eded1ca1bbb2b6138ff0e1788b08832b64a8a778b213b8c86b3"
-    },
-    {
-      "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/data.py",
-      "bytes": 1997,
-      "sha256": "f035458d4bb939b58f797c013638f0bb01ae6a839d48477614339a41855eb0ea"
     },
     {
       "path": "workspace/PhysicsRelationCTF/runs/publicdata_exp/final_evaluate.py",
