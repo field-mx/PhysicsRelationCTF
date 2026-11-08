@@ -11,8 +11,15 @@ and industrial source CSVs are not included.
 - `industrial/raw_signal_overview.png`: the specifically authorized 原始信号.PNG.
   It is a qualitative overview; units and labels are preserved rather than
   silently corrected or reconstructed from unavailable numerical data.
-- `industrial/lowpass_test_predictions.*`: the selected pressure and hydrogen
-  cooler outlet-temperature example; separate single-seed low-pass experiment.
+- `industrial/lowpass_test_predictions.*`: the author-selected panel C, showing
+  instrument-air header pressure (PT010003). Frozen seed-42 low-pass checkpoints
+  use 96-point histories and 96-step forecasts, updated every 12 seconds, with
+  equal-weight combination of overlapping forecasts. All 4847 test points are
+  displayed; both models' metrics use the same 4751 points after the shaded
+  96-second warm-up. MSE reduction is 2.12% for this channel/policy, not the
+  raw-data three-seed benchmark. Forecast leads are mixed from 1 to 96 seconds.
+  This replaces the previous two-channel block-forecast illustration; its old
+  version remains in Git history and the original local experiment is unchanged.
 
 Exact file provenance and hashes are in `manifests/figure_sources.json`.
 These assets should be matched to the final typeset manuscript before reuse;

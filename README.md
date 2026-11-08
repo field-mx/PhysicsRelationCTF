@@ -325,15 +325,17 @@ PhyGNN retains the publicly available graph aggregation module with an added for
 
 Sources: [per-seed methods](results/method_comparison_per_seed.csv) and [mean/std/best/time summary](results/method_comparison_summary.csv).
 
-### 4.5 Industrial prediction examples
+### 4.5 Industrial rolling prediction example
 
 <p align="center">
-  <img src="figures/industrial/lowpass_test_predictions.png" alt="Filtered industrial test predictions for instrument-air header pressure and hydrogen-cooler outlet temperature" width="100%">
+  <img src="figures/industrial/lowpass_test_predictions.png?v=mean12-20261109" alt="Instrument-air header pressure: filtered observations and CTF versus PRCTF forecasts with 12-second rolling updates and equal-weight overlapping forecasts" width="100%">
 </p>
 
-*The two channels illustrated in the paper's Fig. 6: instrument-air header field pressure and hydrogen-cooler outlet temperature. Blue denotes filtered observations; red is PRCTF; gray dashed is Original CTF.*
+*Author-selected panel C: instrument-air header field pressure (PT010003). Blue denotes filtered observations; red is PRCTF; gray dashed is Original CTF. Forecasts are updated every 12 s and overlapping predictions are combined with equal weights.*
 
-These curves come from a **separate single-seed low-pass experiment**, with Train/Validation/Test data causally filtered using a second-order Butterworth low-pass filter at 0.05 Hz. Successive 96-step forecasts are stitched across the complete test segment; the plot is not one long open-loop forecast. This filtered illustration does **not** generate the raw-data three-seed main results above. Numerical table evidence and curve examples must keep their respective preprocessing definitions.
+This is a **separate seed-42 low-pass experiment**: Train/Validation/Test observations use a second-order causal Butterworth filter at 0.05 Hz. The existing checkpoints are retained, each forecast still uses 96 s of history and outputs 96 steps, and the display uses 12 s rolling updates with equal-weight overlap. All **4847 test points** are shown; the shaded first 96 s are fusion warm-up, and both models are scored on the same remaining **4751 points**.
+
+CTF and PRCTF have MSEs of **1.603082 × 10⁻⁶ and 1.569092 × 10⁻⁶ MPa²**, respectively, a **2.12% reduction** for this channel under this policy. The curve combines forecast leads of **1–96 s**, with an average of approximately 48.5 s; it is not a fixed-96-second-ahead accuracy result. No time shift or additional post-fusion filtering is applied. This illustration is distinct from the raw-data three-seed benchmark and released reference checkpoints; the default single-window inference API is unchanged.
 
 ### 4.6 Complete historical evidence remains available
 
@@ -506,7 +508,7 @@ The table links released model figures and the accompanying engineering-platform
 | Fig. 3: model overview | [View](figures/architecture/model_architecture.png) | [Download](figures/architecture/model_architecture.pdf) |
 | Fig. 4: topology-to-attention mapping | [View](figures/architecture/topology_attention.png) | [Download](figures/architecture/topology_attention.pdf) |
 | Fig. 5: equation-message pipeline | [View](figures/architecture/physics_message.png) | [Download](figures/architecture/physics_message.pdf) |
-| Fig. 6: low-pass forecast examples | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
+| Rolling pressure example: selected panel C | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
 | Hardware: electrolyzer and temperature-voltage probes | [View](figures/hardware/电解槽测量图.png) | Not applicable |
 | Hardware: in-house data acquisition box | [View](figures/hardware/电解槽测量箱.png) | Not applicable |
 | Software: computer-connected multichannel monitoring | [View](figures/hardware/软硬件结合.png) | Not applicable |

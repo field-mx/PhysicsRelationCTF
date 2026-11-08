@@ -24,18 +24,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 44172,
-      "sha256": "9c5798e98728668afb336937eeb6b37ccb411d2cc8d080f052d78a7cd90cf43a"
+      "bytes": 44774,
+      "sha256": "96a6c8fc82c48f80940d56c6e56592a1c6e7607bd626934317fcb42c8884c386"
     },
     {
       "path": "README_zh-CN.md",
-      "bytes": 39645,
-      "sha256": "d3949191c7b0b96e83ef58f5f58fffd5675aa5a28bcacfed91a0cdcc3ae342fa"
+      "bytes": 40195,
+      "sha256": "f3ea482aff2d4738afd6f334f0dba9053ecb5eade986f3067ba03201851da785"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "bytes": 6324,
-      "sha256": "4becd20219e9dd7fb0c032cd7dcf2a946718fe378ba30b0521ab8a8b3650d860"
+      "bytes": 6711,
+      "sha256": "1c0db4c0daf5adbd23636ed3bdfe0806c68cb9a164ed6618bfd6a567a42bd4a5"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -104,8 +104,8 @@
     },
     {
       "path": "figures/README.md",
-      "bytes": 1242,
-      "sha256": "814366f5f6271ca4bcdeff948acd7be4a4fe472aa4d2cf55a4ea618e75e88cd2"
+      "bytes": 1795,
+      "sha256": "834fe111ee51a570f4ec6702582c9d174f0721833ebc68c283c612291eee645c"
     },
     {
       "path": "figures/architecture/model_architecture.pdf",
@@ -154,13 +154,13 @@
     },
     {
       "path": "figures/industrial/lowpass_test_predictions.pdf",
-      "bytes": 305831,
-      "sha256": "dff611971054706efeee0e8fc0acd2e1d5bad81bcbe8c58b124429de6a552ddc"
+      "bytes": 163242,
+      "sha256": "bf001a01a4e6f2db469702dd4817f0e6bf898684716edfb7f81519883be589dd"
     },
     {
       "path": "figures/industrial/lowpass_test_predictions.png",
-      "bytes": 808759,
-      "sha256": "dfa5714e9354c95739c22192df620fe4ba7dc670450b210ee48b1b620c58157f"
+      "bytes": 640761,
+      "sha256": "8c8545329784f24b717f7ab2440acc3f336b7c34716c7aea36bc9c80efb202ec"
     },
     {
       "path": "figures/industrial/raw_signal_overview.png",
@@ -234,8 +234,8 @@
     },
     {
       "path": "manifests/figure_sources.json",
-      "bytes": 8474,
-      "sha256": "ba63f55e2d6d9af649296f8be57d90a1f4a691fd7cb423c0260ea7106ac0b925"
+      "bytes": 9568,
+      "sha256": "f3f95048a84ce2b5cd9a6f0eee498a1cc3d3de61806e2ea4ef6dab62ada4319d"
     },
     {
       "path": "manifests/files.packaging-v1.json",

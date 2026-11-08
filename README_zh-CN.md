@@ -325,15 +325,17 @@ PhyGNN保留公开图聚合模块并增加预测头，是任务适配而非原�
 
 来源：[逐种子方法结果](results/method_comparison_per_seed.csv)、[mean/std/best/耗时汇总](results/method_comparison_summary.csv)。
 
-### 4.5 工业预测曲线示例
+### 4.5 工业滚动预测曲线示例
 
 <p align="center">
-  <img src="figures/industrial/lowpass_test_predictions.png" alt="滤波工业测试数据上仪表空气总管现场压力与氢气冷却器出口温度的预测对比" width="100%">
+  <img src="figures/industrial/lowpass_test_predictions.png?v=mean12-20261109" alt="仪表空气总管现场压力：12秒滚动更新、重叠等权平均策略下的滤波观测及CTF与PRCTF预测对比" width="100%">
 </p>
 
-*论文图6所展示的两个通道：仪表空气总管现场压力与氢气冷却器出口温度。蓝色为滤波观测，红色为PRCTF，灰色虚线为Original CTF。*
+*作者选用的图C：仪表空气总管现场压力（PT010003）。蓝色为滤波观测，红色为PRCTF，灰色虚线为Original CTF。预测每12秒更新一次，对重叠部分采用等权平均。*
 
-曲线来自**独立的单种子低通滤波实验**，训练、验证、测试数据均经过截止频率0.05 Hz的二阶因果Butterworth低通滤波。各段96步预测拼接展示完整测试段，并非一次性长时域开环预测。该滤波示例**不是上述原始数据三种子主结果表的数据来源**，表格证据与曲线示例需保留各自预处理口径。
+曲线来自**独立的种子42低通实验**：训练、验证和测试观测均采用截止频率0.05 Hz的二阶因果Butterworth低通滤波。保留既有权重，每次仍输入96秒历史、输出96步；展示策略改为每12秒滚动更新，并对重叠预测等权平均。图中保留全部**4847个测试点**，阴影标记最初96秒融合预热区，两模型统一在后续**4751点**上计算指标。
+
+在该通道和策略下，CTF与PRCTF的MSE分别为**1.603082 × 10⁻⁶和1.569092 × 10⁻⁶ MPa²**，PRCTF降低**2.12%**。融合曲线混合了**提前1–96秒**的预测，平均提前量约48.5秒，不代表固定提前96秒的预测精度。没有时间平移或额外的融合后滤波。该示例与原始数据三种子基准及已发布的参考权重分别说明；默认单窗口推理接口保持不变。
 
 ### 4.6 保留完整历史证据
 
@@ -506,7 +508,7 @@ python scripts/train_public.py --dataset tep --kind Physics --seed 42 --device c
 | 图3：模型总体结构 | [查看](figures/architecture/model_architecture.png) | [下载](figures/architecture/model_architecture.pdf) |
 | 图4：拓扑与注意力映射 | [查看](figures/architecture/topology_attention.png) | [下载](figures/architecture/topology_attention.pdf) |
 | 图5：方程消息流程 | [查看](figures/architecture/physics_message.png) | [下载](figures/architecture/physics_message.pdf) |
-| 图6：低通滤波预测示例 | [查看](figures/industrial/lowpass_test_predictions.png) | [下载](figures/industrial/lowpass_test_predictions.pdf) |
+| 滚动压力预测示例：所选图C | [查看](figures/industrial/lowpass_test_predictions.png) | [下载](figures/industrial/lowpass_test_predictions.pdf) |
 | 硬件：电解槽与温度电压二合一探头 | [查看](figures/hardware/电解槽测量图.png) | 不适用 |
 | 硬件：自研数据采集箱 | [查看](figures/hardware/电解槽测量箱.png) | 不适用 |
 | 软件：计算机连接与多通道监控 | [查看](figures/hardware/软硬件结合.png) | 不适用 |

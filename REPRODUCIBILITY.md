@@ -105,10 +105,15 @@ contract. Full training was not run during packaging.
 
 ## Figures and industrial accuracy
 
-The low-pass test illustration is a separate single-seed run: causal second-order
-Butterworth, 0.05 Hz, filtered Train/Validation/Test inputs and targets. It uses
-successive forecast windows, not a single 4847-step prediction. It must not be
-interpreted as the source of the raw three-seed accuracy table. Industrial plots
+The current low-pass test illustration is the author-selected pressure panel C
+from a separate seed-42 run: causal second-order Butterworth, 0.05 Hz, filtered
+Train/Validation/Test inputs and targets. Existing checkpoints use 96-point
+histories and 96-step outputs. The illustration is updated to 12-second rolling
+origins and equal-weight overlapping-forecast combination. It shows 4847 points;
+the first 96 seconds are warm-up, and both models' errors are computed over the
+same remaining 4751 points. It combines leads of 1–96 seconds and is not a
+fixed-96-second-ahead or single 4847-step prediction. It is distinct from the
+raw three-seed accuracy table and released reference weights. Industrial plots
 are approved finished images; no numerical source series is redistributed.
 
 ## Validation actually performed

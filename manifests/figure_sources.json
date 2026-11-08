@@ -126,18 +126,52 @@
     "transformation": "none"
   },
   {
-    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/selected_lowpass_channels/PT010003_TT010305_full_test.png",
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/rolling_inference_PT010003_20261108/selected_panel_C/PT010003_mean12_full_test.png",
     "destination": "figures/industrial/lowpass_test_predictions.png",
-    "source_sha256": "dfa5714e9354c95739c22192df620fe4ba7dc670450b210ee48b1b620c58157f",
-    "exported_sha256": "dfa5714e9354c95739c22192df620fe4ba7dc670450b210ee48b1b620c58157f",
-    "transformation": "none"
+    "source_sha256": "8c8545329784f24b717f7ab2440acc3f336b7c34716c7aea36bc9c80efb202ec",
+    "exported_sha256": "8c8545329784f24b717f7ab2440acc3f336b7c34716c7aea36bc9c80efb202ec",
+    "transformation": "none; byte-identical copy of the standalone panel C render",
+    "display_protocol": {
+      "channel": "PT010003",
+      "seed": 42,
+      "input_length": 96,
+      "output_length": 96,
+      "update_stride_seconds": 12,
+      "fusion": "equal-weight overlapping forecasts",
+      "displayed_points": 4847,
+      "evaluated_points": 4751,
+      "warmup_seconds": 96,
+      "lead_range_seconds": [
+        1,
+        96
+      ],
+      "gain_percent": 2.120324491437595,
+      "raw_observation_series_redistributed": false
+    }
   },
   {
-    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/selected_lowpass_channels/PT010003_TT010305_full_test.pdf",
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/rolling_inference_PT010003_20261108/selected_panel_C/PT010003_mean12_full_test.pdf",
     "destination": "figures/industrial/lowpass_test_predictions.pdf",
-    "source_sha256": "dff611971054706efeee0e8fc0acd2e1d5bad81bcbe8c58b124429de6a552ddc",
-    "exported_sha256": "dff611971054706efeee0e8fc0acd2e1d5bad81bcbe8c58b124429de6a552ddc",
-    "transformation": "none"
+    "source_sha256": "bf001a01a4e6f2db469702dd4817f0e6bf898684716edfb7f81519883be589dd",
+    "exported_sha256": "bf001a01a4e6f2db469702dd4817f0e6bf898684716edfb7f81519883be589dd",
+    "transformation": "none; byte-identical copy of the standalone panel C render",
+    "display_protocol": {
+      "channel": "PT010003",
+      "seed": 42,
+      "input_length": 96,
+      "output_length": 96,
+      "update_stride_seconds": 12,
+      "fusion": "equal-weight overlapping forecasts",
+      "displayed_points": 4847,
+      "evaluated_points": 4751,
+      "warmup_seconds": 96,
+      "lead_range_seconds": [
+        1,
+        96
+      ],
+      "gain_percent": 2.120324491437595,
+      "raw_observation_series_redistributed": false
+    }
   },
   {
     "source": "PhysicsRelationCTF/paper/eaai_draft/figures/原始信号.PNG",
