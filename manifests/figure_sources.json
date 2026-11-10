@@ -126,50 +126,86 @@
     "transformation": "none"
   },
   {
-    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/rolling_inference_PT010003_20261108/selected_panel_C/PT010003_mean12_full_test.png",
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/github_showcase_update_20261110/lowpass_test_predictions.png",
     "destination": "figures/industrial/lowpass_test_predictions.png",
-    "source_sha256": "8c8545329784f24b717f7ab2440acc3f336b7c34716c7aea36bc9c80efb202ec",
-    "exported_sha256": "8c8545329784f24b717f7ab2440acc3f336b7c34716c7aea36bc9c80efb202ec",
-    "transformation": "none; byte-identical copy of the standalone panel C render",
+    "source_sha256": "aab61c76f645deb88ceee535cbeeea9e48aa90b9ed2e3740116ab462babe7880",
+    "exported_sha256": "aab61c76f645deb88ceee535cbeeea9e48aa90b9ed2e3740116ab462babe7880",
+    "transformation": "Finished two-panel render from frozen forecast caches; no forecast shifts, new filtering, training or inference.",
     "display_protocol": {
-      "channel": "PT010003",
       "seed": 42,
-      "input_length": 96,
-      "output_length": 96,
-      "update_stride_seconds": 12,
-      "fusion": "equal-weight overlapping forecasts",
-      "displayed_points": 4847,
-      "evaluated_points": 4751,
-      "warmup_seconds": 96,
-      "lead_range_seconds": [
-        1,
-        96
+      "full_common_metric_points": 4751,
+      "common_metric_elapsed_seconds": [
+        96,
+        4846
       ],
-      "gain_percent": 2.120324491437595,
+      "panels": [
+        {
+          "channel": "FT010304",
+          "display_seconds": [
+            0,
+            960
+          ],
+          "policy": "96-second complete-output direct blocks",
+          "update_stride_seconds": 96,
+          "full_region_mse_gain_percent": 23.776668199055585
+        },
+        {
+          "channel": "PT010003",
+          "display_seconds": [
+            0,
+            4847
+          ],
+          "policy": "matched-lead panel C: validation inverse-MSE weighting",
+          "update_stride_seconds": 12,
+          "lead_range_seconds": [
+            24,
+            96
+          ],
+          "full_region_mse_gain_percent": 0.6211295253864546
+        }
+      ],
       "raw_observation_series_redistributed": false
     }
   },
   {
-    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/rolling_inference_PT010003_20261108/selected_panel_C/PT010003_mean12_full_test.pdf",
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/github_showcase_update_20261110/lowpass_test_predictions.pdf",
     "destination": "figures/industrial/lowpass_test_predictions.pdf",
-    "source_sha256": "bf001a01a4e6f2db469702dd4817f0e6bf898684716edfb7f81519883be589dd",
-    "exported_sha256": "bf001a01a4e6f2db469702dd4817f0e6bf898684716edfb7f81519883be589dd",
-    "transformation": "none; byte-identical copy of the standalone panel C render",
+    "source_sha256": "c400dc1973f8d50f2618aac7c199506f816d76c1bbcc43d84466cc987e246b54",
+    "exported_sha256": "c400dc1973f8d50f2618aac7c199506f816d76c1bbcc43d84466cc987e246b54",
+    "transformation": "Finished two-panel render from frozen forecast caches; no forecast shifts, new filtering, training or inference.",
     "display_protocol": {
-      "channel": "PT010003",
       "seed": 42,
-      "input_length": 96,
-      "output_length": 96,
-      "update_stride_seconds": 12,
-      "fusion": "equal-weight overlapping forecasts",
-      "displayed_points": 4847,
-      "evaluated_points": 4751,
-      "warmup_seconds": 96,
-      "lead_range_seconds": [
-        1,
-        96
+      "full_common_metric_points": 4751,
+      "common_metric_elapsed_seconds": [
+        96,
+        4846
       ],
-      "gain_percent": 2.120324491437595,
+      "panels": [
+        {
+          "channel": "FT010304",
+          "display_seconds": [
+            0,
+            960
+          ],
+          "policy": "96-second complete-output direct blocks",
+          "update_stride_seconds": 96,
+          "full_region_mse_gain_percent": 23.776668199055585
+        },
+        {
+          "channel": "PT010003",
+          "display_seconds": [
+            0,
+            4847
+          ],
+          "policy": "matched-lead panel C: validation inverse-MSE weighting",
+          "update_stride_seconds": 12,
+          "lead_range_seconds": [
+            24,
+            96
+          ],
+          "full_region_mse_gain_percent": 0.6211295253864546
+        }
+      ],
       "raw_observation_series_redistributed": false
     }
   },
@@ -179,5 +215,12 @@
     "source_sha256": "f05f55184c13720e671b919fdfa6b65aa5fc549d732e96c8bce140008e702299",
     "exported_sha256": "f05f55184c13720e671b919fdfa6b65aa5fc549d732e96c8bce140008e702299",
     "transformation": "none"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/FT010304_policy_search_20261110/FT010304_block96_detail_and_full.pdf",
+    "destination": "figures/industrial/flow_block96_detail_and_full.pdf",
+    "source_sha256": "ee323d46cd3e0110c21ba43949ac55d8054bfaf373517d257694f1083446b675",
+    "exported_sha256": "ee323d46cd3e0110c21ba43949ac55d8054bfaf373517d257694f1083446b675",
+    "transformation": "none; byte-identical approved full-context figure"
   }
 ]

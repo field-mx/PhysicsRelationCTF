@@ -325,17 +325,26 @@ PhyGNN retains the publicly available graph aggregation module with an added for
 
 Sources: [per-seed methods](results/method_comparison_per_seed.csv) and [mean/std/best/time summary](results/method_comparison_summary.csv).
 
-### 4.5 Industrial rolling prediction example
+### 4.5 Industrial prediction examples
 
 <p align="center">
-  <img src="figures/industrial/lowpass_test_predictions.png?v=mean12-20261109" alt="Instrument-air header pressure: filtered observations and CTF versus PRCTF forecasts with 12-second rolling updates and equal-weight overlapping forecasts" width="100%">
+  <a href="figures/industrial/lowpass_test_predictions.pdf"><img src="figures/industrial/lowpass_test_predictions.png?v=flow96-pressure-weighted24-20261110" alt="CTF versus PRCTF: hydrogen outlet flow with direct 96-second block forecasts, and instrument-air header pressure with validation-weighted forecasts at a minimum 24-second lead" width="100%"></a>
 </p>
 
-*Author-selected panel C: instrument-air header field pressure (PT010003). Blue denotes filtered observations; red is PRCTF; gray dashed is Original CTF. Forecasts are updated every 12 s and overlapping predictions are combined with equal weights.*
+**PRCTF achieves lower MSE than CTF in both displayed channel/policy examples.** In the hydrogen-flow transition, it reduces the sustained high-flow overprediction seen in CTF. The two panels deliberately use different forecast-use policies:
 
-This is a **separate seed-42 low-pass experiment**: Train/Validation/Test observations use a second-order causal Butterworth filter at 0.05 Hz. The existing checkpoints are retained, each forecast still uses 96 s of history and outputs 96 steps, and the display uses 12 s rolling updates with equal-weight overlap. All **4847 test points** are shown; the shaded first 96 s are fusion warm-up, and both models are scored on the same remaining **4751 points**.
+- **(a) Hydrogen outlet flow, FT010304:** input 96 s of observed history, forecast the next 96 s, then update after 96 s. Retain and concatenate all 96 outputs without overlap averaging. The panel shows the selected first **960 s**; the [detail-and-full-test figure](figures/industrial/flow_block96_detail_and_full.pdf) also shows the complete timeline.
+- **(b) Instrument-air header field pressure, PT010003:** the exact curves from **panel C of the matched-minimum-lead comparison**. Update every **12 s**, retain only forecasts with leads **24–96 s**, and fuse overlaps using each model's inverse validation-MSE weights. This is the validation-weighted policy, not equal-weight averaging. The panel shows all **4847 test observations**; shading marks the first 96 s of fusion warm-up.
 
-CTF and PRCTF have MSEs of **1.603082 × 10⁻⁶ and 1.569092 × 10⁻⁶ MPa²**, respectively, a **2.12% reduction** for this channel under this policy. The curve combines forecast leads of **1–96 s**, with an average of approximately 48.5 s; it is not a fixed-96-second-ahead accuracy result. No time shift or additional post-fusion filtering is applied. This illustration is distinct from the raw-data three-seed benchmark and released reference checkpoints; the default single-window inference API is unchanged.
+The following physical-unit errors use the same **4751 full-test targets, elapsed 96–4846 s**, for both models within each policy. Flow scores refer to that full region, not just the selected 960 s shown in panel (a).
+
+| Channel / forecast-use policy | CTF MSE | PRCTF MSE | MSE reduction |
+|---|---:|---:|---:|
+| Hydrogen outlet flow / direct 96 s blocks | 378.877 (m³/h)² | **288.793 (m³/h)²** | **23.78%** |
+| Instrument-air pressure / validation-weighted, lead ≥24 s | 1.805069 × 10⁻⁶ MPa² | **1.793858 × 10⁻⁶ MPa²** | **0.62%** |
+
+These illustrations come from a **separate seed-42 low-pass experiment**, with a second-order causal Butterworth filter at 0.05 Hz applied to Train/Validation/Test observations. They are distinct from the original-data three-seed paper benchmark and the released reference checkpoints. No curve shifts or extra post-fusion smoothing are applied. Pressure combines multiple forecast leads and does not measure fixed-96-second-ahead accuracy; its modest improvement should not be interpreted as a direct instrument-air physical-equation effect. The examples demonstrate gains for these channels and policies, not improvement on every channel. The default single-window inference API and pretrained weights are unchanged.
+
 
 ### 4.6 Complete historical evidence remains available
 
@@ -508,7 +517,8 @@ The table links released model figures and the accompanying engineering-platform
 | Fig. 3: model overview | [View](figures/architecture/model_architecture.png) | [Download](figures/architecture/model_architecture.pdf) |
 | Fig. 4: topology-to-attention mapping | [View](figures/architecture/topology_attention.png) | [Download](figures/architecture/topology_attention.pdf) |
 | Fig. 5: equation-message pipeline | [View](figures/architecture/physics_message.png) | [Download](figures/architecture/physics_message.pdf) |
-| Rolling pressure example: selected panel C | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
+| Industrial examples: flow blocks and matched-lead pressure panel C | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
+| Hydrogen outlet flow: detail and full test | Not applicable | [Download](figures/industrial/flow_block96_detail_and_full.pdf) |
 | Hardware: electrolyzer and temperature-voltage probes | [View](figures/hardware/电解槽测量图.png) | Not applicable |
 | Hardware: in-house data acquisition box | [View](figures/hardware/电解槽测量箱.png) | Not applicable |
 | Software: computer-connected multichannel monitoring | [View](figures/hardware/软硬件结合.png) | Not applicable |

@@ -325,17 +325,26 @@ PhyGNN保留公开图聚合模块并增加预测头，是任务适配而非原�
 
 来源：[逐种子方法结果](results/method_comparison_per_seed.csv)、[mean/std/best/耗时汇总](results/method_comparison_summary.csv)。
 
-### 4.5 工业滚动预测曲线示例
+### 4.5 工业预测曲线示例
 
 <p align="center">
-  <img src="figures/industrial/lowpass_test_predictions.png?v=mean12-20261109" alt="仪表空气总管现场压力：12秒滚动更新、重叠等权平均策略下的滤波观测及CTF与PRCTF预测对比" width="100%">
+  <a href="figures/industrial/lowpass_test_predictions.pdf"><img src="figures/industrial/lowpass_test_predictions.png?v=flow96-pressure-weighted24-20261110" alt="CTF与PRCTF对比：上图为氢气出口流量的96秒完整预测直接拼接，下图为最短提前24秒、按验证误差加权融合的仪表空气总管压力预测" width="100%"></a>
 </p>
 
-*作者选用的图C：仪表空气总管现场压力（PT010003）。蓝色为滤波观测，红色为PRCTF，灰色虚线为Original CTF。预测每12秒更新一次，对重叠部分采用等权平均。*
+**在这两个通道及对应的使用策略下，PRCTF的MSE均低于CTF。** 氢气流量下降过程中，PRCTF减轻了CTF持续高估流量的现象。两个面板采用不同的预测使用方式，分别说明如下：
 
-曲线来自**独立的种子42低通实验**：训练、验证和测试观测均采用截止频率0.05 Hz的二阶因果Butterworth低通滤波。保留既有权重，每次仍输入96秒历史、输出96步；展示策略改为每12秒滚动更新，并对重叠预测等权平均。图中保留全部**4847个测试点**，阴影标记最初96秒融合预热区，两模型统一在后续**4751点**上计算指标。
+- **（a）氢气出口流量FT010304：** 输入96秒真实历史，一次预测未来96秒，间隔96秒后更新；保留全部96个输出点，直接按时间拼接，不作重叠平均。面板展示选定的前**960秒**，[局部与完整测试段图](figures/industrial/flow_block96_detail_and_full.pdf)同时提供完整时间线。
+- **（b）仪表空气总管现场压力PT010003：** 严格使用**相同最短提前量对照图中的C面板**所对应的曲线。每**12秒**更新一次，仅保留提前**24–96秒**的预测，依据各模型在验证集上的分步MSE倒数对重叠结果加权。此处是验证误差加权，不是等权平均。面板展示全部**4847个测试观测点**，阴影为最初96秒的融合预热区。
 
-在该通道和策略下，CTF与PRCTF的MSE分别为**1.603082 × 10⁻⁶和1.569092 × 10⁻⁶ MPa²**，PRCTF降低**2.12%**。融合曲线混合了**提前1–96秒**的预测，平均提前量约48.5秒，不代表固定提前96秒的预测精度。没有时间平移或额外的融合后滤波。该示例与原始数据三种子基准及已发布的参考权重分别说明；默认单窗口推理接口保持不变。
+下表按原物理量单位计算，两模型在各自策略下均使用**完整测试段中相同的4751个目标点，即96–4846秒**。流量指标对应这一完整评分范围，不仅是上图选出的960秒。
+
+| 通道／预测使用方式 | CTF MSE | PRCTF MSE | MSE降低 |
+|---|---:|---:|---:|
+| 氢气出口流量／96秒直接拼接 | 378.877 (m³/h)² | **288.793 (m³/h)²** | **23.78%** |
+| 仪表空气压力／最短提前24秒、验证加权 | 1.805069 × 10⁻⁶ MPa² | **1.793858 × 10⁻⁶ MPa²** | **0.62%** |
+
+示例来自**独立的种子42低通实验**，训练、验证和测试观测均采用截止频率0.05 Hz的二阶因果Butterworth滤波；与论文原始数据三种子主实验及已发布的参考权重分别说明。曲线没有时间平移或额外的融合后平滑。压力曲线混合多个预测提前量，不代表固定提前96秒的精度，其小幅改善也不应解释为该通道直接施加了仪表空气物理方程约束。这些结果说明所列通道和使用策略下存在收益，不代表所有通道均获益。默认单窗口推理接口和预训练权重保持不变。
+
 
 ### 4.6 保留完整历史证据
 
@@ -508,7 +517,8 @@ python scripts/train_public.py --dataset tep --kind Physics --seed 42 --device c
 | 图3：模型总体结构 | [查看](figures/architecture/model_architecture.png) | [下载](figures/architecture/model_architecture.pdf) |
 | 图4：拓扑与注意力映射 | [查看](figures/architecture/topology_attention.png) | [下载](figures/architecture/topology_attention.pdf) |
 | 图5：方程消息流程 | [查看](figures/architecture/physics_message.png) | [下载](figures/architecture/physics_message.pdf) |
-| 滚动压力预测示例：所选图C | [查看](figures/industrial/lowpass_test_predictions.png) | [下载](figures/industrial/lowpass_test_predictions.pdf) |
+| 工业示例：流量直接拼接与压力最短提前量图C | [查看](figures/industrial/lowpass_test_predictions.png) | [下载](figures/industrial/lowpass_test_predictions.pdf) |
+| 氢气出口流量：局部与完整测试段 | 不适用 | [下载](figures/industrial/flow_block96_detail_and_full.pdf) |
 | 硬件：电解槽与温度电压二合一探头 | [查看](figures/hardware/电解槽测量图.png) | 不适用 |
 | 硬件：自研数据采集箱 | [查看](figures/hardware/电解槽测量箱.png) | 不适用 |
 | 软件：计算机连接与多通道监控 | [查看](figures/hardware/软硬件结合.png) | 不适用 |

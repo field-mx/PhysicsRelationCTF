@@ -11,15 +11,22 @@ and industrial source CSVs are not included.
 - `industrial/raw_signal_overview.png`: the specifically authorized 原始信号.PNG.
   It is a qualitative overview; units and labels are preserved rather than
   silently corrected or reconstructed from unavailable numerical data.
-- `industrial/lowpass_test_predictions.*`: the author-selected panel C, showing
-  instrument-air header pressure (PT010003). Frozen seed-42 low-pass checkpoints
-  use 96-point histories and 96-step forecasts, updated every 12 seconds, with
-  equal-weight combination of overlapping forecasts. All 4847 test points are
-  displayed; both models' metrics use the same 4751 points after the shaded
-  96-second warm-up. MSE reduction is 2.12% for this channel/policy, not the
-  raw-data three-seed benchmark. Forecast leads are mixed from 1 to 96 seconds.
-  This replaces the previous two-channel block-forecast illustration; its old
-  version remains in Git history and the original local experiment is unchanged.
+- `industrial/lowpass_test_predictions.*`: two author-approved channel/policy
+  illustrations from the separate seed42 causal-low-pass experiment. Panel (a)
+  shows hydrogen outlet flow FT010304 over elapsed0–960 s, directly stitching
+  complete96-second forecasts at stride96. Panel (b) is exactly the weighted24
+  curves of panel C in the matched-minimum-lead pressure comparison: PT010003,
+  stride12, leads24–96 s, each model's inverse validation-MSE weights. It is
+  not the former equal-weight mean12 pressure panel. All4847 pressure
+  observations are displayed; the first96 s are shaded fusion warm-up.
+  Both full-region MSE comparisons use the same4751 targets (elapsed96–4846 s):
+  flow23.78% lower and pressure0.62% lower for PRCTF. Flow's score is not just
+  the plotted960-second interval. No curve shifts or post-fusion smoothing.
+- `industrial/flow_block96_detail_and_full.pdf`: the flow policy's selected
+  first960 seconds and full4847-point test timeline, providing context for
+  the showcase. These figures are distinct from the raw-data three-seed
+  paper benchmark and the released reference checkpoints. Old illustrations
+  remain in Git history; source experiments are unchanged.
 
 Exact file provenance and hashes are in `manifests/figure_sources.json`.
 These assets should be matched to the final typeset manuscript before reuse;
