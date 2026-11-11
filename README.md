@@ -346,6 +346,8 @@ The following physical-unit errors use the same **4751 full-test targets, elapse
 These illustrations come from a **separate seed-42 low-pass experiment**, with a second-order causal Butterworth filter at 0.05 Hz applied to Train/Validation/Test observations. They are distinct from the original-data three-seed paper benchmark and the released reference checkpoints. No curve shifts or extra post-fusion smoothing are applied. Pressure combines multiple forecast leads and does not measure fixed-96-second-ahead accuracy; its modest improvement should not be interpreted as a direct instrument-air physical-equation effect. The examples demonstrate gains for these channels and policies, not improvement on every channel. The default single-window inference API and pretrained weights are unchanged.
 
 
+**Attachment — all 56 channels, observations and PRCTF only:** [View / download the 56-page PDF](figures/industrial/all_56_channels_truth_PRCTF_full_test.pdf). Each page shows one channel over the complete 4847-point filtered test segment: blue for filtered observations and coral for PRCTF. This attachment uses the earlier **24 s update, validation-weighted overlap** policy: 96 s of history, 96-step forecasts, and leads 1–96 s, with per-channel monotone inverse-validation-error weights. It is a separate display policy from both examples above; CTF curves are intentionally omitted.
+
 ### 4.6 Complete historical evidence remains available
 
 The repository retains **63 records: 7 methods × 3 datasets × 3 seeds**, including EquationInput-CTF and PG-Reg-CTF as additional custom controls. These are not included among the five primary application comparators above, nor described as separately published architectures or a standard full-system PINN.
@@ -519,6 +521,7 @@ The table links released model figures and the accompanying engineering-platform
 | Fig. 5: equation-message pipeline | [View](figures/architecture/physics_message.png) | [Download](figures/architecture/physics_message.pdf) |
 | Industrial examples: flow blocks and matched-lead pressure panel C | [View](figures/industrial/lowpass_test_predictions.png) | [Download](figures/industrial/lowpass_test_predictions.pdf) |
 | Hydrogen outlet flow: detail and full test | Not applicable | [Download](figures/industrial/flow_block96_detail_and_full.pdf) |
+| All 56 channels: observations and PRCTF, stride24 | Not applicable | [Download PDF](figures/industrial/all_56_channels_truth_PRCTF_full_test.pdf) |
 | Hardware: electrolyzer and temperature-voltage probes | [View](figures/hardware/电解槽测量图.png) | Not applicable |
 | Hardware: in-house data acquisition box | [View](figures/hardware/电解槽测量箱.png) | Not applicable |
 | Software: computer-connected multichannel monitoring | [View](figures/hardware/软硬件结合.png) | Not applicable |

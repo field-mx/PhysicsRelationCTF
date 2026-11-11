@@ -346,6 +346,8 @@ PhyGNN保留公开图聚合模块并增加预测头，是任务适配而非原�
 示例来自**独立的种子42低通实验**，训练、验证和测试观测均采用截止频率0.05 Hz的二阶因果Butterworth滤波；与论文原始数据三种子主实验及已发布的参考权重分别说明。曲线没有时间平移或额外的融合后平滑。压力曲线混合多个预测提前量，不代表固定提前96秒的精度，其小幅改善也不应解释为该通道直接施加了仪表空气物理方程约束。这些结果说明所列通道和使用策略下存在收益，不代表所有通道均获益。默认单窗口推理接口和预训练权重保持不变。
 
 
+**附件——全56通道真值与PRCTF预测：** [查看／下载56页PDF](figures/industrial/all_56_channels_truth_PRCTF_full_test.pdf)。每页一个通道，展示完整4847点滤波测试段，蓝色为滤波真值，珊瑚红色为PRCTF预测。附件沿用较早的**每24秒更新、验证误差加权融合**策略：输入96秒历史、预测96步，对提前1–96秒的重叠预测按各通道的单调验证误差倒数权重融合。它与上面两个示例图采用不同的展示策略，本附件不绘制CTF曲线。
+
 ### 4.6 保留完整历史证据
 
 仓库保留**7种方法 × 3个数据集 × 3个种子，共63条记录**，其中EquationInput-CTF和PG-Reg-CTF为额外的自定义对照。不将它们列入上述五种主要应用对比，也不称作独立发表架构或完整系统的标准PINN。
@@ -519,6 +521,7 @@ python scripts/train_public.py --dataset tep --kind Physics --seed 42 --device c
 | 图5：方程消息流程 | [查看](figures/architecture/physics_message.png) | [下载](figures/architecture/physics_message.pdf) |
 | 工业示例：流量直接拼接与压力最短提前量图C | [查看](figures/industrial/lowpass_test_predictions.png) | [下载](figures/industrial/lowpass_test_predictions.pdf) |
 | 氢气出口流量：局部与完整测试段 | 不适用 | [下载](figures/industrial/flow_block96_detail_and_full.pdf) |
+| 全56通道真值与PRCTF，24秒更新 | 不适用 | [下载PDF](figures/industrial/all_56_channels_truth_PRCTF_full_test.pdf) |
 | 硬件：电解槽与温度电压二合一探头 | [查看](figures/hardware/电解槽测量图.png) | 不适用 |
 | 硬件：自研数据采集箱 | [查看](figures/hardware/电解槽测量箱.png) | 不适用 |
 | 软件：计算机连接与多通道监控 | [查看](figures/hardware/软硬件结合.png) | 不适用 |

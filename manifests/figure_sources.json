@@ -222,5 +222,33 @@
     "source_sha256": "ee323d46cd3e0110c21ba43949ac55d8054bfaf373517d257694f1083446b675",
     "exported_sha256": "ee323d46cd3e0110c21ba43949ac55d8054bfaf373517d257694f1083446b675",
     "transformation": "none; byte-identical approved full-context figure"
+  },
+  {
+    "source": "PhysicsRelationCTF/paper/eaai_draft/review/section_4_2/rolling_all_channels_stride24_20261109/all_56_channels_truth_PRCTF_full_test.pdf",
+    "destination": "figures/industrial/all_56_channels_truth_PRCTF_full_test.pdf",
+    "source_sha256": "3f9eee2c153b2de7053f751ab5635584f9493e2ca69a5684a66a92b3522666c3",
+    "exported_sha256": "3f9eee2c153b2de7053f751ab5635584f9493e2ca69a5684a66a92b3522666c3",
+    "transformation": "none; byte-identical approved56-page PDF",
+    "display_protocol": {
+      "seed": 42,
+      "channels": 56,
+      "pages": 56,
+      "points_per_channel": 4847,
+      "drawn_curves": [
+        "Filtered observation",
+        "PRCTF"
+      ],
+      "input_length": 96,
+      "output_length": 96,
+      "update_stride_seconds": 24,
+      "lead_range_seconds": [
+        1,
+        96
+      ],
+      "fusion": "per-channel shared inverse isotonic validation MSE; non-increasing weights with lead",
+      "new_training": false,
+      "new_inference": false,
+      "raw_observation_arrays_redistributed": false
+    }
   }
 ]

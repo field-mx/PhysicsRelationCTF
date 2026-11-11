@@ -27,6 +27,14 @@ and industrial source CSVs are not included.
   the showcase. These figures are distinct from the raw-data three-seed
   paper benchmark and the released reference checkpoints. Old illustrations
   remain in Git history; source experiments are unchanged.
+- `industrial/all_56_channels_truth_PRCTF_full_test.pdf`: the approved56-page
+  attachment, one channel per page, all4847 filtered test observations and
+  unchanged PRCTF curves. The separate seed42 policy updates every24 seconds
+  and fuses lead1–96-second forecasts with per-channel shared monotone inverse
+  validation-error weights. CTF is omitted only from the drawing, not replaced
+  or rerun; the original plot limits and full timeline are retained. This is
+  neither the direct96-second flow policy nor the lead24 matched-pressure
+  policy of the two-channel showcase.
 
 Exact file provenance and hashes are in `manifests/figure_sources.json`.
 These assets should be matched to the final typeset manuscript before reuse;
